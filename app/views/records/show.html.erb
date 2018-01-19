@@ -1,0 +1,22 @@
+<div class="container mt-3">
+  <h4>You did this exercise on <%= @record.date %>. </h4>
+  <h5>You had done this for <%= @record.duration%> minutes.</h5>
+  <h5>Your note: "<%= @record.note%>"</h5>
+  <p><strong>Created at: </strong>
+    <%= time_ago_in_words(@record.created_at) %> ago
+  </p>
+  <p><strong>Update at: </strong>
+    <%= time_ago_in_words(@record.updated_at) %> ago
+  </p>
+
+  <%= link_to "edit", edit_record_path(@record) %>
+  <%= link_to(
+       'delete',
+       record_path(@record),
+       method: :delete,
+       data: {confirm: 'Are you sure?'}
+     )
+  %>
+
+
+</div>

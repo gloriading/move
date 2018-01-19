@@ -1,0 +1,22 @@
+<%= form_for @record do |form| %>
+  <% if @record.errors.present? %>
+    <p> <%= @record.errors.full_messages.join(', ') %> </p>
+  <% end %>
+  <div>
+    <%= form.label :durtion %>
+    <%= form.number_field :duration, min: 1, max: 10000 %>
+  </div>
+  <div>
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+
+
+
+    <%= form.submit %>
+<% end %>
