@@ -16,6 +16,13 @@
     <%= form.text_area :note %>
   </div>
 
+  <%= form.collection_check_boxes :exercise_ids,
+      Exercise.all, :id, :name do |box| %>
+      <div>
+      <span class='tag-checkbox mr-1'><%= box.check_box %></span>
+      <%= box.label %>
+      </div>
+  <% end %>
 
 
     <%= form.submit %>

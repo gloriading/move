@@ -15,7 +15,7 @@ class RecordsController < ApplicationController
     end
 
     def index
-      @records = Record.order(date: :desc)
+      @records = Record.order(created_at: :desc)
     end
 
     def show
@@ -35,13 +35,13 @@ class RecordsController < ApplicationController
 
     def destroy
       @record.destroy
-      redirect_to records_path       
+      redirect_to records_path
     end
 
     private
 
     def record_params
-      params.require(:record).permit(:duration, :date, :note)
+      params.require(:record).permit(:duration, :date, :note, { exercise_ids: [] })
     end
 
     def find_record
