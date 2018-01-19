@@ -1,6 +1,7 @@
 <div class="container mt-3">
+  <p>Hello, <%= @record.user&.full_name || "[deleted]" %>!</p>
   <h4>You did this exercise on <%= @record.date %>. </h4>
-  
+
   <% if @record.exercises != [] %>
       <p>Exercises you did:
         <% @record.exercises.each do |exercise| %>

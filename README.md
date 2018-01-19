@@ -23,3 +23,18 @@
 [in record.rb]
   has_many :links, dependent: :destroy
   has_many :exercises, through: :links
+
+- User:
+> rails g model user first_name last_name email password_digest
+> rails g controller users --no-assets --no-helper
+> rails g controller sessions --no-assets --no-helper
+
+- Association: user & records
+> rails g migration add_user_to_records user:references
+
+- User authentication
+- User authorization (not yet)
+
+
+
+<!--  -->

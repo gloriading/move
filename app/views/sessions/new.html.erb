@@ -1,0 +1,19 @@
+
+<div class="container mt-3">
+
+  <%= form_for :session, url: session_path do |f| %>
+
+    <div>
+      <%= f.email_field :email,
+        class: "form-control mb-1",
+        placeholder: "Email" %>
+    </div>
+    <div>
+      <%= f.password_field :password,
+        class: "form-control mb-1",
+        placeholder: "Password" %>
+    </div>
+    <%= f.submit 'Sign In', class: "btn btn-primary btn-sm"  %>
+  <% end %>
+
+</div>

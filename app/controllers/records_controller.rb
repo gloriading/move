@@ -1,4 +1,5 @@
 class RecordsController < ApplicationController
+    before_action :authenticate_user!, except: [:show, :index]
     before_action :find_record, only: [:show, :edit, :update, :destroy]
 
     def new
@@ -7,6 +8,8 @@ class RecordsController < ApplicationController
 
     def create
       @record = Record.new record_params
+      @record.user = current_user
+
       if @record.save
         redirect_to records_path
       else

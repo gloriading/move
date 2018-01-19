@@ -9,9 +9,74 @@
   </head>
 
   <body>
-    <%=link_to "Move", home_path %>
-    <%=link_to "New Record", new_record_path %>
-    <%=link_to "All Record", records_path %>
+
+    <nav class="navbar navbar-expand-sm navbar-light transparent-bg">
+      <a class="navbar-brand" href="/">move</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%=link_to "New Record", new_record_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%=link_to "All Record", records_path, class: "nav-link" %>
+          </li>
+        </ul>
+        
+        <form class="form-inline my-2 my-lg-0">
+        </form>
+
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><%= current_user.first_name %></a>
+            </li>
+
+            <li class="nav-item">
+                <%= link_to(
+                  'Sign Out',
+                  session_path,
+                  class: "nav-link",
+                  method: :delete,
+                  data: {confirm: 'Sign out?'}
+                ) %>
+            </li>
+
+          <% else %>
+            <li class="nav-item">
+                <%= link_to 'Sign In', new_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Sign Up', new_user_path, class: "nav-link" %>
+            </li>
+          <% end %>
+
+      </div>
+    </nav>
+
+<%# flash -------------------------------------------------------------------%>
+
+  <div class="container">
+
+     <% if flash[:notice].present? %>
+       <div class="alert alert-success alert-dismissible fade show" role="alert">
+         <%= flash[:notice] %>
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+     <% elsif flash[:alert].present? %>
+       <div class="alert alert-danger alert-dismissible fade show" role="alert">
+         <%= flash[:alert] %>
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+     <% end %>
+   </div>
 
     <%= yield %>
   </body>
