@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ body, html {
+      margin: 0;
+      height: 100%;
+  }
+
+
+ @import 'bootstrap';
+ @import 'font-awesome';
