@@ -21,7 +21,7 @@
   <%= form.fields_for :exercises do |e_form| %>
     <div>
       <%= e_form.label :exercise %>
-      <%= e_form.text_field :name %>
+      <%= e_form.text_field :name,:required => true %>
     </div>
   <% end %>
 
