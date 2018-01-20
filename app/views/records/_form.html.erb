@@ -4,7 +4,7 @@
   <% end %>
 
   <div>
-    <%= form.label :durtion %>
+    <%= form.label :duration %>
     <%= form.number_field :duration, min: 1, max: 10000 %>
   </div>
 
@@ -18,13 +18,11 @@
     <%= form.text_area :note %>
   </div>
 
-
-  <%= form.collection_check_boxes :exercise_ids,
-      Exercise.all, :id, :name do |box| %>
-      <div>
-      <span class='tag-checkbox mr-1'><%= box.check_box %></span>
-      <%= box.label %>
-      </div>
+  <%= form.fields_for :exercises do |e_form| %>
+    <div>
+      <%= e_form.label :exercise %>
+      <%= e_form.text_field :name %>
+    </div>
   <% end %>
 
 

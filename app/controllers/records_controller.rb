@@ -4,6 +4,7 @@ class RecordsController < ApplicationController
 
     def new
       @record = Record.new
+      @record.exercises.build
     end
 
     def create
@@ -44,11 +45,18 @@ class RecordsController < ApplicationController
     private
 
     def record_params
-      params.require(:record).permit(:duration, :date, :note, { exercise_ids: [] })
+      # params.require(:record).permit(:duration, :date, :note, { exercise_ids: [] })
+      params.require(:record).permit(
+        :duration,
+        :date,
+        :note,
+        exercises_attributes:[:name])
     end
 
     def find_record
       @record = Record.find params[:id]
     end
+
+
 
 end

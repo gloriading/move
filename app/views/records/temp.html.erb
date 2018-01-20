@@ -1,0 +1,83 @@
+<%= form.collection_check_boxes :exercise_ids,
+    Exercise.all, :id, :name do |box| %>
+    <div>
+    <span class='tag-checkbox mr-1'><%= box.check_box %></span>
+    <%= box.label %>
+    </div>
+<% end %>
+
+<%#  using form_tag -----------------------------------------------------------%>
+
+<%= form_tag records_path do %>
+  <% if @record.errors.present? %>
+    <p> <%= @record.errors.full_messages.join(', ') %> </p>
+  <% end %>
+
+  <div>
+    <%= label_tag 'durtion' %>
+    <%= number_field_tag 'duration',nil, min: 1, max: 10000 %>
+  </div>
+
+  <div>
+    <%= label_tag 'date' %>
+    <%= date_field_tag 'date' %>
+  </div>
+
+  <div>
+    <%= label_tag 'note' %>
+    <%= text_area_tag 'note' %>
+  </div>
+
+  <div>
+    <%= label_tag 'exercise' %>
+    <%= text_field_tag 'exercise' %>
+  </div>
+
+
+    <%= submit_tag("Submit") %>
+<% end %>
+
+<%# in records controller ------------------------------------------------%>
+class RecordsController < ApplicationController
+    before_action :authenticate_user!, except: [:show, :index]
+    before_action :find_record, only: [:show, :edit, :update, :destroy]
+
+    def new
+    end
+
+    def create
+      @record = Record.new
+        @record.duration = params[:duration]
+        @record.date = params[:date]
+        @record.note = params[:note]
+
+      @exercise = Exercise.new
+        @exercise.name = params[:exercise]
+
+
+        ?? how to associate exercise to this record ??
+    end
+
+    def index
+
+    end
+
+    def show
+
+    end
+
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
+    end
+
+    private
+
+
+
+
+end

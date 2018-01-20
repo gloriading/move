@@ -35,6 +35,14 @@
 - User authentication
 - User authorization (not yet)
 
+- Association: user & Exercises
+> rails g migration add_user_to_exercises user:references
+
+
+
+
+
+
 
 
 <!--  -->
