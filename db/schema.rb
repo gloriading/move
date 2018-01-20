@@ -10,16 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119184952) do
+ActiveRecord::Schema.define(version: 20180120173528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "colours", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "colour_id"
+    t.index ["colour_id"], name: "index_exercises_on_colour_id"
     t.index ["user_id"], name: "index_exercises_on_user_id"
   end
 
@@ -52,6 +60,7 @@ ActiveRecord::Schema.define(version: 20180119184952) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "exercises", "colours"
   add_foreign_key "exercises", "users"
   add_foreign_key "links", "exercises"
   add_foreign_key "links", "records"

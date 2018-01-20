@@ -38,13 +38,38 @@
 - Association: user & Exercises (need this?!)
 > rails g migration add_user_to_exercises user:references
 
-- User nested form on _form.html.erb
+- Nested form on `_form.html.erb`
+
+
+- Association: colour and exercises
+
+> rails g model colour name
+> rails g migration add_colour_to_exercises colour:references
 
 
 
 
+* Issue:
+`in exercise model`:
 
+  after_initialize :assign_colour
 
+  private
+  def assign_colour
+    self.colour = Colour.all.sample
+  end
 
+`in show, colour changes after reloading`
+
+  <% if @record.exercises != [] %>
+      <p>Exercises you did:
+        <% @record.exercises.each do |exercise| %>
+        <span style="background-color:<%= exercise.colour.name %> ">
+          .......
+        </span>
+        [ <%= exercise.name %> ]
+        <% end %>
+      </p>
+  <% end %>
 
 <!--  -->

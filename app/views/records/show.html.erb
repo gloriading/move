@@ -5,10 +5,14 @@
   <% if @record.exercises != [] %>
       <p>Exercises you did:
         <% @record.exercises.each do |exercise| %>
-          [ <%= exercise.name %> ]
+        <span style="background-color:<%= exercise.colour.name %> ">
+          .......
+        </span>
+        [ <%= exercise.name %> ]
         <% end %>
       </p>
   <% end %>
+
 
   <p>You had done this for <%= @record.duration%> minutes.</p>
 

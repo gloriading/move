@@ -20,7 +20,7 @@
   .grad1 {
       height: 100%;
       background: gainsboro; /* For browsers that do not support gradients */
-      background: linear-gradient(to bottom right, gainsboro, indianred); /* Standard syntax (must be last) */
+      background: linear-gradient(to bottom right, gainsboro, gray); /* Standard syntax (must be last) */
   }
   .transparent-bg{
     background: transparent !important;
