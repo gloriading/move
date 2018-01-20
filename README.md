@@ -35,8 +35,10 @@
 - User authentication
 - User authorization (not yet)
 
-- Association: user & Exercises
+- Association: user & Exercises (need this?!)
 > rails g migration add_user_to_exercises user:references
+
+- User nested form on _form.html.erb
 
 
 
