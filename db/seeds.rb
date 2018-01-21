@@ -28,6 +28,9 @@ users = User.all
 puts Cowsay.say("Create #{users.count} users", :tux)
 
 # Exercise---------------------------------------------------------------------
+# Exercise.all.each do |exercise|
+#   puts exercise.name
+# end
 ['yoga', 'swim', 'jogging', 'cycling', 'weight training', 'tai-chi'].each do |exercise_name|
   Exercise.create(
     name: exercise_name,
@@ -46,7 +49,7 @@ puts Cowsay.say("Create #{exercises.count} exercises", :cow)
     duration: rand(5..200),
     note: Faker::Lorem.paragraph,
     user: users.sample,
-    exercises: [exercises.sample] 
+    exercises: [exercises.sample]
   )
 end
 
