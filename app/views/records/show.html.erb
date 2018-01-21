@@ -5,10 +5,8 @@
   <% if @record.exercises != [] %>
       <p>Exercises you did:
         <% @record.exercises.each do |exercise| %>
-        <span style="background-color:<%= exercise.colour.name %> ">
-          .......
-        </span>
         [ <%= exercise.name %> ]
+        [ <%= exercise.colour %> ]
         <% end %>
       </p>
   <% end %>

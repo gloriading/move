@@ -49,7 +49,7 @@ class RecordsController < ApplicationController
         :duration,
         :date,
         :note,
-        exercises_attributes:[:name])
+        exercises_attributes:[:name, :colour])
     end
 
     def find_record
