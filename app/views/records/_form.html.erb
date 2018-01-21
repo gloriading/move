@@ -10,7 +10,7 @@
 
   <div>
     <%= form.label :date %>
-    <%= form.date_field :date %>
+    <%= form.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %>
   </div>
 
   <div>
@@ -25,7 +25,7 @@
     </div>
     <div>
       <%= e_form.label :colour %>
-      <%= e_form.text_field :colour,:required => true %>
+      <%= e_form.color_field :colour,:required => true %>
     </div>
   <% end %>
 

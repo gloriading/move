@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
     before_action :authenticate_user!, except: [:show, :index]
     before_action :find_record, only: [:show, :edit, :update, :destroy]
+    before_action :authorize_user!, only: [:edit, :update, :destroy]
 
     def new
       @record = Record.new
@@ -57,6 +58,11 @@ class RecordsController < ApplicationController
       @record = Record.find params[:id]
     end
 
-
+    def authorize_user!
+      unless can?(:crud, @record)
+        flash[:alert] = 'Access Denied!'
+        redirect_to home_path
+      end
+    end
 
 end
