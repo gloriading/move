@@ -49,7 +49,8 @@ class RecordsController < ApplicationController
         :duration,
         :date,
         :note,
-        exercises_attributes:[:name, :colour])
+        exercises_attributes:[:id, :name, :colour])
+        # note: need `id` here otherwise something will go wrong when update
     end
 
     def find_record
