@@ -1,6 +1,16 @@
 <div class="container mt-3">
 
-  <% @records.each do |record| %>
-    <p> <%= link_to record.date,record_path(record) %> </p>
-  <% end %>
+<% if current_user %>
+    <h3><%= current_user.first_name %></h3>
+    <% @user_records.each do |record| %>
+      <p> <%= link_to record.date,record_path(record) %> </p>
+    <% end %>
+<% else %>
+    <h1>later this (all records) will be seen by admin</h1>
+    <% @records.each do |record| %>
+      <p> <%= link_to record.date,record_path(record) %> </p>
+    <% end %>
+<% end %>
+
+
 </div>

@@ -21,6 +21,7 @@ class RecordsController < ApplicationController
 
     def index
       @records = Record.order(created_at: :desc)
+      @user_records = current_user.records.order(created_at: :desc) if current_user
     end
 
     def show
