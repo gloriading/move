@@ -46,5 +46,18 @@
     }
   }
 // ------------------------------------------------------------------------
+// About page
+  .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #28AFB0;
+      color: white;
+      text-align: center;
+  }
+
+
+
  @import 'bootstrap';
  @import 'font-awesome';

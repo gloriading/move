@@ -90,13 +90,20 @@
     create_table :colours
   end
 
+- about page
+> rails g controller about --no-assets --no-helper
+
 
 
 * Questions:
-- how to show exercises a user has created before 
+- how to show exercises a user has created before
 - if the user has a record : volleyball pink
   the next time it creates a new record, after selecting volleyball, pink will be chosen automatically
 
+* To do:
+- after user signed in, redirect to the user's calendar page
+> rails g controller dash --no-assets --no-helper
+[routes] resource :dash
 
 
 

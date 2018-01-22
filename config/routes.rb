@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 get('/', {to: 'welcome#index', as: :home})
+get('/about', {to: 'about#index', as: :about})
 
 resources :records
 resources :users, only: [:new, :create]
