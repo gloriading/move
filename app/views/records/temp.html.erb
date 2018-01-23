@@ -6,6 +6,14 @@
     </div>
 <% end %>
 
+<% user_exercises = current_user.records.each { |r| r.exercises } %>
+<%= form.collection_check_boxes :exercise_ids,
+    user_exercises, :id, :name do |box| %>
+    <div>
+    <span class='tag-checkbox mr-1'><%= box.check_box %></span>
+    <%= box.label %>
+    </div>
+<% end %>
 <%#  using form_tag -----------------------------------------------------------%>
 
 <%= form_tag records_path do %>

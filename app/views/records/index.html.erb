@@ -4,6 +4,10 @@
     <h3><%= current_user.first_name %></h3>
     <% @user_records.each do |record| %>
       <p> <%= link_to record.date,record_path(record) %> </p>
+
+      <% record.exercises.each do |exe| %>
+      <p> <%= exe.name %> </p>
+      <% end %>
     <% end %>
 <% else %>
     <h1>later this (all records) will be seen by admin</h1>

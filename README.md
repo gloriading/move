@@ -101,9 +101,7 @@
   the next time it creates a new record, after selecting volleyball, pink will be chosen automatically
 
 * To do:
-- after user signed in, redirect to the user's calendar page
-> rails g controller dash --no-assets --no-helper
-[routes] resource :dash
+- after user signed in, shows a different home page
 
 
 
