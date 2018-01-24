@@ -5,7 +5,21 @@ class RecordsController < ApplicationController
 
     def new
       @record = Record.new
+      # 2.times {@record.exercises.build}
       @record.exercises.build
+
+      if user_signed_in?
+        user_pairs = {}
+        # all the exercise:colour pairs of a user
+        current_user.records.each do |r|
+          r.exercises.each do |e|
+            user_pairs[e.name] = e.colour
+          end
+        end
+        @user_pairs_test = user_pairs
+        @user_pair_string = user_pairs.to_json
+      end
+
     end
 
     def create

@@ -96,12 +96,15 @@
 
 
 * Questions:
-- how to show exercises a user has created before
+
 - if the user has a record : volleyball pink
   the next time it creates a new record, after selecting volleyball, pink will be chosen automatically
 
+
 * To do:
-- after user signed in, shows a different home page
+- colour picker
+
+gem 'jquery-minicolors-rails'
 
 
 

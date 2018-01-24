@@ -1,4 +1,19 @@
 <div class="container my-3">
   <h4>New record:</h4>
   <%= render 'form' %>
+
+  <%= @user_pair_string %>
+<br />
+  <%= @user_pairs_test%>
+
+
+  <%= javascript_tag defer: 'defer' do -%>
+    $('input[type=text]#mini').minicolors();
+
+    const allPairs = JSON.parse('#{raw(<%= @user_pair_string %>)}');
+    console.log(allPairs);
+    for (let p in allPairs){
+    	<!-- console.log( `${p} : ${allPairs[p]} `); -->
+    }
+  <% end -%>
 </div>

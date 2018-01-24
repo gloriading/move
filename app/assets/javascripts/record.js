@@ -19,5 +19,20 @@ $( document ).ready(function() {
     });
 
 
+// records/new.html.erb
+  $('.exe').on('change', function(){
+  	console.log($(this).val());
+  })
+
+  const x = @user_pair_string
+  for (let p in x){
+  	console.log( `${p} : ${a[p]} `);
+  }
+
+// minicolours ............ why this doesn't work?
+// this works in new.html.erb javascript_tag
+  $('input[type=text].mini').minicolors();
+
+
 
 });
