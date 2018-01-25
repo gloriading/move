@@ -36,6 +36,8 @@ gem 'jquery-rails'
 gem 'bootstrap'
 gem 'faraday'
 gem 'jquery-minicolors-rails'
+gem 'simple_form'
+gem 'cocoon'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

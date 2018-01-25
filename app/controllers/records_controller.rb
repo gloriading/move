@@ -5,7 +5,6 @@ class RecordsController < ApplicationController
 
     def new
       @record = Record.new
-      # 2.times {@record.exercises.build}
       @record.exercises.build
 
       if user_signed_in?
@@ -65,8 +64,8 @@ class RecordsController < ApplicationController
         :duration,
         :date,
         :note,
-        exercises_attributes:[:id, :name, :colour])
-        # note: need `id` here otherwise something will go wrong when update
+        exercises_attributes:[:id, :name, :colour, :_destroy])
+
     end
 
     def find_record

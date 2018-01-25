@@ -6,14 +6,23 @@
 <br />
   <%= @user_pairs_test%>
 
-
-  <%= javascript_tag defer: 'defer' do -%>
-    $('input[type=text]#mini').minicolors();
-
-    const allPairs = JSON.parse('#{raw(<%= @user_pair_string %>)}');
+<script type="text/javascript">
+    const allPairs = <%= raw @user_pair_string %>;
     console.log(allPairs);
-    for (let p in allPairs){
-    	<!-- console.log( `${p} : ${allPairs[p]} `); -->
-    }
-  <% end -%>
+    let exercise;
+    $('.exe').on('change', function(){
+      exercise = $(this).val();
+      for (let p in allPairs){
+        if(p == exercise){
+          console.log("match!");
+          console.log(allPairs[p]);
+        }
+      }
+    })
+// to do:
+// 1- when user enter an exercise, check if it matches the history
+//    if there's a match, set the colour according to the history
+
+
+</script>
 </div>

@@ -1,0 +1,5 @@
+<div class='nested-fields'>
+  <%= f.input :name, label: "Exercise", required: false %>
+  <%= f.input :colour, label: "Colour", required: false, input_html: {id: 'mini'} %>
+  <%= link_to_remove_association "remove exercise", f %>
+</div>

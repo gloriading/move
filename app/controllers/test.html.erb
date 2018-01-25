@@ -1,0 +1,49 @@
+<!-- this is the old _form  -->
+<div class="w-70">
+    <%= form_for @record do |form| %>
+
+      <% if @record.errors.present? %>
+        <p> <%= @record.errors.full_messages.join(', ') %> </p>
+      <% end %>
+
+      <%= form.fields_for :exercises do |e_form| %>
+        <div class="row">
+          <div class="col form-group">
+            <%= e_form.label :exercise %>
+            <%= e_form.text_field :name,:required => true, class: "form-control exe" %>
+          </div>
+          <div class="col form-group">
+            <%= e_form.label :colour %>
+            <%#= e_form.color_field :colour,:required => true, class: "mini" %>
+            <%#= e_form.text_field :colour, class:"form-control" %>
+            <%= e_form.text_field :colour, class:"form-control", id: "mini"%>
+          </div>
+        </div>
+
+            <span class="btn btn-primary btn-sm btn-block mb-2"> More exercise </span>
+
+      <% end %>
+
+      <div class="row">
+        <div class="col form-group">
+          <%= form.label :duration %>
+          <%= form.number_field :duration, min: 1, max: 10000, class: "form-control" %>
+        </div>
+
+        <div class="col form-group">
+          <%= form.label :date %>
+          <%= form.date_field :date,
+              :value => Time.now.strftime('%Y-%m-%d'),
+              class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :note %>
+        <%= form.text_area :note, class: "form-control" %>
+      </div>
+
+      <%= form.submit "Create",class:"btn btn-dark btn-sm btn-block" %>
+    <% end %>
+
+</div>

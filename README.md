@@ -101,11 +101,11 @@
   the next time it creates a new record, after selecting volleyball, pink will be chosen automatically
 
 
-* To do:
-- colour picker
 
-gem 'jquery-minicolors-rails'
+* colour picker
+- gem 'jquery-minicolors-rails'
 
-
+* simple form with cocoon
+- question: after adding a new field, the colour picker doesn't show
 
 <!--  -->
