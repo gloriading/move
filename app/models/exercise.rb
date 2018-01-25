@@ -6,4 +6,5 @@ class Exercise < ApplicationRecord
   # belongs_to :user
 
   validates :name, presence: true
+  validates :colour, presence: true
 end

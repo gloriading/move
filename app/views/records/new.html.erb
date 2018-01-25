@@ -2,9 +2,9 @@
   <h4>New record:</h4>
   <%= render 'form' %>
 
-  <%= @user_pair_string %>
+  <%#= @user_pair_string %>
 <br />
-  <%= @user_pairs_test%>
+  <%#= @user_pairs_test%>
 
 <script type="text/javascript">
     const allPairs = <%= raw @user_pair_string %>;
@@ -15,13 +15,17 @@
       for (let p in allPairs){
         if(p == exercise){
           console.log("match!");
-          console.log(allPairs[p]);
+          // console.log(allPairs[p]);
+          // console.log($(this).parent().next().find("#mini"));
+          $(this).parent().next().find("#mini").val(allPairs[p]);
         }
       }
     })
 // to do:
 // 1- when user enter an exercise, check if it matches the history
 //    if there's a match, set the colour according to the history
+// 2- when add a field (exercise-colour pair), mini-colours is not shown
+// 3- doesn't work for the second pair
 
 
 </script>

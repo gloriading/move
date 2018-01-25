@@ -29,7 +29,7 @@ $( document ).ready(function() {
   // 	console.log( `${p} : ${a[p]} `);
   // }
 
-  $('input[type=text]#mini').minicolors();
+  $('#mini').minicolors();
 
 
 });
