@@ -1,5 +1,25 @@
 <div class="container mt-3">
 
+<%# Calendar with events/records --------------------------------%>
+<%# Error: undefined method `start_time' for #<Record:0x00007ff5405b3118> %>
+<%# solution: add a new column name `start_time` on record but the record %>
+
+  <%= month_calendar events: @user_records do |date, user_records| %>
+    <div class="">
+      <%= date.day %>
+
+      <% user_records.each do |r| %>
+          <% r.exercises.each do |e| %>
+            <div id="<%= r.id %>">
+              <%= e.name %>
+            </div>
+          <% end %>
+      <% end %>
+
+    </div>
+  <% end %>
+
+<%# ---------------------------------------------------------------%>
 <% if current_user %>
     <h3><%= current_user.first_name %></h3>
     <% @user_records.each do |record| %>

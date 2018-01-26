@@ -114,7 +114,7 @@
 - friendly id
 -
 
-
+> rails g migration add_start_time_to_records start_time:datetime
 
 
 <!--  -->

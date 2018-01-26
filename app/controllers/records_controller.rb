@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
     before_action :authorize_user!, only: [:edit, :update, :destroy]
 
     def new
-      @record = Record.new(date: params[:date])
+      @record = Record.new(start_time: params[:date])
       @record.exercises.build
 
       if user_signed_in?
@@ -26,6 +26,7 @@ class RecordsController < ApplicationController
       @record.user = current_user
 
       if @record.save
+        flash[:notice] = " ADDED!"
         redirect_to records_path
       else
         render :new
@@ -64,6 +65,7 @@ class RecordsController < ApplicationController
         :duration,
         :date,
         :note,
+        :start_time,
         exercises_attributes:[:id, :name, :colour, :_destroy])
 
     end
