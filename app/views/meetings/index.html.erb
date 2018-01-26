@@ -2,14 +2,25 @@
 
 <h1>Meetings</h1>
 <%= month_calendar events: @meetings do |date, meetings| %>
-  <%= date %>
+  <%= date.day %>
 
   <% meetings.each do |meeting| %>
-    <div>
+    <div id="<%= meeting.id %>">
       <%= meeting.name %>
     </div>
   <% end %>
 <% end %>
+
+
+<%#= month_calendar(attribute: :date) events: @records do |date, records| %>
+  <%#= date %>
+
+  <%# records.each do |record| %>
+    <div id="<%#= record.id %>">
+      <%#= record.duration %>
+    </div>
+  <%# end %>
+<%# end %>
 
 <table>
   <thead>
@@ -37,4 +48,5 @@
 
 <br>
 
-<%= link_to 'New Meeting', new_meeting_path %>
+<%#= link_to 'New Meeting', new_meeting_path %>
+<%= link_to 'New Record', new_record_path %>

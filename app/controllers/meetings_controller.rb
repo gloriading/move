@@ -5,6 +5,7 @@ class MeetingsController < ApplicationController
   # GET /meetings.json
   def index
     @meetings = Meeting.all
+    @records = Record.all
   end
 
   # GET /meetings/1

@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
     before_action :authorize_user!, only: [:edit, :update, :destroy]
 
     def new
-      @record = Record.new
+      @record = Record.new(date: params[:date])
       @record.exercises.build
 
       if user_signed_in?

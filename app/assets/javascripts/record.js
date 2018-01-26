@@ -29,14 +29,26 @@ $( document ).ready(function() {
   // 	console.log( `${p} : ${a[p]} `);
   // }
 
-  // $('#mini').minicolors();
+// set the first colour field
   $('.nested-fields #mini').minicolors();
-
+// set the newly created colour field, use setTimeout to deal with timing issue
   $('.add_fields').click(function(){
   	setTimeout(function(){
   		$('.nested-fields #mini').minicolors();
       }, 10);
   });
+
+// click on the record of a day will bring up the show page (not yet...)
+
+  $('.has-events').children().click(function(event){
+      event.stopPropagation();
+      // add this to prevent from triggering the next js
+      const x = $(this).attr('id');
+      let target = '#show-' + x;
+      $(target).children()[0].click();
+  })
+
+
 
 
 
