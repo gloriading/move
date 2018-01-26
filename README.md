@@ -46,6 +46,7 @@
 > rails g model colour name
 > rails g migration add_colour_to_exercises colour:references
 
+
 * Issue:
 `in exercise model`:
 
@@ -103,8 +104,13 @@
 - question: after adding a new field, the colour picker doesn't show
 
 
+* simple calendar
+ <!-- gem "simple_calendar", "~> 2.0" -->
+ <!-- *= require simple_calendar -->
+ <!-- rails g scaffold Meeting name start_time:datetime end_time:datetime -->
+ <!-- rails g simple_calendar:views -->
+
 * to-do
-- incorporate `gem SIMPLE CALENDAR`
 - friendly id
 -
 
