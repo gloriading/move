@@ -104,7 +104,11 @@
 
 
 * to-do
-- friendly id 
+- incorporate `gem SIMPLE CALENDAR`
+- friendly id
+-
+
+
 
 
 <!--  -->

@@ -29,7 +29,15 @@ $( document ).ready(function() {
   // 	console.log( `${p} : ${a[p]} `);
   // }
 
-  $('#mini').minicolors();
+  // $('#mini').minicolors();
+  $('.nested-fields #mini').minicolors();
+
+  $('.add_fields').click(function(){
+  	setTimeout(function(){
+  		$('.nested-fields #mini').minicolors();
+      }, 10);
+  });
+
 
 
 });
