@@ -5,12 +5,15 @@
 <%# solution: add a new column name `start_time` on record but the record %>
 
   <%= month_calendar events: @user_records do |date, user_records| %>
-    <div class="">
-      <%= date.day %>
-
+    <div class="cell">
+      <div class="day-cell">
+        <%= date.day %>
+      </div>
       <% user_records.each do |r| %>
           <% r.exercises.each do |e| %>
-            <div id="<%= r.id %>">
+            <div id="<%= r.id %>"
+              class="inner-cell"
+              style="background-color:<%= e.colour %>;">
               <%= e.name %>
             </div>
           <% end %>

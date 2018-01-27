@@ -27,4 +27,14 @@
 
 td.day {
   cursor: pointer;
+  padding:0 !important;
+}
+
+.cell{
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+}
+.inner-cell{
+  flex-grow: 1;
 }
