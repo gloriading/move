@@ -1,69 +1,11 @@
 <div class="container mt-3">
 
 <%# Calendar with events/records --------------------------------%>
-<%# Error: undefined method `start_time' for #<Record:0x00007ff5405b3118> %>
-<%# solution: add a new column name `start_time` on record but the record %>
 
-  <%= month_calendar events: @user_records do |date, user_records| %>
-    <div class="cell">
-      <div class="day-cell">
-        <%= date.day %>
-      </div>
-      <% user_records.each do |r| %>
-          <% r.exercises.each do |e| %>
-            <div id="<%= r.id %>"
-              class="inner-cell text-center"
-              data-toggle="modal"
-              data-target="#exampleModal"
-              style="background-color:<%= e.colour %>;">
-              <%= e.name %>
-            </div>
-          <% end %>
-      <% end %>
 
-    </div>
-  <% end %>
-<button class="btn btn-info btn-sm btn-block show-day">Toggle Day</button>
 
-<!-- Modal ---------------------------------------------------->
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: KHAKI;">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="background-color: LEMONCHIFFON;">
-        TEST
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
+<%= link_to "my page", user_path(current_user) %>
 <%# ---------------------------------------------------------------%>
-<% if current_user %>
-    <h3><%= current_user.first_name %></h3>
-    <% @user_records.each do |record| %>
-      <p> <%= link_to record.date,record_path(record) %> </p>
-
-      <% record.exercises.each do |exe| %>
-      <p> <%= exe.name %> </p>
-      <% end %>
-    <% end %>
-<% else %>
-    <h1>later this (all records) will be seen by admin</h1>
-    <% @records.each do |record| %>
-      <p> <%= link_to record.date,record_path(record) %> </p>
-    <% end %>
-<% end %>
 
 
 <script>

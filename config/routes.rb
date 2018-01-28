@@ -5,7 +5,7 @@ get('/', {to: 'welcome#index', as: :home})
 get('/about', {to: 'about#index', as: :about})
 
 resources :records
-resources :users, only: [:new, :create]
+resources :users, only: [:new, :create, :show]
 resource :session, only: [:new, :create, :destroy]
 
 end

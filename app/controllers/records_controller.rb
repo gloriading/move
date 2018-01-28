@@ -27,7 +27,7 @@ class RecordsController < ApplicationController
 
       if @record.save
         flash[:notice] = " ADDED!"
-        redirect_to records_path
+        redirect_to user_path(current_user)
       else
         render :new
       end

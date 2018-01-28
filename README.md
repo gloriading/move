@@ -86,7 +86,7 @@
   + pop up a bootstrap modal with the record
   + show the record next to / below the calendar
 - in the new form, set a toggle so users do have to input daily
--
+- admin panel
 - friendly id
 
 
