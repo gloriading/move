@@ -82,8 +82,11 @@
    + rails g migration add_start_time_to_records start_time:datetime
 
 * to-do ------------------------------------------------------
-
-- 
+- click on a day with existing records brings the record show page
+  + pop up a bootstrap modal with the record
+  + show the record next to / below the calendar
+  
+-
 - friendly id
 
 

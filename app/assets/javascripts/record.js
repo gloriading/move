@@ -18,17 +18,7 @@ $( document ).ready(function() {
       });
     });
 
-
-// records/new.html.erb
-  // $('.exe').on('change', function(){
-  // 	console.log($(this).val());
-  // })
-  //
-  // const x = @user_pair_string
-  // for (let p in x){
-  // 	console.log( `${p} : ${a[p]} `);
-  // }
-
+// --------------------------------------------------------------------
 // set the first colour field
   $('.nested-fields #mini').minicolors();
 // set the newly created colour field, use setTimeout to deal with timing issue
@@ -40,16 +30,27 @@ $( document ).ready(function() {
 
 // click on the record of a day will bring up the show page (not yet...)
 
-  $('.has-events').children().click(function(event){
-      event.stopPropagation();
-      // add this to prevent from triggering the next js
-      const x = $(this).attr('id');
-      let target = '#show-' + x;
-      $(target).children()[0].click();
-  })
+  // $('.has-events').children().click(function(event){
+  //     event.stopPropagation();
+  //     // add this to prevent from triggering the next js
+  //     const x = $(this).attr('id');
+  //     let target = '#show-' + x;
+  //     $(target).children()[0].click();
+  // })
+  // $('.inner-cell').children().click(function(event){
+  //     event.stopPropagation();
+  //
+  // })
 
-
-
+  // _month_calendar.html.erb
+  // not working ----------------but pass an id in path it works
+  // $('.inner-cell').on('click', function(event){
+  //   event.stopPropagation();
+  //     const recordId = parseInt($(this).attr('id'));
+  //     alert(typeof(recordId));
+  //     alert(recordId);
+  //     window.location = "<%= record_path(`${recordId}`) %>"
+  //   })
 
 
 });
