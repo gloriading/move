@@ -1,14 +1,58 @@
 <div class="container mt-3">
+<h1>records index page</h1>
+<% @user_records.each do |r|%>
+  <!-- Large modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
 
-<%# Calendar with events/records --------------------------------%>
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <p>Hello, <%=r.user&.full_name || "[deleted]" %>!</p>
+        <h4>You did this exercise on <%= r.date %>. </h4>
+
+        <% if r.exercises != [] %>
+            <p>Exercises you did:
+              <% r.exercises.each do |exercise| %>
+              <span style="background-color:<%= exercise.colour %>;">[ <%= exercise.name %> ]</span>
+              [ <%= exercise.colour %> ]
+              <% end %>
+            </p>
+        <% end %>
+
+
+        <p>You had done this for <%= r.duration%> minutes.</p>
+
+        <p>Your note: "<%= r.note%>"</p>
+
+        <small><strong>Created at: </strong>
+          <%= time_ago_in_words(r.created_at) %> ago
+        </small>
+
+        <small><strong>Update at: </strong>
+          <%= time_ago_in_words(r.updated_at) %> ago
+        </small>
+
+        <% if can?(:crud, r) %>
+            <p>
+              <%= link_to "edit", edit_record_path(r) %>
+              <%= link_to(
+                   'delete',
+                   record_path(r),
+                   method: :delete,
+                   data: {confirm: 'Are you sure?'}
+                 )
+              %>
+            </p>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+  <p><%= link_to r.created_at, record_path(r) %></p>
+<% end %>
 
 
 
-<%= link_to "my page", user_path(current_user) %>
-<%# ---------------------------------------------------------------%>
 
-
-<script>
-
-</script>
 </div>

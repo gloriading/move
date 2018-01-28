@@ -26,8 +26,8 @@
   <% end %>
 <button class="btn btn-info btn-sm btn-block show-day">Toggle Day</button>
 
-<!-- Modal ---------------------------------------------------->
 
+  <%#----Modal-----------------------------------------------------------%>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content" style="width:300px; height:300px;">
@@ -39,17 +39,14 @@
           </button>
         </div>
         <div class="modal-body" style="background-color: LEMONCHIFFON;">
-          test
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary btn-sm">Save changes</button>
-          </div>
+          <p>content of the clicked record</p>
+          
         </div>
 
       </div>
     </div>
   </div>
-<!--  ---------------------------------------------------->
+  <%#--------------------------------------------------------------------%>
 <% if @user %>
     <h3><%= @user.first_name %></h3>
     <% @user_records.each do |record| %>
@@ -66,5 +63,20 @@
       <p> <%= link_to record.date,record_path(record) %> </p>
     <% end %>
 <% end %>
+
+<!----------------------------------------------------->
+<!-- <script type="text/javascript">
+  $('.inner-cell').click(function(e){
+    e.stopPropagation();
+    const x = $(this).attr('id');
+    console.log('record id: '+ x);
+    const recordId = parseInt(x);
+    console.log(typeof recordId);
+    const exe = $(this).html();
+    console.log(exe);
+  });
+</script> -->
+
+
 
 </div>

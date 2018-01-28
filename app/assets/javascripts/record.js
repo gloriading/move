@@ -64,8 +64,26 @@ $( document ).ready(function() {
 
 $('#exampleModal').modal({ show: false})
 
-  $('.inner-cell').click(function(e){
-  e.stopPropagation();
-  $('#exampleModal').modal('show');
-  });
+$('.inner-cell').click(function(e){
+    e.stopPropagation();
+    $('#exampleModal').modal('show');
+});
+
+// $('.inner-cell').click(function(e){
+//     e.stopPropagation();
+//     console.log($(this).parent());
+    // console.log($(this).parent().find('#exampleModal'));
+    // $(this).parent().find('#exampleModal').modal('show');
+
+// });
+
+
+
+
+
+
+
+
+
+
 });

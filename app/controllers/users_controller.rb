@@ -17,11 +17,10 @@ class UsersController < ApplicationController
   end
 
 #---------------------------------------------------------------------
-# This is for every
+
   def show
     @user = User.find params[:id]
     @user_records = @user.records.order(created_at: :desc)
-
   end
 
 
