@@ -85,7 +85,7 @@
 - click on a day with existing records brings the record show page
   + pop up a bootstrap modal with the record
   + show the record next to / below the calendar
-  
+- in the new form, set a toggle so users do have to input daily
 -
 - friendly id
 

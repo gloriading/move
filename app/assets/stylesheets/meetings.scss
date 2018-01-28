@@ -18,8 +18,10 @@
 
   .start-date {}
 
-  .prev-month {}
-  .next-month {}
+  .next-month, .prev-month {
+    background-color: whitesmoke;
+    opacity: 0.5;
+  }
   .current-month {}
 
   .has-events {}

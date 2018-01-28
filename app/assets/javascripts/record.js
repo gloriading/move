@@ -52,7 +52,7 @@ $( document ).ready(function() {
   //     window.location = "<%= record_path(`${recordId}`) %>"
   //   })
 
-// Show/Hide day on a day--------------------------------------------------
+// Show/Hide day on a day---------------------------------------------
 // $('a').map((index, value) => $(value).html())
 
   $('.show-day').click(function(event){
@@ -60,4 +60,12 @@ $( document ).ready(function() {
     $('.day-cell').toggle('3000');
   });
 
+//Click on a record to show modal---------------------------------
+
+$('#exampleModal').modal({ show: false})
+
+  $('.inner-cell').click(function(e){
+  e.stopPropagation();
+  $('#exampleModal').modal('show');
+  });
 });
