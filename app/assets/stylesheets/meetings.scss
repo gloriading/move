@@ -22,7 +22,7 @@
   .next-month {}
   .current-month {}
 
-  .has-events {background-color: PALETURQUOISE;}
+  .has-events {}
 }
 
 td.day {
@@ -35,6 +35,12 @@ td.day {
   flex-direction: column;
   height: 100%;
 }
+
 .inner-cell{
   flex-grow: 1;
+}
+
+.day-cell{
+  // z-index: 2;
+
 }
