@@ -39,6 +39,7 @@ class RecordsController < ApplicationController
     end
 
     def show
+      
     end
 
     def edit

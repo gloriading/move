@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
     @user_records = @user.records.order(created_at: :desc)
+    @record = Record.new
   end
 
 

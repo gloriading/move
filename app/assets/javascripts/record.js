@@ -62,19 +62,26 @@ $( document ).ready(function() {
 
 //Click on a record to show modal---------------------------------
 
-$('#exampleModal').modal({ show: false})
+// $('.abc').modal({ show: false})
 
-$('.inner-cell').click(function(e){
-    e.stopPropagation();
-    $('#exampleModal').modal('show');
-});
+// $('.inner-cell').click(function(e){
+//     e.stopPropagation();
+//     const x = $(this).attr('id');
+//     console.log(x);
+//     // let target = '#show-' + x;
+//     // $(target).children()[0].click();
+//     const y = '#'+x;
+//     console.log(y);
+//     $(y).modal('show');
+//
+// });
 
 // $('.inner-cell').click(function(e){
 //     e.stopPropagation();
 //     console.log($(this).parent());
-    // console.log($(this).parent().find('#exampleModal'));
-    // $(this).parent().find('#exampleModal').modal('show');
-
+//     console.log($(this).parent().find('#exampleModal'));
+//     $(this).parent().find('#exampleModal').modal('show');
+//
 // });
 
 

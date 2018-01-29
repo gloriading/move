@@ -39,12 +39,12 @@
     window.location = "<%= new_record_path %>?date=" + $(this).data('date');
   });
 
-  // $('.inner-cell').on('click', function(event){
-  //   event.stopPropagation();
-  //     const recordId = parseInt($(this).attr('id'));
-  //     alert(typeof(recordId));
-  //     alert(recordId);
-  //     alert(typeof(`${recordId}`));
-  //
-  //   })
+  $('.inner-cell').on('click', function(event){
+    event.stopPropagation();
+      // const recordId = parseInt($(this).attr('id'));
+      // alert(typeof(recordId));
+      // alert(recordId);
+      // alert(typeof(`${recordId}`));
+   $("#exampleModalCenter").modal('show');
+    })
 </script>
