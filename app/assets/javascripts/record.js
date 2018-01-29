@@ -60,6 +60,38 @@ $( document ).ready(function() {
     $('.day-cell').toggle('3000');
   });
 
+// Limit how many fields can be added in new form ---------------------
+  let counter = 1;
+  $('.add_fields').on('click', function(){
+    counter ++;
+    console.log(counter);
+    if(counter>=3){
+      $('.add_fields').hide();
+    }
+  });
+  // let counter = 1;
+  // $('.add_fields').on('click', function(){
+  //   counter ++;
+  //   console.log(counter);
+  // });
+  // $('.remove_fields').on('click',function(){
+  //   counter --;
+  //   console.log(counter);
+  // });
+  //
+	if(counter <= 1){
+    $('.remove_fields').hide();
+  }else{
+    $('.remove_fields').show();
+  }
+  // if(counter >= 3){
+  //   $('.add_fields').hide();
+  // }else{
+  //   $('.add_fields').show();
+  // }
+
+
+
 //Click on a record to show modal---------------------------------
 
 // $('.abc').modal({ show: false})

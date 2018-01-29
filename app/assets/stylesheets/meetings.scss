@@ -44,8 +44,13 @@ td.day {
 
 .day-cell{
   // z-index: 2;
-
 }
 .all-records{
-  display:none;
+  display: none;
+}
+.colour-box{
+  height: 30px !important;
+}
+.colour-label{
+  display: block !important;
 }

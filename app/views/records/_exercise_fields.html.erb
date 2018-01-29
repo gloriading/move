@@ -1,6 +1,11 @@
 <div class='nested-fields'>
-  <%= f.input :name, label: "Exercise", required: true, input_html: { class: 'exe' } %>
-  <%= f.input :colour, label: "Colour", required: true,
-      input_html: {id: 'mini'} %>
-  <%= link_to_remove_association "remove exercise", f %>
+
+    <%= f.input :name, label: "Exercise", required: true, input_html: { class: 'exe' } %>
+    <%= f.input :colour, label: "Colour", required: true,
+        input_html: {id: 'mini', class: 'colour-box'}, label_html:{ class:'colour-label'} %>
+    <%#= f.input :colour, collection: ["HOTPINK", "GOLD", "ORCHID LIME", "MEDIUMAQUAMARINE", "CORNFLOWERBLUE", "SANDYBROWN"] %>
+
+
+
+  <%= link_to_remove_association " - exercise", f , class:"btn btn-dark btn-sm mt-2"%>
 </div>

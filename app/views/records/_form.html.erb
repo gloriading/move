@@ -1,16 +1,17 @@
 <%= simple_form_for @record do |f| %>
   <%= f.input :start_time, label:"Date", required: false %>
-  <%= f.input :duration %>
-  <%= f.input :note %>
 
   <div id="options">
     <%= f.simple_fields_for :exercises do |opt| %>
       <%= render 'exercise_fields', f: opt %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association 'add exercise', f, :exercises  %>
+      <%= link_to_add_association ' + exercise', f, :exercises, class:"btn btn-dark btn-sm mt-1"  %>
     </div>
   </div>
+
+  <%= f.input :duration %>
+  <%= f.input :note %>
 
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
