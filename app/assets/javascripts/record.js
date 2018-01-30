@@ -56,9 +56,13 @@ $( document ).ready(function() {
 
   $('.inner-cell').click(function(e){
       e.stopPropagation();
-      const x = $(this).attr('id');
-      let target = '#show-' + x;
-      $(target).children()[0].click();
+      const target = $(this).attr('data-target');
+      $(`[data-target="${target}"]`).click();
+      // let target = '[data-target="#modal-' + x + '"]';
+      // console.log(target);
+      // console.dir($(target).click())
+      // $(target).click();
+
   });
 
 // When user enters an exercise that has been entered before,
@@ -67,20 +71,22 @@ $( document ).ready(function() {
 
 
 
-// Limit how many fields can be added in new form ----------------?????
+// Limit how many fields can be added in new form ------------
+// event delegation
   const r = $('.remove_fields');
   const a = $('.add_fields');
   let c = 1;
 
-  a.click(function(){
-    c++;
+  $('#options').click(function (e) {
+    if (e.target.classList.contains('remove_fields')) {
+      c--;
+    }
+    if (e.target.classList.contains('add_fields')) {
+      c++;
+    }
     console.log(c);
-    c >= 3 ? a.hide() : a.show()
-  })
-
-  r.click(function(){// only works for the first button
-    c--;
-    console.log(c);
+    c >= 3 ? a.hide() : a.show();
+    c <= 1 ? r.hide() : r.show();
   })
 
 

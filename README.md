@@ -97,16 +97,16 @@
 
 - something wrong with the automatching colour scheme...
 
-- in the new form, thinking about providing a list of colours instead of
-  using minicolors
+- in the new form,
+  + providing a list of colours instead of using minicolors?
+  + the logic to limit the number of added fields
+  + set a toggle so users do NOT have to input daily
 
-- in the new form, need to think about the logic to limit the number
-  of added fields
+- [user show page]
+  + JS to screenshot
+- [welcome/index.html.erb]
+  + import news from other websites
 
-- in the new form, set a toggle so users do NOT have to input daily
-
-- [user show page] JS to screenshot
-- [welcome/index.html.erb] import news from other websites
 - Datetime diapley
   https://gist.github.com/eduwass/4ee6b9de3c5013cbd3af
 - admin

@@ -14,12 +14,12 @@
           <% r.exercises.each do |e| %>
             <div id="<%= r.id %>"
               class="inner-cell text-center"
-              data-toggle="modal"
-              data-target="#exampleModalCenter"
+              data-target="#show-<%= r.id %>"
               style="background-color:<%= e.colour %>;">
               <span><%= e.name %></span>
 
             </div>
+
           <% end %>
       <% end %>
 
@@ -63,9 +63,30 @@
     <% if @user %>
         <h3><%= @user.first_name %></h3>
         <% @user_records.each do |record| %>
-          <p id="show-<%= record.id%>">
-            <%= link_to record.date,record_path(record) %>
+          <p id="show-<%= record.id%>"
+            data-toggle="modal"
+            data-target="#modal-<%= record.id %>">
+            <%# link_to record.date,record_path(record) %>
           </p>
+          <div class="modal fade" id="modal-<%= record.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= record.id %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <% record.exercises.each do |exe| %>
             <p> <%= exe.name %> </p>
