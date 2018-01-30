@@ -89,13 +89,17 @@
 
 
 * [ to-do ]------------------------------------------------------
+
 - click on a day with existing records brings the `record show page`
   + pop up a bootstrap modal with the record
   + show the record next to / below the calendar
   ? (do not know how to put info related to clicked record in modal)
 
+- something wrong with the automatching colour scheme...
+
 - in the new form, thinking about providing a list of colours instead of
   using minicolors
+
 - in the new form, need to think about the logic to limit the number
   of added fields
 

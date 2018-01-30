@@ -20,7 +20,8 @@ $( document ).ready(function() {
 
 // set the first colour field--------------------------------------
   $('.nested-fields #mini').minicolors();
-// set the newly created colour field, use setTimeout to deal with timing issue
+// set the newly created colour field,
+//use setTimeout to deal with timing issue
   $('.add_fields').click(function(){
   	setTimeout(function(){
   		$('.nested-fields #mini').minicolors();
@@ -48,7 +49,7 @@ $( document ).ready(function() {
   })
 
 
-// clicking on area without exercise names brings a new form -----
+// clicking on area without exercise names brings a new form ----- note
 // the JS is in _month_calendar.html.erb
 
 // click on the record of a day will bring up the show page ------
@@ -60,7 +61,12 @@ $( document ).ready(function() {
       $(target).children()[0].click();
   });
 
-//
+// When user enters an exercise that has been entered before,
+// the colour to the exercise will automatically set
+// the Js code is in records/new/html.erb----------------------note
+
+
+
 // Limit how many fields can be added in new form ----------------?????
   const r = $('.remove_fields');
   const a = $('.add_fields');

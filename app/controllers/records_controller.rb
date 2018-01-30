@@ -15,7 +15,7 @@ class RecordsController < ApplicationController
             user_pairs[e.name] = e.colour
           end
         end
-        @user_pairs_test = user_pairs
+        @user_pairs = user_pairs
         @user_pair_string = user_pairs.to_json
       end
 
@@ -39,7 +39,7 @@ class RecordsController < ApplicationController
     end
 
     def show
-      
+
     end
 
     def edit
