@@ -9,9 +9,11 @@
       <%= link_to_add_association ' + exercise', f, :exercises, class:"btn btn-dark btn-sm mt-1"  %>
     </div>
   </div>
+  <p class="show-adv-opt mt-2">Click me to show more options</p>
+  <div class="advanced-options">
+    <%= f.input :duration %>
+    <%= f.input :note %>
+  </div>
 
-  <%= f.input :duration %>
-  <%= f.input :note %>
-
-  <%= f.submit class: 'btn btn-primary' %>
+  <%= f.submit class: 'btn btn-primary btn-sm btn-block' %>
 <% end %>

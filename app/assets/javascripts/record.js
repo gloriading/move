@@ -4,28 +4,35 @@ $( document ).ready(function() {
 // welcoms/index.html.erb ----------------------------------------------
 // A mouse movement within the div with class home will trigger the animation
 
-   $(".home").one("mouseover", function(){
-     $(".display-2").css('position','relative');
-      $(".display-2").animate({left: '30px'}, "slow");
-      $(".display-2").animate({left: '0px'}, "slow");
-      $(".display-2").animate({left: '30px'}, "slow");
-      $(".display-2").animate({left: '0px'}, "slow", function(){
-          $('.display-4').eq(0).fadeIn(3000, function(){
-            $(this).fadeOut(3000, function(){
-              $('.display-4').eq(1).fadeIn(3000);
-            });
+ $(".home").one("mouseover", function(){
+   $(".display-2").css('position','relative');
+    $(".display-2").animate({left: '30px'}, "slow");
+    $(".display-2").animate({left: '0px'}, "slow");
+    $(".display-2").animate({left: '30px'}, "slow");
+    $(".display-2").animate({left: '0px'}, "slow", function(){
+        $('.display-4').eq(0).fadeIn(3000, function(){
+          $(this).fadeOut(3000, function(){
+            $('.display-4').eq(1).fadeIn(3000);
           });
-      });
+        });
     });
+  });
 
-// --------------------------------------------------------------------
-// set the first colour field
+// set the first colour field--------------------------------------
   $('.nested-fields #mini').minicolors();
 // set the newly created colour field, use setTimeout to deal with timing issue
   $('.add_fields').click(function(){
   	setTimeout(function(){
   		$('.nested-fields #mini').minicolors();
       }, 10);
+  });
+
+// Show/Hide date on a day-------------------------------------------
+// $('a').map((index, value) => $(value).html())
+
+  $('.show-day').click(function(event){
+    event.stopPropagation();
+    $('.day-cell').toggle('3000');
   });
 
 // click on the record of a day will bring up the show page (not yet...)
@@ -52,44 +59,22 @@ $( document ).ready(function() {
   //     window.location = "<%= record_path(`${recordId}`) %>"
   //   })
 
-// Show/Hide day on a day---------------------------------------------
-// $('a').map((index, value) => $(value).html())
-
-  $('.show-day').click(function(event){
-    event.stopPropagation();
-    $('.day-cell').toggle('3000');
-  });
 
 // Limit how many fields can be added in new form ---------------------
-  let counter = 1;
-  $('.add_fields').on('click', function(){
-    counter ++;
-    console.log(counter);
-    if(counter>=3){
-      $('.add_fields').hide();
-    }
-  });
-  // let counter = 1;
-  // $('.add_fields').on('click', function(){
-  //   counter ++;
-  //   console.log(counter);
-  // });
-  // $('.remove_fields').on('click',function(){
-  //   counter --;
-  //   console.log(counter);
-  // });
-  //
-	if(counter <= 1){
-    $('.remove_fields').hide();
-  }else{
-    $('.remove_fields').show();
-  }
-  // if(counter >= 3){
-  //   $('.add_fields').hide();
-  // }else{
-  //   $('.add_fields').show();
-  // }
+const r = $('.remove_fields');
+const a = $('.add_fields');
+let c = 1;
 
+a.click(function(){
+  c++;
+  console.log(c);
+  c >= 3 ? a.hide() : a.show()
+})
+
+r.click(function(){// only works for the first button
+  c--;
+  console.log(c);
+})
 
 
 //Click on a record to show modal---------------------------------
@@ -116,7 +101,11 @@ $( document ).ready(function() {
 //
 // });
 
-
+// _form.html.erb--------------------------------
+// click to toggle advanced options
+  $('.show-adv-opt').click(function(){
+    $('.advanced-options').toggle('slow');
+  })
 
 
 
