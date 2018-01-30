@@ -82,7 +82,13 @@
    - In order to use simple calendar, add a column to records table
    + rails g migration add_start_time_to_records start_time:datetime
 
-* to-do ------------------------------------------------------
+* Add website logo
+  - `<%= favicon_link_tag 'move.ico' %>` to application.html.erb
+  - put ico in app/assets/images
+
+
+
+* [ to-do ]------------------------------------------------------
 - click on a day with existing records brings the `record show page`
   + pop up a bootstrap modal with the record
   + show the record next to / below the calendar
@@ -97,7 +103,8 @@
 
 - [user show page] JS to screenshot
 - [welcome/index.html.erb] import news from other websites
-
+- Datetime diapley
+  https://gist.github.com/eduwass/4ee6b9de3c5013cbd3af
 - admin
 - friendly id
 

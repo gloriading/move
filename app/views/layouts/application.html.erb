@@ -3,14 +3,11 @@
   <head>
     <title> M O V E
       <% if current_user.present? %>
-      🌈 <%= current_user&.first_name %>
+      + <%= current_user&.first_name %>
       <% end %>
     </title>
     <%= csrf_meta_tags %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css">
-    <script type="text/javascript">
-      https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/js/mdb.min.js
-    </script>
+    <%= favicon_link_tag 'move.ico' %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
