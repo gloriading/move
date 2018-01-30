@@ -7,4 +7,11 @@ class Exercise < ApplicationRecord
 
   validates :name, presence: true
   validates :colour, presence: true
+
+  after_save :titleize
+
+  private
+  def titleize
+     self.name = name.titleize if name.present?
+  end
 end

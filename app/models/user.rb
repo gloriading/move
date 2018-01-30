@@ -13,5 +13,10 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-
+  before_save :capitalize
+  private
+  def capitalize
+    self.first_name.try(:capitalize!)
+    self.last_name.try(:capitalize!)
+  end
 end

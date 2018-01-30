@@ -72,6 +72,7 @@
 
 * simple form with cocoon
 
+
 * Include `simple calendar`
    - gem "simple_calendar", "~> 2.0"
    <!-- + *= require simple_calendar  -->

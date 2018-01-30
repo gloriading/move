@@ -4,7 +4,6 @@ class Record < ApplicationRecord
   has_many :exercises, through: :links
   accepts_nested_attributes_for :exercises, allow_destroy: true
 
-  # validates :date, presence: true
   validates :start_time, presence: true
 
 end
