@@ -93,10 +93,11 @@
 - in the new form, need to think about the logic to limit the number
   of added fields
 
-- in the new form, set a toggle so users do have to input daily
+- in the new form, set a toggle so users do NOT have to input daily
 
-- JS to screenshot
-- import news from other websites
+- [user show page] JS to screenshot
+- [welcome/index.html.erb] import news from other websites
+
 - admin
 - friendly id
 

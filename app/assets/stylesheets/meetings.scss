@@ -26,7 +26,7 @@
 
   .has-events {}
 }
-
+// user show page - calendar ----------------------------------
 td.day {
   cursor: pointer;
   padding:0 !important;
@@ -40,11 +40,14 @@ td.day {
 
 .inner-cell{
   flex-grow: 1;
+  // the following is to center the text inside a day
+  display:flex;
+  justify-content:center;
+  align-content:center;
+  flex-direction:column;
 }
 
-.day-cell{
-  // z-index: 2;
-}
+
 .all-records{
   display: none;
 }
