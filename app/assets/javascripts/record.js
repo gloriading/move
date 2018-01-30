@@ -50,14 +50,26 @@ $( document ).ready(function() {
 
 
 // clicking on area without exercise names brings a new form ----- note
-// the JS is in _month_calendar.html.erb
+// the JS is in `_month_calendar.html.erb`
+
+// Logic: window.location will be triggered only when the `target`
+//        is on `day-cell` or `cell`
+
+// $('td.day').on('click', function(e) {
+//   if (e.target.classList.contains('day-cell') ||
+//     e.target.classList.contains('cell')) {
+//     window.location = "<%= new_record_path %>?date=" + $(this).data('date');
+//   }
+// });
+
 
 // click on the record of a day will bring up the show page ------
 
   $('.inner-cell').click(function(e){
       e.stopPropagation();
-      const target = $(this).attr('data-target');
-      $(`[data-target="${target}"]`).click();
+      e.preventDefault();
+      const id = $(this).attr('id');
+      $(`[data-target="#modal-${id}"]`)[0].click();
       // let target = '[data-target="#modal-' + x + '"]';
       // console.log(target);
       // console.dir($(target).click())
@@ -76,7 +88,6 @@ $( document ).ready(function() {
   const r = $('.remove_fields');
   const a = $('.add_fields');
   let c = 1;
-
   $('#options').click(function (e) {
     if (e.target.classList.contains('remove_fields')) {
       c--;

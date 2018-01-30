@@ -35,8 +35,10 @@
 </div>
 
 <script type="text/javascript">
-  $('td.day').on('click', function() {
-    window.location = "<%= new_record_path %>?date=" + $(this).data('date');
+  $('td.day').on('click', function(e) {
+    if (e.target.classList.contains('day-cell') || e.target.classList.contains('cell')) {
+      window.location = "<%= new_record_path %>?date=" + $(this).data('date');
+    }
   });
 
 </script>

@@ -7,7 +7,7 @@
 
 
 <script type="text/javascript">
-    const allPairs = <%= raw @user_pair_string %>;
+    const allPairs = <%= raw @user_pair_string || {} %>;
     console.log(allPairs);
     let exercise;
     $('.exe').on('change', function(){

@@ -95,11 +95,14 @@
   + show the record next to / below the calendar
   ? (do not know how to put info related to clicked record in modal)
 
-- something wrong with the automatching colour scheme...
+- something wrong with the automatching colour scheme... still.........
 
 - in the new form,
   + providing a list of colours instead of using minicolors?
   + the logic to limit the number of added fields
+    - event delegation issues here
+    https://learn.jquery.com/events/event-delegation/
+
   + set a toggle so users do NOT have to input daily
 
 - [user show page]

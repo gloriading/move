@@ -7,17 +7,9 @@ class RecordsController < ApplicationController
       @record = Record.new(start_time: params[:date])
       @record.exercises.build
 
-      if user_signed_in?
-        user_pairs = {}
-        # all the exercise:colour pairs of a user
-        current_user.records.each do |r|
-          r.exercises.each do |e|
-            user_pairs[e.name] = e.colour
-          end
-        end
-        @user_pairs = user_pairs
-        @user_pair_string = user_pairs.to_json
-      end
+      get_user_pairs
+      # this is the helper method defined below private
+      # this has to be placed in create 'else' when new is rendered again
 
     end
 
@@ -29,6 +21,7 @@ class RecordsController < ApplicationController
         flash[:notice] = " ADDED!"
         redirect_to user_path(current_user)
       else
+        get_user_pairs
         render :new
       end
     end
@@ -79,6 +72,20 @@ class RecordsController < ApplicationController
       unless can?(:crud, @record)
         flash[:alert] = 'Access Denied!'
         redirect_to home_path
+      end
+    end
+
+    def get_user_pairs
+      if user_signed_in?
+        user_pairs = {}
+        # all the exercise:colour pairs of a user
+        current_user.records.each do |r|
+          r.exercises.each do |e|
+            user_pairs[e.name] = e.colour
+          end
+        end
+        @user_pairs = user_pairs
+        @user_pair_string = user_pairs.to_json
       end
     end
 
