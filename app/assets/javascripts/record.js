@@ -28,84 +28,57 @@ $( document ).ready(function() {
   });
 
 // Show/Hide date on a day-------------------------------------------
-// $('a').map((index, value) => $(value).html())
 
   $('.show-day').click(function(event){
     event.stopPropagation();
     $('.day-cell').toggle('3000');
+    // $('tr th').html("").toggle();
   });
 
-// click on the record of a day will bring up the show page (not yet...)
+// Show/Hide exercise name on a day---------------------------------
+  $('.show-exe').click(function(event){
+    event.stopPropagation();
+    $('.inner-cell span').toggle('3000');
+  });
 
-  // $('.has-events').children().click(function(event){
-  //     event.stopPropagation();
-  //     // add this to prevent from triggering the next js
-  //     const x = $(this).attr('id');
-  //     let target = '#show-' + x;
-  //     $(target).children()[0].click();
-  // })
-  // $('.inner-cell').children().click(function(event){
-  //     event.stopPropagation();
-  //
-  // })
-
-  // _month_calendar.html.erb
-  // not working ----------------but pass an id in path it works
-  // $('.inner-cell').on('click', function(event){
-  //   event.stopPropagation();
-  //     const recordId = parseInt($(this).attr('id'));
-  //     alert(typeof(recordId));
-  //     alert(recordId);
-  //     window.location = "<%= record_path(`${recordId}`) %>"
-  //   })
-
-
-// Limit how many fields can be added in new form ---------------------
-const r = $('.remove_fields');
-const a = $('.add_fields');
-let c = 1;
-
-a.click(function(){
-  c++;
-  console.log(c);
-  c >= 3 ? a.hide() : a.show()
-})
-
-r.click(function(){// only works for the first button
-  c--;
-  console.log(c);
-})
-
-
-//Click on a record to show modal---------------------------------
-
-// $('.abc').modal({ show: false})
-
-// $('.inner-cell').click(function(e){
-//     e.stopPropagation();
-//     const x = $(this).attr('id');
-//     console.log(x);
-//     // let target = '#show-' + x;
-//     // $(target).children()[0].click();
-//     const y = '#'+x;
-//     console.log(y);
-//     $(y).modal('show');
-//
-// });
-
-// $('.inner-cell').click(function(e){
-//     e.stopPropagation();
-//     console.log($(this).parent());
-//     console.log($(this).parent().find('#exampleModal'));
-//     $(this).parent().find('#exampleModal').modal('show');
-//
-// });
-
-// _form.html.erb--------------------------------
+// _form.html.erb--------------------------------------------------
 // click to toggle advanced options
   $('.show-adv-opt').click(function(){
     $('.advanced-options').toggle('slow');
   })
+
+
+// clicking on area without exercise names brings a new form -----
+// the JS is in _month_calendar.html.erb
+
+// click on the record of a day will bring up the show page ------
+
+  $('.inner-cell').click(function(e){
+      e.stopPropagation();
+      const x = $(this).attr('id');
+      let target = '#show-' + x;
+      $(target).children()[0].click();
+  });
+
+//
+// Limit how many fields can be added in new form ----------------?????
+  const r = $('.remove_fields');
+  const a = $('.add_fields');
+  let c = 1;
+
+  a.click(function(){
+    c++;
+    console.log(c);
+    c >= 3 ? a.hide() : a.show()
+  })
+
+  r.click(function(){// only works for the first button
+    c--;
+    console.log(c);
+  })
+
+
+
 
 
 
