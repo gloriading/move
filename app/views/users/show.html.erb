@@ -1,52 +1,63 @@
 <div class="container">
-  <h1>user show</h1>
-  <h4><%=@user.full_name %> </h4>
-<!-- Calendar ---------------------------------------------------->
-<%# Error: undefined method `start_time' for #<Record:0x00007ff5405b3118> %>
-<%# solution: add a new column name `start_time` on record but the record %>
 
-  <%= month_calendar events: @user_records do |date, user_records| %>
-    <div class="cell">
-      <div class="day-cell">
-        <%= date.day %>
-      </div>
-      <% user_records.each do |r| %>
-          <% r.exercises.each do |e| %>
-            <div id="<%= r.id %>"
-              class="inner-cell text-center"
-              data-target="#show-<%= r.id %>"
-              style="background-color:<%= e.colour %>;">
-              <span><%= e.name %></span>
+  <div class="row mt-3">
+    <div class="col-sm-9">
+      <!-- Calendar ---------------------------------------------------->
+      <%# Error: undefined method `start_time' for #<Record:0x00007ff5405b3118> %>
+      <%# solution: add a new column name `start_time` on record but the record %>
+
+        <%= month_calendar events: @user_records do |date, user_records| %>
+          <div class="cell">
+            <div class="day-cell">
+              <%= date.day %>
             </div>
-<%# MODAL below ------------------------------------------------%>
-            <div class="modal fade" id="modal-<%= r.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+            <% user_records.each do |r| %>
+                <% r.exercises.each do |e| %>
+                  <div id="<%= r.id %>"
+                    class="inner-cell text-center"
+                    data-target="#show-<%= r.id %>"
+                    style="background-color:<%= e.colour %>;">
+                    <span><%= e.name %></span>
                   </div>
-                  <div class="modal-body">
-                    <h5><%= link_to 'This Record', record_path(r)%></h5>
-                    <%= r.id %>
+    <%# MODAL below ------------------------------------------------%>
+                  <div class="modal fade" id="modal-<%= r.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+
+                      <div class="modal-content show-modal">
+                        <button type="button" class="close ml-auto mr-3 mt-1" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true" style="color:white;">&times;</span>
+                        </button>
+                          <h5 class="modal-title ml-2" id="exampleModalLongTitle">
+                            <%= r.id %>
+                          </h5>
+                        <div class="modal-body">
+                          <h5><%= link_to 'edit this record', record_path(r)%></h5>
+                        </div>
+                      </div>
+
+                    </div>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-<%# MODAL above------------------------------------------------%>
-          <% end %>
-      <% end %>
+    <%# MODAL above------------------------------------------------%>
+                <% end %>
+            <% end %>
+
+          </div>
+        <% end %>
 
     </div>
-  <% end %>
-<button class="btn btn-info btn-sm btn-block mb-4 show-day">Toggle Day</button>
-<button class="btn btn-info btn-sm btn-block mb-4 show-exe">Toggle exercise</button>
+    <div class="col-sm-3">
+      <h5>user show</h5>
+      <h4><%=@user.full_name %> </h4>
+
+      <button class="btn btn-info btn-sm btn-block mb-4 show-day">
+        Toggle Day
+      </button>
+      <button class="btn btn-info btn-sm btn-block mb-4 show-exe">
+        Toggle exercise
+      </button>
+
+    </div>
+  </div>
 
 
 

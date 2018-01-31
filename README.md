@@ -86,14 +86,14 @@
   - `<%= favicon_link_tag 'move.ico' %>` to application.html.erb
   - put ico in app/assets/images
 
+* click on a day with existing records brings up a modal
 
 
-* [ to-do ]------------------------------------------------------
-
-- click on a day with existing records brings the `record show page`
-  + pop up a bootstrap modal with the record
-  + show the record next to / below the calendar
-  ? (do not know how to put info related to clicked record in modal)
+* [ to-do / question]------------------------------------------------
+- Want to use simple form error messages for sign in page .. how
+- fix all flash messages
+- click on a day with existing records brings up a modal
+  - in the model put the record and a link to edit
 
 - something wrong with the automatching colour scheme... still.........
 
@@ -107,6 +107,7 @@
 
 - [user show page]
   + JS to screenshot
+
 - [welcome/index.html.erb]
   + import news from other websites
 

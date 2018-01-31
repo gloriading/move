@@ -1,19 +1,20 @@
 
-<div class="container mt-3">
+<div class="container">
+  <div class="card mt-3 form-card">
 
-  <%= form_for :session, url: session_path do |f| %>
+    <%= simple_form_for :session, url: session_path do |f| %>
+    <div class="card-body">
+      <%= f.input :email,
+          label: false,
+          input_html: {placeholder: "Email"} %>
+      <%= f.input :password,
+          label: false,
+          input_html: {placeholder: "Password"} %>
 
-    <div>
-      <%= f.email_field :email,
-        class: "form-control mb-1",
-        placeholder: "Email" %>
+      <%= f.submit 'SIGN IN',
+          class: "btn btn-primary btn-sm btn-block dark-blue-btn" %>
     </div>
-    <div>
-      <%= f.password_field :password,
-        class: "form-control mb-1",
-        placeholder: "Password" %>
-    </div>
-    <%= f.submit 'Sign In', class: "btn btn-primary btn-sm"  %>
-  <% end %>
 
+    <% end %>
+  </div>
 </div>

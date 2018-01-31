@@ -58,7 +58,54 @@ td.day {
   display: block !important;
 }
 
+.show-day, .show-exe{
+  border-radius: 20px !important;
+}
 // Form related -------------------------------------------
 .advanced-options{
   display:none;
 }
+// Form Error Messages
+ .has-error > .help-block {
+   color:darkblue;
+   font-size: 0.8em;
+   font-weight: bold;
+ }
+// Sign Up Form
+.form-card{
+  width: 40vw;
+  box-shadow: 0 8px 6px -6px black;
+}
+// Form button
+.dark-blue-btn{
+  border-radius: 30px !important;
+  background-color: MEDIUMBLUE !important;
+}
+.dark-blue-btn:hover{
+  background-color: DARKBLUE !important;
+}
+
+//-----------------------------------------------------------------
+// Modal
+.show-modal{
+  background-color: NAVY !important;
+  opacity: 0.8;
+  color: white !important;
+  width: 300px !important;
+  height: 300px !important;
+  box-shadow: 0 8px 6px -6px black;
+  padding: 5px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//
