@@ -90,8 +90,8 @@
 
 
 * [ to-do / question]------------------------------------------------
-- Want to use simple form error messages for sign in page .. how
-- fix all flash messages
+- Want to use `simple form error messages for sign in page`
+- fix all` flash messages`
 - click on a day with existing records brings up a modal
   - in the model put the record and a link to edit
 
@@ -111,10 +111,24 @@
 - [welcome/index.html.erb]
   + import news from other websites
 
+- add minimun width to calendar
+
 - Datetime diapley
   https://gist.github.com/eduwass/4ee6b9de3c5013cbd3af
 - admin
 - friendly id
+
+* Statistics
+
+- all records for a user (u): u.records
+- all exercise-colour pairs
+all_exercise ={}
+u.records.each do |r|
+  r.exercises do |e|
+    all_exercise.e.name = e.colour
+  end
+end
+
 
 
 

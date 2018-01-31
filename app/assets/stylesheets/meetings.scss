@@ -47,7 +47,6 @@ td.day {
   flex-direction:column;
 }
 
-
 .all-records{
   display: none;
 }
@@ -84,7 +83,13 @@ td.day {
 .dark-blue-btn:hover{
   background-color: DARKBLUE !important;
 }
-
+// Record form
+.record-card{
+  width: 40vw;
+  padding:15px;
+  border: 1px solid CORNFLOWERBLUE;
+  box-shadow: 0 8px 16px -6px black;
+}
 //-----------------------------------------------------------------
 // Modal
 .show-modal{

@@ -1,19 +1,26 @@
-<%= simple_form_for @record do |f| %>
-  <%= f.input :start_time, label:"Date", required: false %>
+<div class="record-card">
 
-  <div id="options">
-    <%= f.simple_fields_for :exercises do |opt| %>
-      <%= render 'exercise_fields', f: opt %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association ' + exercise', f, :exercises, class:"btn btn-dark btn-sm mt-1"  %>
+  <%= simple_form_for @record do |f| %>
+    <%= f.input :start_time, label:"Date", required: false %>
+
+    <div id="options">
+      <%= f.simple_fields_for :exercises do |opt| %>
+        <%= render 'exercise_fields', f: opt %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association ' + exercise', f, :exercises, class:"btn btn-dark btn-sm mt-1"  %>
+      </div>
     </div>
-  </div>
-  <p class="show-adv-opt mt-2">Click me to show more options</p>
-  <div class="advanced-options">
-    <%= f.input :duration , input_html: {class: 'duration-box'}%>
-    <%= f.input :note %>
-  </div>
+    <p class=""></p>
+    <button type="button" class="show-adv-opt my-2 btn btn-light btn-sm">
+      Click me to show/hide advanced options
+    </button>
+    <div class="advanced-options">
+      <%= f.input :duration , input_html: {class: 'duration-box'}%>
+      <%= f.input :note %>
+    </div>
 
-  <%= f.submit class: 'btn btn-primary btn-sm btn-block' %>
-<% end %>
+    <%= f.submit class: 'btn btn-primary btn-sm btn-block' %>
+  <% end %>
+
+</div>
