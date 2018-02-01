@@ -88,10 +88,26 @@
 
 * click on a day with existing records brings up a modal
 
+* News Feed
+  - gem 'feedjira' (http://feedjira.com/)
+  - create app/services/feed_builder.rb
+    (Use a method to convert incoming data into an array)
+
+
+* in session/new.html.erb, user custom flash messages
+      <%= flash[:alert].present? ? flash[:alert] : nil %>
+
+
+
 
 * [ to-do / question]------------------------------------------------
-- Want to use `simple form error messages for sign in page`
-- fix all` flash messages`
+- after changing format of record form, the autocomplete does not work
+- when render the new record form , when i click on exercise input field
+  the `- exercise` tab disappears. want to make it not appeared in the first place
+- get rid of unnecessary gems
+
+- add custom flash messages!
+
 - click on a day with existing records brings up a modal
   - in the model put the record and a link to edit
 

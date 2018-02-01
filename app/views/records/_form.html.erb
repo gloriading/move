@@ -1,7 +1,10 @@
 <div class="record-card">
 
   <%= simple_form_for @record do |f| %>
-    <%= f.input :start_time, label:"Date", required: false %>
+    <%= @record.start_time.strftime("%A, %B %d, %Y") %>
+    <%= f.input :start_time, as: :time,
+        input_html: {class: "time-format"},
+        label:"Time", required: false %>
 
     <div id="options">
       <%= f.simple_fields_for :exercises do |opt| %>

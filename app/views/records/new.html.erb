@@ -18,7 +18,11 @@
       for (let p in allPairs){
         if(p == exercise){
           console.log("match!");
-          $(this).parent().next().find("#mini").val(allPairs[p]);
+          const mini = $(this).parents('.nested-fields').find('#mini');
+          console.log(mini);
+          console.log(mini.val('red'));
+
+          // $(this).parent().next().find("#mini").val(allPairs[p]);
         }
       }
     })

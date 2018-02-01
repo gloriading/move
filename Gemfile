@@ -49,6 +49,7 @@ gem "font-awesome-rails"
 gem "kaminari" # for pagination
 gem 'chosen-rails'
 gem 'active_model_serializers'
+gem 'feedjira'
 
 group :development, :test do
   gem 'rails-controller-testing'

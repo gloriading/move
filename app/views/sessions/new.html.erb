@@ -11,6 +11,9 @@
           label: false,
           input_html: {placeholder: "Password"} %>
 
+
+      <%= flash[:alert].present? ? flash[:alert] : nil %>
+
       <%= f.submit 'SIGN IN',
           class: "btn btn-primary btn-sm btn-block dark-blue-btn" %>
     </div>
