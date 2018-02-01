@@ -39,7 +39,6 @@
 
 - Nested form on `_form.html.erb`
 
-
 - Association: colour and exercises
   + rails g model colour name
   + rails g migration add_colour_to_exercises colour:references
@@ -70,8 +69,7 @@
 * colour picker
   - gem 'jquery-minicolors-rails'
 
-* simple form with cocoon
-
+* simple form with cocoon gem
 
 * Include `simple calendar`
    - gem "simple_calendar", "~> 2.0"
@@ -87,6 +85,12 @@
   - put ico in app/assets/images
 
 * click on a day with existing records brings up a modal
+
+* Screenshot (https://github.com/mgrachev/gastly)
+  - gem 'gastly'
+  - gem 'mini_magick'
+  - rails g controller screens --no-assets --no-helper
+  - define a helper method in applicationi heler
 
 * News Feed
   - gem 'feedjira' (http://feedjira.com/)

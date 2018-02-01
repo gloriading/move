@@ -2,8 +2,8 @@ class FeedBuilder
   attr_accessor :user
 
   # FEED_URL = "http://www.healthworksfitness.com/feed"
-  # FEED_URL = "https://www.nataliejillfitness.com/feed"
-  FEED_URL = "http://feeds.feedburner.com/anytimefitnessofficial"
+  FEED_URL = "https://www.nataliejillfitness.com/feed"
+  # FEED_URL = "http://feeds.feedburner.com/anytimefitnessofficial"
 
   def initialize(user)
     @user = user
@@ -27,4 +27,12 @@ class FeedBuilder
     end
   end
 
+  def first
+    begin
+      parsed_feed = Feedjira::Feed.fetch_and_parse(FEED_URL)
+      parsed_feed.entries.sample
+    rescue 
+      {}
+    end
+  end
 end

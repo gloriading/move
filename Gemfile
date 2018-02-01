@@ -39,6 +39,9 @@ gem 'jquery-minicolors-rails'
 gem 'simple_form'
 gem 'cocoon'
 gem "simple_calendar", "~> 2.0"
+gem 'gastly'
+gem 'mini_magick'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

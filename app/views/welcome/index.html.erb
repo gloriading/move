@@ -1,17 +1,26 @@
 
   <div class="container-fluid home">
-    <% if user_signed_in? %>
-      <%# FeedBuilder.new(current_user).feed returns an array of objects %>
+
+    <div class="container news">
+      <% if user_signed_in? %>
+
+
+      <%# x = FeedBuilder.new(current_user).first %>
+      <%#= link_to x[:title], x[:url]%>
+      <%#= FeedBuilder.new(current_user).first[:content].html_safe %>
+
+
       <% FeedBuilder.new(current_user).feed.each do |entry| %>
+      <%# FeedBuilder.new(current_user).feed returns an array of objects %>
         <div>
           <%= entry[:title] %>
           <%= link_to "link", entry[:url] %>
-          <%#= entry[:content].html_safe %>
+          <%# entry[:content].html_safe %>
+          <%# entry[:content] %>
         </div>
       <% end %>
 
-      <h1> this is what signed-in users will see... </h1>
-      <h3> information about exercise.. news feed </h3>
+    </div>
 
     <% else %>
       <h1 class="display-2 ml-3 my-0">move</h1>

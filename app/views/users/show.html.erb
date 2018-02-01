@@ -55,17 +55,22 @@
       <button class="btn btn-info btn-sm btn-block mb-4 show-exe">
         Toggle exercise
       </button>
-      <!-- <button class="btn btn-warning btn-sm btn-block mb-4 show-exe">
-        Screenshot
-      </button> -->
 
-    <%= link_to 'Screenshot', about_path,
+    <%= link_to 'Screenshot', screenshot_path,
       class:"btn btn-warning btn-sm btn-block mb-4 show-exe"%>
 
     </div>
   </div>
 
 
+<%#-Show Screenshot Picture----------------------------------------------%>
+  <div class="my-5">
+    <% if asset_exists?('calendar_image.png') %>
+      <img src="<%= asset_path('calendar_image.png') %>" >
+    <% else %>
+      <small>No image exists</small>
+    <% end %>
+  </div>
 
 <%#-HIDDEN------------------------------------------------------------%>
 
