@@ -107,14 +107,21 @@
 
 
 * [ to-do / question]------------------------------------------------
-- loading animation when something loads in the background
+- when render the new record form , when i click on exercise input field
+the `- exercise` tab disappears. want to make it not appeared in the first place
+
+- click on a record in the previous month, the modal shows but freezes
+(opacity thing)
+
+- after changing format of record form, the autocomplete does not work
 
 - font awesome does not work ( `_month_calendar.html.erb` )
-- after changing format of record form, the autocomplete does not work
-- when render the new record form , when i click on exercise input field
-  the `- exercise` tab disappears. want to make it not appeared in the first place
+
 - news feed, articles with Pictures, the pictures sometimes will become very big
 
+- loading animation when something loads in the background
+
+- add `choose another date` to the record form
 - get rid of unnecessary gems
 
 - add custom flash messages!

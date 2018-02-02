@@ -26,7 +26,7 @@ $( document ).ready(function() {
   	setTimeout(function(){
   		$('.nested-fields #mini').minicolors();
       }, 10);
-  }); 
+  });
 
 // Show/Hide date on a day-------------------------------------------
 
@@ -85,9 +85,15 @@ $( document ).ready(function() {
 
 // Limit how many fields can be added in new form ------------
 // event delegation
+
+// The first remove button will never shown
   const r = $('.remove_fields');
   const a = $('.add_fields');
   let c = 1;
+  r.hide();
+
+// click on the parent ( #options ) and check if the actual thing we clicked on
+// i.e. the 'target' has the class 'remove_fields' or 'add_fields'
   $('#options').click(function (e) {
     if (e.target.classList.contains('remove_fields')) {
       c--;
@@ -97,7 +103,6 @@ $( document ).ready(function() {
     }
     console.log(c);
     c >= 3 ? a.hide() : a.show();
-    c <= 1 ? r.hide() : r.show();
   })
 
 // -----------------------------------------------------------------

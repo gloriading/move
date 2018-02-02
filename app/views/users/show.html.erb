@@ -72,8 +72,16 @@
       </button>
 
     <%= link_to 'Screenshot', screenshot_path,
-      class:"btn btn-warning btn-sm btn-block mb-4 screenshot"%>
-
+      class:"btn btn-warning btn-sm btn-block mb-4 screenshot" %>
+      <script>
+        document.querySelector('a.screenshot').addEventListener('click', ()=>{
+          document.querySelector('body').innerHTML =
+          `<div class="spinner">
+            <div class="cube1"></div>
+            <div class="cube2"></div>
+          </div>`
+        })
+      </script>
     </div>
   </div>
 
