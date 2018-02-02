@@ -5,7 +5,7 @@ class FeedBuilder
   FEED_URL = "https://www.nataliejillfitness.com/feed"
   # FEED_URL = "http://feeds.feedburner.com/anytimefitnessofficial"
 
-  def initialize(user)
+  def initialize(user) # can tailor for each user later
     @user = user
   end
 

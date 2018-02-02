@@ -1,32 +1,34 @@
 
   <div class="container-fluid home">
 
-      <% if user_signed_in? %>
-      <div class="container news">
+    <% if user_signed_in? %>
+    <% if @feeds.present? %>
+        <div class="container news">
 
-        <div class="content-list-container">
-          <h5>Natalie Jill Fitness</h5>
-            <% FeedBuilder.new(current_user).feed.each do |entry, index| %>
-            <%# FeedBuilder.new(current_user).feed returns an array of objects %>
-            <div class="content-list">
-                <%= entry[:title] %>
-                <%= link_to "  Read", entry[:url], target: "_blank" %>
-            </div>
-                <%# entry[:content].html_safe %>
-                <%# entry[:content] %>
-            <% end %>
+          <div class="content-list-container">
+            <h5>Natalie Jill Fitness</h5>
+              <%# FeedBuilder.new(current_user).feed.each do |entry, index| %>
+              <% @feeds.each do |entry, index| %>
+              <%# FeedBuilder.new(current_user).feed returns an array of objects %>
+              <div class="content-list">
+                  <%= entry[:title] %>
+                  <%= link_to "  Read", entry[:url], target: "_blank" %>
+              </div>
+                  <%# entry[:content].html_safe %>
+                  <%# entry[:content] %>
+              <% end %>
+          </div>
+
+          <div class="full-content">
+            <% article = @feeds.sample %>
+            <%= article[:title]%>
+            <%= article[:content].html_safe%>
+          </div>
+
         </div>
-
-        <div class="full-content">
-          <% article = FeedBuilder.new(current_user).feed.sample %>
-          <%= article[:title]%>
-          <%= article[:content].html_safe%>
-        </div>
-
-
-
-      </div>
-
+        <% else %>
+        No Internet.
+        <% end %>
     <% else %>
       <h1 class="display-2 ml-3 my-0">move</h1>
       <h1 class="display-4 ml-3" style="display: none;">to make a difference</h1>
