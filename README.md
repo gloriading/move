@@ -90,7 +90,9 @@
   - gem 'gastly'
   - gem 'mini_magick'
   - rails g controller screens --no-assets --no-helper
-  - define a helper method in applicationi heler
+  - define a helper method in application heler
+  ?! takes several seconds to take the screenshot, so add a loading image 
+  ? when target a specific part..it does not work
 
 * News Feed
   - gem 'feedjira' (http://feedjira.com/)

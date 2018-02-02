@@ -31,7 +31,22 @@
                             <%= r.id %>
                           </h5>
                         <div class="modal-body">
-                          <h5><%= link_to 'edit this record', record_path(r)%></h5>
+                          <% if can?(:crud, r) %>
+                              <p>
+                                <%= link_to "edit",
+                                edit_record_path(r),
+                                class:"btn btn-light btn-sm" %>
+                                <%= link_to(
+                                     'delete',
+                                     record_path(r),
+                                     class:"btn btn-light btn-sm",
+                                     method: :delete,
+                                     data: {confirm: 'Are you sure?'}
+                                   )
+                                %>
+                              </p>
+                          <% end %>
+
                         </div>
                       </div>
 
@@ -57,7 +72,7 @@
       </button>
 
     <%= link_to 'Screenshot', screenshot_path,
-      class:"btn btn-warning btn-sm btn-block mb-4 show-exe"%>
+      class:"btn btn-warning btn-sm btn-block mb-4 screenshot"%>
 
     </div>
   </div>
@@ -65,8 +80,8 @@
 
 <%#-Show Screenshot Picture----------------------------------------------%>
   <div class="my-5">
-    <% if asset_exists?('calendar_image.png') %>
-      <img src="<%= asset_path('calendar_image.png') %>" >
+    <% if asset_exists?('test.png') %>
+      <img src="<%= asset_path('test.png') %>" >
     <% else %>
       <small>No image exists</small>
     <% end %>

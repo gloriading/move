@@ -40,7 +40,7 @@ class RecordsController < ApplicationController
 
     def update
       if @record.update record_params
-        redirect_to record_path(@record)
+        redirect_to user_path(@record.user)
       else
         render :edit
       end
