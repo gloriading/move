@@ -92,7 +92,7 @@
   - rails g controller screens --no-assets --no-helper
   - define a helper method in application heler
   ?! takes several seconds to take the screenshot, so add a loading image
-  ? when target a specific part..it does not work
+  ?? how to make a screenshot from previous month
 
 * News Feed
   - gem 'feedjira' (http://feedjira.com/)
@@ -107,17 +107,18 @@
 
 
 * [ to-do / question]------------------------------------------------
+- loading animation when something loads in the background
+
 - font awesome does not work ( `_month_calendar.html.erb` )
 - after changing format of record form, the autocomplete does not work
 - when render the new record form , when i click on exercise input field
   the `- exercise` tab disappears. want to make it not appeared in the first place
 - news feed, articles with Pictures, the pictures sometimes will become very big
+
 - get rid of unnecessary gems
 
 - add custom flash messages!
 
-- click on a day with existing records brings up a modal
-  - in the model put the record and a link to edit
 
 - something wrong with the automatching colour scheme... still.........
 
