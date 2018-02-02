@@ -27,12 +27,4 @@ class FeedBuilder
     end
   end
 
-  def first
-    begin
-      parsed_feed = Feedjira::Feed.fetch_and_parse(FEED_URL)
-      parsed_feed.entries.sample
-    rescue 
-      {}
-    end
-  end
 end

@@ -91,7 +91,7 @@
   - gem 'mini_magick'
   - rails g controller screens --no-assets --no-helper
   - define a helper method in application heler
-  ?! takes several seconds to take the screenshot, so add a loading image 
+  ?! takes several seconds to take the screenshot, so add a loading image
   ? when target a specific part..it does not work
 
 * News Feed
@@ -107,9 +107,11 @@
 
 
 * [ to-do / question]------------------------------------------------
+- font awesome does not work ( `_month_calendar.html.erb` )
 - after changing format of record form, the autocomplete does not work
 - when render the new record form , when i click on exercise input field
   the `- exercise` tab disappears. want to make it not appeared in the first place
+- news feed, articles with Pictures, the pictures sometimes will become very big
 - get rid of unnecessary gems
 
 - add custom flash messages!
@@ -120,6 +122,7 @@
 - something wrong with the automatching colour scheme... still.........
 
 - in the new form,
+  + colour autocomplete only works for the first pair
   + providing a list of colours instead of using minicolors?
   + the logic to limit the number of added fields
     - event delegation issues here

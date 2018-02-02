@@ -1,26 +1,31 @@
 
   <div class="container-fluid home">
 
-    <div class="container news">
       <% if user_signed_in? %>
+      <div class="container news">
 
-
-      <%# x = FeedBuilder.new(current_user).first %>
-      <%#= link_to x[:title], x[:url]%>
-      <%#= FeedBuilder.new(current_user).first[:content].html_safe %>
-
-
-      <% FeedBuilder.new(current_user).feed.each do |entry| %>
-      <%# FeedBuilder.new(current_user).feed returns an array of objects %>
-        <div>
-          <%= entry[:title] %>
-          <%= link_to "link", entry[:url] %>
-          <%# entry[:content].html_safe %>
-          <%# entry[:content] %>
+        <div class="content-list-container">
+          <h5>Natalie Jill Fitness</h5>
+            <% FeedBuilder.new(current_user).feed.each do |entry, index| %>
+            <%# FeedBuilder.new(current_user).feed returns an array of objects %>
+            <div class="content-list">
+                <%= entry[:title] %>
+                <%= link_to "  Read", entry[:url], target: "_blank" %>
+            </div>
+                <%# entry[:content].html_safe %>
+                <%# entry[:content] %>
+            <% end %>
         </div>
-      <% end %>
 
-    </div>
+        <div class="full-content">
+          <% article = FeedBuilder.new(current_user).feed.sample %>
+          <%= article[:title]%>
+          <%= article[:content].html_safe%>
+        </div>
+
+
+
+      </div>
 
     <% else %>
       <h1 class="display-2 ml-3 my-0">move</h1>

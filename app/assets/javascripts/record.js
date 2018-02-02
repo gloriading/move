@@ -26,7 +26,7 @@ $( document ).ready(function() {
   	setTimeout(function(){
   		$('.nested-fields #mini').minicolors();
       }, 10);
-  });
+  }); 
 
 // Show/Hide date on a day-------------------------------------------
 
@@ -63,7 +63,7 @@ $( document ).ready(function() {
 // });
 
 
-// click on the record of a day will bring up the show page ------
+// click on the record of a day will bring up a modal -----------------
 
   $('.inner-cell').click(function(e){
       e.stopPropagation();

@@ -1,10 +1,16 @@
 <div class="record-card">
 
   <%= simple_form_for @record do |f| %>
-    <%= @record.start_time.strftime("%A, %B %d, %Y") %>
-    <%= f.input :start_time, as: :time,
-        input_html: {class: "time-format"},
-        label:"Time", required: false %>
+    <div class="row">
+      <div class="col-sm-6">
+          <%= @record.start_time.strftime("%A, %B %d, %Y") %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.input :start_time, as: :time,
+            input_html: {class: "time-format"},
+            label: false, required: false %>
+      </div>
+    </div>
 
     <div id="options">
       <%= f.simple_fields_for :exercises do |opt| %>
@@ -16,7 +22,7 @@
     </div>
     <p class=""></p>
     <button type="button" class="show-adv-opt my-2 btn btn-light btn-sm">
-      Click me to show/hide advanced options
+      Show/Hide advanced options
     </button>
     <div class="advanced-options">
       <%= f.input :duration , input_html: {class: 'duration-box'}%>

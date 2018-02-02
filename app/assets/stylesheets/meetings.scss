@@ -26,7 +26,8 @@
 
   .has-events {}
 }
-// user show page - calendar ----------------------------------
+//  -----------------------------------------user show page - calendar
+
 td.day {
   cursor: pointer;
   padding:0 !important;
@@ -45,36 +46,61 @@ td.day {
   justify-content:center;
   align-content:center;
   flex-direction:column;
-}
-
-.all-records{
-  display: none;
-}
-.colour-box{
-  height: 30px !important;
-}
-.colour-label{
-  display: block !important;
+  font-size: 12px;
+  color:white;
 }
 
 .show-day, .show-exe, .screenshot{
   border-radius: 20px !important;
 }
-// Form related -------------------------------------------
+
+.all-records{
+  display: none;
+}
+// Modal
+.show-modal {
+  background-color: NAVY !important;
+  opacity: 0.8;
+  color: white !important;
+  width: 250px !important;
+  height: 250px !important;
+  box-shadow: 0 8px 6px -6px black;
+  padding: 5px;
+
+}
+
+// --------------------------------------------------  Record Form
+.record-card{
+  width: 40vw;
+  padding:15px;
+  border: 1px solid CORNFLOWERBLUE;
+  box-shadow: 0 8px 16px -6px black;
+}
+
+.colour-box{
+  height: 35px !important;
+  // width: 100px !important;
+}
+.colour-label{
+  display: block !important;
+}
 .advanced-options{
   display:none;
 }
+
 // Form Error Messages
  .has-error > .help-block {
    color:darkblue;
    font-size: 0.8em;
    font-weight: bold;
  }
+
 // Sign Up Form
 .form-card{
   width: 40vw;
   box-shadow: 0 8px 6px -6px black;
 }
+
 // Form button
 .dark-blue-btn{
   border-radius: 30px !important;
@@ -83,32 +109,35 @@ td.day {
 .dark-blue-btn:hover{
   background-color: DARKBLUE !important;
 }
-// Record form
-.record-card{
-  width: 40vw;
-  padding:15px;
-  border: 1px solid CORNFLOWERBLUE;
-  box-shadow: 0 8px 16px -6px black;
+
+
+
+// Article in welcome/index.html.erb ---------------------------------
+.full-content {
+  margin-top: 30px;
+  padding:10px;
+  border: 1px dashed #154360;
+  background-color: whitesmoke;
 }
+.content-list-container{
+  margin-top: 10px;
+
+}
+
+
+// ------------------------------------------------------------------------
+// About page
+  .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: DodgerBlue;
+      color: white;
+      text-align: center;
+  }
+  
 //-----------------------------------------------------------------
-// Modal
-.show-modal{
-  background-color: NAVY !important;
-  opacity: 0.8;
-  color: white !important;
-  width: 300px !important;
-  height: 300px !important;
-  box-shadow: 0 8px 6px -6px black;
-  padding: 5px;
-
-}
-
-
-
-
-
-
-
 
 
 
