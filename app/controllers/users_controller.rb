@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+layout 'content'
 # sign up page-------------------------------------------------------------
   def new
     @user = User.new
@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @user_records = @user.records.order(created_at: :desc)
     @record = Record.new
   end
+
 
 
   private

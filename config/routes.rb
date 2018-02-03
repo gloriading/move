@@ -1,7 +1,7 @@
 
 Rails.application.routes.draw do
 
-  resources :meetings
+resources :meetings
 get('/', {to: 'welcome#index', as: :home})
 get('/about', {to: 'about#index', as: :about})
 

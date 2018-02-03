@@ -15,11 +15,12 @@ class ScreensController < ApplicationController
 
 # in recore index page produces a mock calendar for capturing picture..NOT working
     # @screenshot = Gastly.screenshot("http://localhost:3000/records")
-    # @screenshot.selector = '#main'
+    # @screenshot.selector = '.test-box'
+    # @screenshot.selector = '.simple-calendar'
     # @image = @screenshot.capture
     # @image.resize(width: 600, height: 600)
-    #
-    # if @image.save('app/assets/images/test.png')
+
+    # if @image.save('app/assets/images/test1.png')
     #   redirect_to user_path(current_user)
     # end
 
