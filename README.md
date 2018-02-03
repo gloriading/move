@@ -12,17 +12,17 @@
 - Link:
   + rails g model link record:references exercise:references
 
-[in exercise.rb]
-  has_many :links, dependent: :destroy
-  has_many :records, through: :links
+  [in exercise.rb]
+    has_many :links, dependent: :destroy
+    has_many :records, through: :links
 
-[in link.rb]
-  belongs_to :record
-  belongs_to :exercise
+  [in link.rb]
+    belongs_to :record
+    belongs_to :exercise
 
-[in record.rb]
-  has_many :links, dependent: :destroy
-  has_many :exercises, through: :links
+  [in record.rb]
+    has_many :links, dependent: :destroy
+    has_many :exercises, through: :links
 
 - User:
   + rails g model user first_name last_name email password_digest
@@ -91,35 +91,39 @@
   - gem 'mini_magick'
   - rails g controller screens --no-assets --no-helper
   - define a helper method in application heler
-  ?! takes several seconds to take the screenshot, so add a loading image
+  - takes several seconds to take the screenshot, so add a loading image
   ?? how to make a screenshot from previous month
 
 * News Feed
   - gem 'feedjira' (http://feedjira.com/)
   - create app/services/feed_builder.rb
     (Use a method to convert incoming data into an array)
+  ?? how to let the image/ video content stay within the parent container
+  <!-- $('img').css({"width": "50%", "height": "50%"}); -->
 
 
 * in session/new.html.erb, user custom flash messages
       <%= flash[:alert].present? ? flash[:alert] : nil %>
 
+[solved]
 
-
-
-* [ to-do / question]------------------------------------------------
 - when render the new record form , when i click on exercise input field
-the `- exercise` tab disappears. want to make it not appeared in the first place
+the `- exercise` tab disappears. want to make it not appeared in the first place [ok]
 
-- click on a record in the previous month, the modal shows but freezes
+- click on a record in the previous month, the modal shows but freezes [ok]
 (opacity thing)
+
+
+* [ to-do / question] ********************************************
+
 
 - after changing format of record form, the autocomplete does not work
 
-- font awesome does not work ( `_month_calendar.html.erb` )
+- font awesome does not work ( `_month_calendar.html.erb` ) [check!!!!!]
 
 - news feed, articles with Pictures, the pictures sometimes will become very big
 
-- loading animation when something loads in the background
+- loading animation when something loads in the background [ok]
 
 - add `choose another date` to the record form
 - get rid of unnecessary gems

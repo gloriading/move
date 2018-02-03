@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="row mt-3">
-    <div class="col-sm-9">
+    <div class="col-lg-9">
       <!-- Calendar ---------------------------------------------------->
       <%# Error: undefined method `start_time' for #<Record:0x00007ff5405b3118> %>
       <%# solution: add a new column name `start_time` on record but the record %>
@@ -60,9 +60,14 @@
         <% end %>
 
     </div>
-    <div class="col-sm-3">
-      <h5>user show</h5>
-      <h4><%=@user.full_name %> </h4>
+
+<%# User Info & Buttons ------------------------------------------------------%>
+    <div class="col-lg-3">
+      <div class="user-info">
+        <h5>user show</h5>
+        <span class="user_icon"><i class="fa fa-user"></i>   <%=@user.first_name %></span>
+      </div>
+
 
       <button class="btn btn-info btn-sm btn-block mb-4 show-day">
         Toggle Day

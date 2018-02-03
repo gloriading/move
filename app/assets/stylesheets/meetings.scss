@@ -68,7 +68,22 @@ td.day {
   padding: 5px;
 
 }
-// Loading animation 
+// user_icon
+.user_icon{
+  font-size: 20px;
+}
+
+.user-info{
+  margin-bottom: 30px;
+  text-align: right;
+}
+// calendar heading
+.calendar-heading > a{
+  text-decoration: none;
+  font-size: 20px;
+  color:DARKBLUE;
+}
+// Loading animation
 
 .spinner {
   margin: 100px auto;
