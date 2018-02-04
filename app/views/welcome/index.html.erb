@@ -22,7 +22,9 @@
           <div class="full-content">
             <% article = @feeds.sample %>
             <%= article[:title]%>
-            <%= article[:content].html_safe%>
+            <div class="" style="width:50%;">
+              <%= article[:content].html_safe%>
+            </div>
           </div>
 
         </div>

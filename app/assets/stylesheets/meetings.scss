@@ -179,7 +179,11 @@ td.day {
 
 
 
-// Article in welcome/index.html.erb ---------------------------------
+
+
+
+//-----------------------------------------------------------------[Home page]
+// Articles
 .full-content {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -190,22 +194,6 @@ td.day {
   margin-top: 10px;
 
 }
-
-
-// ------------------------------------------------------------------------
-// About page
-  .footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background-color: DodgerBlue;
-      color: white;
-      text-align: center;
-  }
-
-//-----------------------------------------------------------------
-// Home page
 .display-2, .display-4 {
   color:whitesmoke;
 }
