@@ -115,8 +115,10 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 * [ to-do / question] ********************************************
+- edit new layout for user show (content)
 - Screenshot
   ?? how to make a screenshot from previous month
+  ?? screenshot for different users
 - news feed, articles with Pictures, the pictures sometimes will become very big
 
 - after changing format of record form, the autocomplete does not work
