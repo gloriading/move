@@ -2,8 +2,11 @@
 
   <%= simple_form_for @record do |f| %>
     <div class="row">
-      <div class="col-sm-6">
-          <%= @record.start_time.strftime("%A, %B %d, %Y") %>
+      <div class="col-sm-6 selected-date">
+        <p>  <%= @record.start_time.strftime("%A, %B %d, %Y") %></p>
+        <% if current_user.present? %>
+        <p> <%=link_to "Pick another day", user_path(current_user) %> </p>
+        <% end %>
       </div>
       <div class="col-sm-6">
         <%= f.input :start_time, as: :time,
@@ -29,7 +32,7 @@
       <%= f.input :note %>
     </div>
 
-    <%= f.submit class: 'btn btn-primary btn-sm btn-block' %>
+    <%= f.submit class: 'btn btn-primary btn-sm btn-block dark-blue-btn' %>
   <% end %>
 
 </div>
