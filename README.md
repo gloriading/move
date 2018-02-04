@@ -129,7 +129,9 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 - add custom flash messages!
 
 
-- something wrong with the automatching colour scheme... still.........
+- automatching colour scheme... records/new.html.erb
+  + when click on edit, no autocomplete
+  + click on jan 9, no recoreds filled
 
 - in the new form,
   + colour autocomplete only works for the first pair

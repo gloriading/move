@@ -64,32 +64,33 @@
 <%# User Info & Buttons ------------------------------------------------------%>
     <div class="col-lg-3">
       <div class="user-info">
-        <h5>user show</h5>
-        <span class="user_icon"><i class="fa fa-user"></i>   <%=@user.first_name %></span>
+        <h4 class="user-panel"> <%= link_to @user.first_name, user_path(@user)%></h4>
       </div>
 
+      <div class="user-menu">
 
-      <%= link_to "Home", home_path,
-      class:"btn btn-light btn-sm btn-block mb-4 nav-home" %>
-      <%= link_to "About", about_path,
-      class:"btn btn-light btn-sm btn-block mb-4 nav-about" %>
-      <%= link_to(
-        'Sign Out',
-        session_path,
-        class: "btn btn-light btn-sm btn-block mb-4 nav-signOut",
-        method: :delete,
-        data: {confirm: 'Sign out?'}
-      ) %>
+          <%= link_to "Home", home_path,
+          class:"btn btn-light btn-sm btn-block mb-4 nav-home" %>
+          <%= link_to "About", about_path,
+          class:"btn btn-light btn-sm btn-block mb-4 nav-about" %>
+          <%= link_to(
+            'Sign Out',
+            session_path,
+            class: "btn btn-light btn-sm btn-block mb-4 nav-signOut",
+            method: :delete,
+            data: {confirm: 'Sign out?'}
+          ) %>
 
-      <button class="btn btn-info btn-sm btn-block mb-4 show-day">
-        Toggle Day
-      </button>
-      <button class="btn btn-info btn-sm btn-block mb-4 show-exe">
-        Toggle exercise
-      </button>
+          <button class="btn btn-light btn-sm btn-block mb-4 show-day">
+            Toggle Day
+          </button>
+          <button class="btn btn-light btn-sm btn-block mb-4 show-exe">
+            Toggle exercise
+          </button>
 
-    <%= link_to 'Screenshot', screenshot_path,
-      class:"btn btn-warning btn-sm btn-block mb-4 screenshot" %>
+        <%= link_to 'Screenshot', screenshot_path,
+          class:"btn btn-light btn-sm btn-block mb-4 screenshot" %>
+      </div>
 
       <script>
         document.querySelector('a.screenshot').addEventListener('click', ()=>{

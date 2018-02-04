@@ -36,6 +36,7 @@ class RecordsController < ApplicationController
     end
 
     def edit
+      get_user_pairs
     end
 
     def update
