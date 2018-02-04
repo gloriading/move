@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-layout 'content'
+# different layouts for different actions in one controller
+layout :diverse_layout
+
 # sign up page-------------------------------------------------------------
   def new
     @user = User.new
@@ -17,6 +19,7 @@ layout 'content'
   end
 
 #---------------------------------------------------------------------
+# Calendar page
 
   def show
     @user = User.find params[:id]
@@ -38,6 +41,12 @@ layout 'content'
       )
     end
 
-
+    def diverse_layout
+      if action_name == 'new' || action_name == 'create'
+        'application'
+      else
+        'content'
+      end
+    end
 
 end

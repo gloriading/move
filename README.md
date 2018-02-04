@@ -115,15 +115,11 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 * [ to-do / question] ********************************************
-
-
-- after changing format of record form, the autocomplete does not work
-
-- font awesome does not work ( `_month_calendar.html.erb` ) [check!!!!!]
-
+- Screenshot
+  ?? how to make a screenshot from previous month
 - news feed, articles with Pictures, the pictures sometimes will become very big
 
-- loading animation when something loads in the background [ok]
+- after changing format of record form, the autocomplete does not work
 
 - add `choose another date` to the record form
 - get rid of unnecessary gems
@@ -136,17 +132,11 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 - in the new form,
   + colour autocomplete only works for the first pair
   + providing a list of colours instead of using minicolors?
-  + the logic to limit the number of added fields
-    - event delegation issues here
-    https://learn.jquery.com/events/event-delegation/
 
   + set a toggle so users do NOT have to input daily
 
 - [user show page]
   + JS to screenshot
-
-- [welcome/index.html.erb]
-  + import news from other websites
 
 - add minimun width to calendar
 

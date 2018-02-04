@@ -166,6 +166,7 @@ td.day {
 .form-card{
   width: 40vw;
   box-shadow: 0 8px 6px -6px black;
+  opacity: 0.8;
 }
 
 // Form button
@@ -176,7 +177,14 @@ td.day {
 .dark-blue-btn:hover{
   background-color: DARKBLUE !important;
 }
-
+// Sign-in flash message
+.flash-alert{
+  color:darkblue;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
 
 
 
