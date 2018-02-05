@@ -10,7 +10,7 @@
 
   .today {
     background-color: inherit;
-    border: 3px solid MEDIUMSLATEBLUE;
+    border: 5px solid MEDIUMSLATEBLUE;
   }
 
   .next-month, .prev-month {
@@ -48,8 +48,9 @@ td.day {
   justify-content:center;
   align-content:center;
   flex-direction:column;
-  font-size: 12px;
+  font-size: 14px;
   color:white;
+  overflow:hidden;
 }
 // user-buttons
 .user-menu > .btn{
@@ -98,8 +99,8 @@ td.day {
 .spinner {
   width: 80px;
   height: 80px;
-  background-color: white;
-  border: 1px solid black;
+  background-color: DodgerBlue;
+  border: 1px solid white;
 
   margin: 100px auto;
   -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;

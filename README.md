@@ -115,7 +115,8 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 * [ to-do / question] ********************************************
-- edit new layout for user show (content)
+- text-wrap/overflow thing...
+
 - Screenshot
   ?? how to make a screenshot from previous month
   ?? screenshot for different users

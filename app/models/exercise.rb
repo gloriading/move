@@ -5,7 +5,7 @@ class Exercise < ApplicationRecord
 
   # belongs_to :user
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 10, message: "maximum is 15 characters" }
   validates :colour, presence: true
 
   after_save :titleize
