@@ -12,7 +12,7 @@ class ScreensController < ApplicationController
     # @screenshot.selector = '#main'
     @screenshot.selector = '.simple-calendar'
     @image = @screenshot.capture
-    # @image.resize(width: 600, height: 600)
+    # @image.resize(width: 500, height: 500)
 
     if @image.save('app/assets/images/test.png')
       redirect_to user_path(current_user)

@@ -81,6 +81,9 @@
             data: {confirm: 'Sign out?'}
           ) %>
 
+          <button class="btn btn-light btn-sm btn-block mb-4 user-stats">
+            Statistics
+          </button>
           <button class="btn btn-light btn-sm btn-block mb-4 show-day">
             Toggle Day
           </button>
@@ -90,15 +93,13 @@
 
         <%= link_to 'Screenshot', screenshot_path,
           class:"btn btn-light btn-sm btn-block mb-4 screenshot" %>
+
       </div>
 
       <script>
         document.querySelector('a.screenshot').addEventListener('click', ()=>{
           document.querySelector('body').innerHTML =
-          `<div class="spinner">
-            <div class="cube1"></div>
-            <div class="cube2"></div>
-          </div>
+          `<div class="spinner"></div>
           <div class="loading-info">
             Pleas do not refresh the page.
           </div>
@@ -111,7 +112,7 @@
 
 
 <%#-Show Screenshot Picture----------------------------------------------%>
-  <div class="my-5">
+  <div class="my-5 show-image">
     <% if asset_exists?('test.png') %>
       <img src="<%= asset_path('test.png') %>" >
     <% else %>
@@ -120,7 +121,10 @@
   </div>
 
 <%#-HIDDEN------------------------------------------------------------%>
-
+<div class="screenshot-hidden" style="display:none;">
+  <%= link_to 'Screenshot', screenshot_path,
+    class:"btn btn-light btn-sm btn-block mb-4 screenshot" %>
+</div>
 <div class="all-records">
     <% if @user %>
         <h3><%= @user.first_name %></h3>

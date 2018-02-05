@@ -5,8 +5,8 @@
 
   margin: 10px;
   padding: 10px;
-  background-color: CORNFLOWERBLUE;
-  box-shadow: 0 8px 10px -6px NAVY;
+  background-color: #7887AB;
+  box-shadow: 0 8px 10px -6px WHITESMOKE;
 
   .today {
     background-color: inherit;
@@ -27,6 +27,10 @@ td.day {
   padding:0 !important;
 }
 
+.calendar-title{
+  letter-spacing: 3px;
+}
+
 .cell{
   display:flex;
   flex-direction: column;
@@ -45,6 +49,7 @@ td.day {
 }
 // user-buttons
 .user-menu > .btn{
+  letter-spacing: 2px;
   border-radius: 20px !important;
   background-color: ROYALBLUE !important;
   border: 1px solid BLUE;
@@ -87,59 +92,43 @@ td.day {
 // Loading animation
 
 .spinner {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border: 1px solid black;
+
   margin: 100px auto;
-  width: 40px;
-  height: 40px;
-  position: relative;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
 }
 
-.cube1, .cube2 {
-  background-color: DARKBLUE;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
-  animation: sk-cubemove 1.8s infinite ease-in-out;
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
 }
 
-.cube2 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;
-}
-
-@-webkit-keyframes sk-cubemove {
-  25% { -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5) }
-  50% { -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg) }
-  75% { -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5) }
-  100% { -webkit-transform: rotate(-360deg) }
-}
-
-@keyframes sk-cubemove {
-  25% {
-    transform: translateX(42px) rotate(-90deg) scale(0.5);
-    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
   } 50% {
-    transform: translateX(42px) translateY(42px) rotate(-179deg);
-    -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
-  } 50.1% {
-    transform: translateX(42px) translateY(42px) rotate(-180deg);
-    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
-  } 75% {
-    transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
-    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
   } 100% {
-    transform: rotate(-360deg);
-    -webkit-transform: rotate(-360deg);
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }
 }
 .loading-info{
   text-align: center;
-  color:DARKBLUE;
+  font-size: 30px;
+  color: #2C99EE;
 }
-
+// Show Screenshot to user
+.show-image {
+  img{ width: 400px;}
+}
 // --------------------------------------------------  Record Form
 .record-card{
   background-color: whitesmoke;
@@ -231,4 +220,17 @@ input:focus,textarea:focus {
   text-shadow: 1px 1px black;
 }
 
+// ------------------------------------------------------------------[About]
+.about{
+  background-color: WHITESMOKE;
+  opacity:0.8;
+  margin-top:30px;
+}
+.tab-content {
+  p{
+    font-family: Tahoma, Helvetica;
+    font-size: 1.1em;
+  }
+
+}
 //
