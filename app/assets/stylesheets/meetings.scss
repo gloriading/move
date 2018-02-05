@@ -31,6 +31,10 @@ td.day {
   letter-spacing: 3px;
 }
 
+.day-cell{
+    display:none;
+}
+
 .cell{
   display:flex;
   flex-direction: column;

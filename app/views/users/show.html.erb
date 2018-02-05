@@ -97,6 +97,19 @@
       </div>
 
       <script>
+        // document.querySelector('.fake-screenshot').addEventListener('click', ()=>{
+        //   document.querySelector('.show-day').click();
+        //   setTimeout(function(){
+        //     document.querySelector('.screenshot').click();
+        //     document.querySelector('body').innerHTML =
+        //     `<div class="spinner"></div>
+        //     <div class="loading-info">
+        //       Pleas do not refresh the page.
+        //     </div>
+        //     `
+        //   },500);
+        // })
+        
         document.querySelector('a.screenshot').addEventListener('click', ()=>{
           document.querySelector('body').innerHTML =
           `<div class="spinner"></div>
@@ -121,10 +134,7 @@
   </div>
 
 <%#-HIDDEN------------------------------------------------------------%>
-<div class="screenshot-hidden" style="display:none;">
-  <%= link_to 'Screenshot', screenshot_path,
-    class:"btn btn-light btn-sm btn-block mb-4 screenshot" %>
-</div>
+
 <div class="all-records">
     <% if @user %>
         <h3><%= @user.first_name %></h3>
