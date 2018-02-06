@@ -47,7 +47,9 @@
                                      data: {confirm: 'Are you sure?'}
                                    )
                                 %>
-                                <%= link_to 'new record', new_record_path %>
+                                <%= link_to 'new record',
+                                    new_record_path,
+                                    class:"btn btn-light btn-sm btn-block" %>
                               </p>
                           <% end %>
 
@@ -68,7 +70,9 @@
 <%# User Info & Buttons ------------------------------------------------------%>
     <div class="col-lg-3">
       <div class="user-info">
-        <h4 class="user-panel"> <%= link_to @user.first_name, user_path(@user)%></h4>
+        <div class="user-panel">
+          <%= link_to @user.first_name, user_path(@user), class:"btn btn-light"%>
+        </div>
       </div>
 
       <div class="user-menu">

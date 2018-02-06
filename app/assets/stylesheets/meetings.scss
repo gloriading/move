@@ -59,7 +59,7 @@ td.day {
   background-color: ROYALBLUE !important;
   color: white;
   border: 1px solid BLUE;
-  box-shadow: 2px 2px black;
+  box-shadow: 2px 2px gray;
 }
 .user-menu > .btn:hover{
   background-color: MEDIUMBLUE !important;
@@ -82,8 +82,11 @@ td.day {
 }
 // user_icon
 .user-panel > a {
-  color: whitesmoke;
-  text-decoration: none !important;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 100px;
+    text-decoration: none !important;
+    box-shadow: 2px 2px gray;
 }
 
 .user-info{
@@ -142,7 +145,7 @@ td.day {
     max-height: 200px;
     overflow-x: hidden;
 }
-.record-card{ 
+.record-card{
   background-color: whitesmoke;
   opacity: 0.8;
   width: 60vw;
