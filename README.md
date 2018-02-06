@@ -105,6 +105,9 @@
 * in session/new.html.erb, user custom flash messages
       <%= flash[:alert].present? ? flash[:alert] : nil %>
 
+* remove user column in exercises table
+  > rails g migration RemoveUserFromExercises user:references
+  
 [solved]
 
 - when render the new record form , when i click on exercise input field
@@ -127,15 +130,14 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
   - in screens controller, capture the start_date
 
 ?! when user doesn't select any month, set the screenshotbutton to current month
-
+?! dropdown menu only show months where the user has a record
 
 * [ to-do / question] ********************************************
 - how to let user download the screenshots
 
 - text-wrap/overflow thing within the calendar
 - Screenshot
-?? how to make a screenshot from previous month
-?? screenshot for different users
+?? screenshot for different users (set the filename as userid)
 
 * Statistics
 - provide a list of exercise that has been recorded before with a drop down menu
