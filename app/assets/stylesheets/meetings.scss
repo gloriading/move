@@ -57,7 +57,9 @@ td.day {
   letter-spacing: 2px;
   border-radius: 20px !important;
   background-color: ROYALBLUE !important;
+  color: white;
   border: 1px solid BLUE;
+  box-shadow: 2px 2px black;
 }
 .user-menu > .btn:hover{
   background-color: MEDIUMBLUE !important;
@@ -135,6 +137,11 @@ td.day {
   img{ width: 400px;}
 }
 // --------------------------------------------------  Record Form
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
 .record-card{
   background-color: whitesmoke;
   opacity: 0.8;
@@ -207,16 +214,23 @@ input:focus,textarea:focus {
 
 
 //-----------------------------------------------------------------[Home page]
-// Articles
-.full-content {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding: 30px;
-  background-color: whitesmoke;
-}
+
+
 .content-list-container{
   margin-top: 10px;
-
+  padding: 10px;
+  border: 5px white solid;
+  background-color: whitesmoke;
+  opacity: 0.9;
+  height: 80vh;
+  overflow: auto;
+  a{
+    margin-left: 5px;
+    text-decoration: none !important;
+  }
+  a:link{ color:hotpink; }
+  a:visited{ color:green; }
+  a:hover{ background-color: hotpink; color:white;}
 }
 .display-2, .display-4 {
   color:whitesmoke;

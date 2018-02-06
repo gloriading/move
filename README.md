@@ -115,19 +115,17 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 * [ to-do / question] ********************************************
-- text-wrap/overflow thing...
-
+- how to let user download the screenshots
+- want to add a button in the modal, <%= link_to 'new record', new_record_path %>
+- text-wrap/overflow thing within the calendar
+- how to select a certain month?
+- provide a list of exercise that has been recorded before with a drop down menu
 - Screenshot
   ?? how to make a screenshot from previous month
   ?? screenshot for different users
-- news feed, articles with Pictures, the pictures sometimes will become very big
+
 
 - after changing format of record form, the autocomplete does not work
-
-- add `choose another date` to the record form
-- get rid of unnecessary gems
-
-- add custom flash messages!
 
 
 - automatching colour scheme... records/new.html.erb
@@ -149,6 +147,7 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
   https://gist.github.com/eduwass/4ee6b9de3c5013cbd3af
 - admin
 - friendly id
+- get rid of unnecessary gems
 
 * Statistics
 

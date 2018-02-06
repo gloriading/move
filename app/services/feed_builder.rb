@@ -2,8 +2,8 @@ class FeedBuilder
   attr_accessor :user
 
   # FEED_URL = "http://www.healthworksfitness.com/feed"
-  FEED_URL = "https://www.nataliejillfitness.com/feed"
-  # FEED_URL = "http://feeds.feedburner.com/anytimefitnessofficial"
+  # FEED_URL = "https://www.nataliejillfitness.com/feed"
+  FEED_URL = "https://www.sciencedaily.com/rss/mind_brain/diet_and_weight_loss.xml"
 
   def initialize(user) # can tailor for each user later
     @user = user
