@@ -48,7 +48,7 @@
                                    )
                                 %>
                                 <%= link_to 'new record',
-                                    new_record_path,
+                                    "#{new_record_path}?date=#{r.start_time.strftime("%Y-%m-%d")}",
                                     class:"btn btn-light btn-sm btn-block" %>
                               </p>
                           <% end %>
@@ -98,9 +98,32 @@
             Toggle exercise
           </button>
 
-        <%= link_to 'Screenshot', screenshot_path,
-          class:"btn btn-light btn-sm btn-block mb-4 screenshot" %>
+          <select name="months" class="screenshot-select">
+            <option disabled selected value> -  select a month  - </option>
+            <option value="2018-01-01">JAN</option>
+            <option value="2018-02-01">FEB</option>
+            <option value="2018-03-01">MAR</option>
+            <option value="2018-04-01">APR</option>
+          </select>
 
+          <%= link_to 'Make a screenshot', "#{screenshot_path}?start_date",
+              class: "btn btn-light btn-sm btn-block mt-4 screenshot",
+              id: "screenshot",
+              style: "display:none;" %>
+
+          <script type="text/javascript">
+              $('.screenshot-select').change(function(){
+                  const selectedMonth = $(this).val(); // get the month value
+                  const $screenshotButton = $('#screenshot');
+                  const keep = $screenshotButton.attr('href').split('?')[0];
+                  const newQuery = `${keep}?start_date=${selectedMonth}`;
+                  // #{screenshot_path}?start_date=2018-02-01
+                  // $screenshotButton.attr('href') is `/screens?start_date=2018-04-01`
+                  // console.log($screenshotButton.attr('href'));
+                  $screenshotButton.attr('href',newQuery);
+                  $('#screenshot').show('slow');
+              })
+          </script>
       </div>
 
       <script>
@@ -153,7 +176,26 @@
     <% end %>
 </div>
 <%#--------------------------------------------------------------------%>
-
-
+<%# chart demo %>
+<div style="width:50%">
+  <canvas id="myChart" width="200" height="200"></canvas>
+</div>
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [10, 20, 30],
+            backgroundColor: ['hotpink','whitesmoke','lightgreen','blue']
+        }],
+        labels: [
+            'A',
+            'B',
+            'C'
+        ]
+    }
+});
+</script>
 
 </div>

@@ -111,18 +111,34 @@
 the `- exercise` tab disappears. want to make it not appeared in the first place [ok]
 
 - click on a record in the previous month, the modal shows but freezes [ok]
-(opacity thing)
+  (opacity thing)
+
+- new record button in the modal, but won't show the date: [ok]
+  - a regular new record has path like this:
+    http://localhost:3000/records/new?date=2018-02-21
+  - in user show page, pass 'the date of the record selected'
+  - <%= link_to 'new record',      
+        "#{new_record_path}?date=#{r.start_time.strftime("%Y-%m-%d")}",
+        class:"btn btn-light btn-sm btn-block" %>
+
+- how to select a certain month?
+  - in user show page:
+    on the screenshot link, send the start_date as a param in the path
+  - in screens controller, capture the start_date
+
+?! when user doesn't select any month, set the screenshotbutton to current month
 
 
 * [ to-do / question] ********************************************
 - how to let user download the screenshots
-- want to add a button in the modal, <%= link_to 'new record', new_record_path %>
+
 - text-wrap/overflow thing within the calendar
-- how to select a certain month?
-- provide a list of exercise that has been recorded before with a drop down menu
 - Screenshot
-  ?? how to make a screenshot from previous month
-  ?? screenshot for different users
+?? how to make a screenshot from previous month
+?? screenshot for different users
+
+* Statistics
+- provide a list of exercise that has been recorded before with a drop down menu
 
 
 - after changing format of record form, the autocomplete does not work
@@ -149,7 +165,6 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 - friendly id
 - get rid of unnecessary gems
 
-* Statistics
 
 - all records for a user (u): u.records
 - all exercise-colour pairs

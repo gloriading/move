@@ -3,11 +3,8 @@
   <%= simple_form_for @record do |f| %>
     <div class="row">
       <div class="col-sm-6 selected-date">
-          <% if @record.start_time.present? %>
         <p><%= @record.start_time.strftime("%A, %B %d, %Y") %></p>
-          <% else %>
-          <p> Test </p>
-          <% end %>
+
         <% if current_user.present? %>
         <p>
           <%=link_to user_path(current_user) do %>
