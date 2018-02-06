@@ -33,9 +33,12 @@
                         <div class="modal-body">
                           <% if can?(:crud, r) %>
                               <p>
+                                <%= link_to "your record",
+                                    record_path(r),
+                                    class:"btn btn-light btn-sm btn-block" %>
                                 <%= link_to "edit",
-                                edit_record_path(r),
-                                class:"btn btn-light btn-sm btn-block" %>
+                                    edit_record_path(r),
+                                    class:"btn btn-light btn-sm btn-block" %>
                                 <%= link_to(
                                      'delete',
                                      record_path(r),
@@ -44,6 +47,7 @@
                                      data: {confirm: 'Are you sure?'}
                                    )
                                 %>
+                                <%= link_to 'new record', new_record_path %>
                               </p>
                           <% end %>
 
