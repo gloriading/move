@@ -6,10 +6,10 @@ class Exercise < ApplicationRecord
   validates :name, presence: true, length: { maximum: 15, message: "maximum is 15 characters" }
   validates :colour, presence: true
 
-  after_save :titleize
+  before_save :name_downcase
 
   private
-  def titleize
-     self.name = name.titleize if name.present?
+  def name_downcase
+     self.name = name.downcase if name.present?
   end
 end

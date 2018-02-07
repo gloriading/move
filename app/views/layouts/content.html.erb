@@ -3,7 +3,7 @@
   <head>
     <title> move
       <% if current_user.present? %>
-      ⭐️ <%= current_user&.first_name %>
+      + <%= current_user&.first_name %>
       <% end %>
     </title>
     <%= csrf_meta_tags %>

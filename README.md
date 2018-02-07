@@ -107,7 +107,7 @@
 
 * remove user column in exercises table
   > rails g migration RemoveUserFromExercises user:references
-  
+
 [solved]
 
 - when render the new record form , when i click on exercise input field
@@ -129,7 +129,6 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
     on the screenshot link, send the start_date as a param in the path
   - in screens controller, capture the start_date
 
-?! when user doesn't select any month, set the screenshotbutton to current month
 ?! dropdown menu only show months where the user has a record
 
 * [ to-do / question] ********************************************
@@ -180,8 +179,17 @@ end
 
 
 
+- all records of a user(u) within current month:
 
+  u = User.find 50
+  c_month_rec = u.records.where('start_time >?',DateTime.now.beginning_of_month)
+  pairs = {}
 
+  c_month_rec.each do |r|
+    r.exercises.each do |e|
+      pairs[e.name] = e.colour
+    end
+  end
 
 
 
