@@ -42,6 +42,12 @@ $( document ).ready(function() {
     $('.inner-cell span').toggle('3000');
   });
 
+// Show Pie CHart --------------------------------------------------
+  $('.user-stats').click(function(event){
+    event.stopPropagation();
+    $('.myChart').show();
+  });
+
 // _form.html.erb--------------------------------------------------
 // click to toggle advanced options
   $('.show-adv-opt').click(function(){

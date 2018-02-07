@@ -8,7 +8,7 @@
         <% if current_user.present? %>
         <p>
           <%=link_to user_path(current_user) do %>
-            <i class="far fa-calendar-alt"></i> Pick another day.
+            <i class="far fa-calendar-alt"></i> Go back or Pick another day.
           <% end %>
         </p>
         <% end %>
@@ -18,26 +18,10 @@
             input_html: {class: "time-format"},
             label: false, required: false %>
       </div>
+
     </div>
 
     <div id="options">
-
-<!-- <select size="3" multiple>
-  <% @user_pairs.each do |exercise,colour| %>
-    <option value="<%= exercise %>"><%= exercise %></option>
-  <% end %>
-</select> -->
-
-<!-- <div class="dropdown">
-  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Exercise History
-  </button>
-  <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">
-    <% @user_pairs.each do |exercise,colour| %>
-      <a class="dropdown-item" href="#"><%= exercise %></a>
-    <% end %>
-  </div>
-</div> -->
 
       <%= f.simple_fields_for :exercises do |opt| %>
         <%= render 'exercise_fields', f: opt %>
@@ -46,10 +30,11 @@
         <%= link_to_add_association ' + exercise', f, :exercises, class:"btn btn-dark btn-sm mt-1"  %>
       </div>
     </div>
+
     <p class=""></p>
     <button type="button" class="show-adv-opt my-2 btn btn-light btn-sm">
       <i class="far fa-hand-point-right"></i>
-      Click to add a note about your record.
+      Click to add a note.
     </button>
     <div class="advanced-options">
       <%= f.input :note %>

@@ -71,13 +71,13 @@
     <div class="col-lg-3">
       <div class="user-info">
         <div class="user-panel">
-          <%= link_to @user.first_name, user_path(@user), class:"btn btn-light"%>
+          <%= link_to @user.first_name, user_path(@user)%>
         </div>
       </div>
 
       <div class="user-menu">
 
-          <%= link_to "Back", home_path,
+          <%= link_to "Home", home_path,
           class:"btn btn-light btn-sm btn-block mb-4 nav-home" %>
 
           <%= link_to(
@@ -88,9 +88,9 @@
             data: {confirm: 'Sign out?'}
           ) %>
 
-          <button class="btn btn-light btn-sm btn-block mb-4 user-stats">
+          <a href="#myChart" class="btn btn-light btn-sm btn-block mb-4 user-stats">
             Statistics
-          </button>
+          </a>
           <button class="btn btn-light btn-sm btn-block mb-4 show-day">
             Toggle Day
           </button>
@@ -144,8 +144,8 @@
 
 <%#-Show Screenshot Picture----------------------------------------------%>
   <div class="my-5 show-image">
-    <% if asset_exists?('test.png') %>
-      <img src="<%= asset_path('test.png') %>" >
+    <% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
+      <img src="<%= asset_path("image-#{@user.id}-#{@user.first_name}.png") %>" >
     <% else %>
       <small>No image exists</small>
     <% end %>
@@ -175,23 +175,22 @@
         <% end %>
     <% end %>
 </div>
-<%#--------------------------------------------------------------------%>
-<%# chart demo %>
-<div style="width:100vh">
+
+<%#-CHART-----------------------------------------------------------%>
+<div class="m-auto myChart">
   <canvas id="myChart" width="400" height="400"></canvas>
 </div>
 
 <script>
   // get exercise frequency pair from users controller #show
   const freqPair = <%= raw @json_freq_hash_pair || {} %>;
-  // console.log(freqPair);
   let pairData = [], pairLabel = [];
   for(let key in freqPair){
     pairLabel.push(key);
     pairData.push(freqPair[key]);
   }
-  console.log(pairData.length);
-  console.log(pairLabel);
+  // console.log(pairData.length);
+  // console.log(pairLabel);
 
   function getRandomColor() {
     var letters = '0123456789ABCDEF';
