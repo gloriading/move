@@ -12,9 +12,17 @@ class User < ApplicationRecord
   end
 
   before_save :capitalize
-
+  before_create :generate_api_key
 
   private
+
+    def generate_api_key
+      loop do
+        self.api_key = SecureRandom.hex(32)
+        break unless User.exists?(api_key: api_key)
+      end
+    end
+
     def capitalize
       self.first_name.try(:capitalize!)
       self.last_name.try(:capitalize!)

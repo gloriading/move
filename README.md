@@ -109,6 +109,7 @@
   > rails g migration RemoveUserFromExercises user:references
 
 * Statistics
+  - chart.js
 
 [solved]
 
@@ -133,11 +134,13 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 * [ to-do / question] ********************************************
-- how to select different month
+
+- ?! dropdown menu only show months where the user has a record
+
+- how to select different month?
   in users controller #show
   current_month_rec = @user.records.where('start_time >?',DateTime.now.beginning_of_month)
 
-- ?! dropdown menu only show months where the user has a record
 
 - how to let user download the screenshots
 
@@ -166,13 +169,24 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 - Datetime diapley
   https://gist.github.com/eduwass/4ee6b9de3c5013cbd3af
-  
+
 - admin
 - friendly id
 - get rid of unnecessary gems
 
 
 
+- trying Ajax request
+> rails g controller Api::V1::Charts --no-assets --no-helper
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :charts
+    end
+  end
+
+> rails g controller Api::Application --no-assets --no-helper --skip-template-engine
+> rails g migration add_api_key_to_user api_key:string
 
 
 <!--  -->
