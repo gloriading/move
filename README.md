@@ -166,71 +166,12 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 - Datetime diapley
   https://gist.github.com/eduwass/4ee6b9de3c5013cbd3af
+  
 - admin
 - friendly id
 - get rid of unnecessary gems
 
 
-- all records for a user (u): u.records
-- all exercise-colour pairs
-all_exercise ={}
-u.records.each do |r|
-  r.exercises do |e|
-    all_exercise.e.name = e.colour
-  end
-end
-
-
-
-
-- all records of a user(u) within current month:
-
-  u = User.find 50
-  c_month_rec = u.records.where('start_time >?',DateTime.now.beginning_of_month)
-  pairs = {}
-
-  c_month_rec.each do |r|
-    r.exercises.each do |e|
-      pairs[e.name] = e.colour
-    end
-  end
-
-  pairs = {"hiking"=>"#d15f32",
- "new test"=>"#857171",
- "sleep"=>"#a64871",
- "swim"=>"#183ea8",
- "test"=>"#2f3ceb",
- "walking"=>"#07b8e0",
- "surfing"=>"#cc980a",
- "scuba"=>"#0b6308",
- "yoga"=>"#0bbd23",
- "thing"=>"#c21897",
- "housework"=>"#058a0c",
- "smile"=>"#d40bdb",
- "shopping"=>"#990899",
- "walk"=>"#13454f"}
-
-
- def freq ( array )
-    hash = Hash.new(0)
-    array.each{|key| hash[key] += 1}
-    hash
-  end
-  sorted_hash = x.sort.to_h
-  freq_hash = freq (sorted_hash.keys)
-
-  freq_hash = {"hiking"=>1, "housework"=>1, "new test"=>1, "scuba"=>1, "shopping"=>1, "sleep"=>1, "smile"=>1, "surfing"=>1, "swim"=>1, "test"=>1, "thing"=>1, "walk"=>1, "walking"=>1, "yoga"=>1}
-
-
-  c_month_rec.each do |r|
-    r.exercises.each do |e|
-      if pairs[e.name].present?
-        pairs[e.name] += 1
-      else
-        pairs[e.name] = 0
-      end
-    end
-  end
 
 
 

@@ -26,7 +26,11 @@ layout :diverse_layout
     @user_records = @user.records.order(created_at: :desc)
     @record = Record.new
 
-    current_month_rec = @user.records.where('start_time >?',DateTime.now.beginning_of_month)
+    # current_month_rec = @user.records.where('start_time >?',DateTime.now.beginning_of_month)
+
+    # go to a month then the chart will show accordingly
+    month = params[:start_date]&.to_datetime&.month || DateTime.now.month
+    current_month_rec = @user.records.where('extract(month from start_time) = ?', month)
     pairs = {}
 
     current_month_rec.each do |r|
