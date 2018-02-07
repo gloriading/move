@@ -177,25 +177,50 @@
 </div>
 <%#--------------------------------------------------------------------%>
 <%# chart demo %>
-<div style="width:50%">
-  <canvas id="myChart" width="200" height="200"></canvas>
+<div style="width:100vh">
+  <canvas id="myChart" width="400" height="400"></canvas>
 </div>
+
 <script>
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        datasets: [{
-            data: [10, 20, 30],
-            backgroundColor: ['hotpink','whitesmoke','lightgreen','blue']
-        }],
-        labels: [
-            'A',
-            'B',
-            'C'
-        ]
+  // get exercise frequency pair from users controller #show
+  const freqPair = <%= raw @json_freq_hash_pair || {} %>;
+  // console.log(freqPair);
+  let pairData = [], pairLabel = [];
+  for(let key in freqPair){
+    pairLabel.push(key);
+    pairData.push(freqPair[key]);
+  }
+  console.log(pairData.length);
+  console.log(pairLabel);
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
     }
-});
+    return color;
+  }
+
+  let colorArr = [];
+  for(let i=1; i<=pairData.length;i++){
+    let temp = getRandomColor();
+    colorArr.push(temp);
+  }
+  console.log(colorArr);
+
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          datasets: [{
+              data: pairData,
+              backgroundColor: colorArr
+          }],
+          labels: pairLabel
+      }
+  });
+
 </script>
 
 </div>

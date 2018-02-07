@@ -132,6 +132,11 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 ?! dropdown menu only show months where the user has a record
 
 * [ to-do / question] ********************************************
+- how to select different month
+  in users controller #show
+  current_month_rec = @user.records.where('start_time >?',DateTime.now.beginning_of_month)
+
+  
 - how to let user download the screenshots
 
 - text-wrap/overflow thing within the calendar
@@ -191,9 +196,42 @@ end
     end
   end
 
+  pairs = {"hiking"=>"#d15f32",
+ "new test"=>"#857171",
+ "sleep"=>"#a64871",
+ "swim"=>"#183ea8",
+ "test"=>"#2f3ceb",
+ "walking"=>"#07b8e0",
+ "surfing"=>"#cc980a",
+ "scuba"=>"#0b6308",
+ "yoga"=>"#0bbd23",
+ "thing"=>"#c21897",
+ "housework"=>"#058a0c",
+ "smile"=>"#d40bdb",
+ "shopping"=>"#990899",
+ "walk"=>"#13454f"}
 
 
+ def freq ( array )
+    hash = Hash.new(0)
+    array.each{|key| hash[key] += 1}
+    hash
+  end
+  sorted_hash = x.sort.to_h
+  freq_hash = freq (sorted_hash.keys)
 
+  freq_hash = {"hiking"=>1, "housework"=>1, "new test"=>1, "scuba"=>1, "shopping"=>1, "sleep"=>1, "smile"=>1, "surfing"=>1, "swim"=>1, "test"=>1, "thing"=>1, "walk"=>1, "walking"=>1, "yoga"=>1}
+
+
+  c_month_rec.each do |r|
+    r.exercises.each do |e|
+      if pairs[e.name].present?
+        pairs[e.name] += 1
+      else
+        pairs[e.name] = 0
+      end
+    end
+  end
 
 
 
