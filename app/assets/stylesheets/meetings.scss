@@ -18,7 +18,7 @@
   }
   .current-month {}
   .start-date {}
-
+  .calendar-title{ font-size: 20px; color:white;}
 }
 //  ----------------------------------------- user show page - calendar
 
@@ -141,7 +141,7 @@ td.day {
 }
 // Show Screenshot to user
 .show-image {
-  img{ width: 400px;}
+  img{ width: 500px;}
 }
 // Pie Chart
 .myChart{
