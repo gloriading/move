@@ -127,6 +127,8 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
         "#{new_record_path}?date=#{r.start_time.strftime("%Y-%m-%d")}",
         class:"btn btn-light btn-sm btn-block" %>
 
+- dropdown menu only show months where the user has a record [ok]
+
 - how to select a certain month?
   - in user show page:
     on the screenshot link, send the start_date as a param in the path
@@ -135,14 +137,10 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 * [ to-do / question] ********************************************
 
-- ?! dropdown menu only show months where the user has a record
 
 - how to select different month?
   in users controller #show
   current_month_rec = @user.records.where('start_time >?',DateTime.now.beginning_of_month)
-
-
-- how to let user download the screenshots
 
 - text-wrap/overflow thing within the calendar
 

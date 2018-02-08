@@ -100,10 +100,11 @@
 
           <select name="months" class="screenshot-select">
             <option disabled selected value> -  select a month  - </option>
-            <option value="2018-01-01">JAN</option>
-            <option value="2018-02-01">FEB</option>
-            <option value="2018-03-01">MAR</option>
-            <option value="2018-04-01">APR</option>
+              <% @record_months.each do |month, records| %>
+                <option value="<%= month.strftime('%Y-%m-%d') %>">
+                  <%= month.strftime('%B') %>
+                </option>
+              <% end %>
           </select>
 
           <%= link_to 'Make a screenshot', "#{screenshot_path}?start_date",
@@ -141,7 +142,7 @@
           document.querySelector('body').innerHTML =
           `<div class="spinner"></div>
           <div class="loading-info">
-            Pleas do not refresh the page.
+            Generating image. Please do not refresh.
           </div>
           `
         })
@@ -160,12 +161,6 @@
       <small>No image exists</small>
     <% end %> -->
   </div>
-
-
-
-
-
-
 <%#-HIDDEN------------------------------------------------------------%>
 
 <div class="all-records">

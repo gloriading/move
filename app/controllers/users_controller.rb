@@ -46,6 +46,8 @@ layout :diverse_layout
     @json_freq_hash_pair = pairs.to_json
 
 
+    @record_months = @user_records.group_by {|t| t.start_time.beginning_of_month }
+
   end
 
 
