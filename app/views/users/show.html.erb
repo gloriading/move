@@ -66,150 +66,208 @@
 
 <%# User Info & Buttons ------------------------------------------------------%>
 
-    <div class="col-lg-3">
-      <div class="user-info">
-        <div class="user-panel">
+   <div class="col-lg-3">
+       <div class="user-info">
+         <div class="user-panel">
           <%= link_to @user.first_name, user_path(@user)%>
-        </div>
-      </div>
+         </div>
+       </div>
 
-      <div class="user-menu">
-        <select name="select-year" class="select-year mb-4">
-            <option disabled selected value> year </option>
-            <% for i in 1..12 %>
-              <option value="<%= i.to_s %>">
-            <% end %>
-            </option>
+    <div class="user-menu">
 
-        </select>
-
-          <%= link_to "Home", home_path,
-          class:"btn btn-light btn-sm btn-block mb-4 nav-home group-1" %>
-
-          <%= link_to(
-            'Sign Out',
-            session_path,
-            class: "btn btn-light btn-sm btn-block mb-4 nav-signOut group-1",
-            method: :delete,
-            data: {confirm: 'Sign out?'}
-          ) %>
-
-          <select name="chart-months" class="chart-select mb-4">
-              <option disabled selected value> -  select a month  - </option>
-              <% @record_months.each do |month, records| %>
-              <option value="<%= month.strftime('%Y-%m-%d') %>">
-                <%= month.strftime('%B') %>
-              </option>
-              <% end %>
-          </select>
-          <a href="#myChart"
-              class="btn btn-light btn-sm btn-block mb-4 user-stats group-2">
-            Statistics
-          </a>
-
-          <button class="btn btn-light btn-sm btn-block mb-4 show-day group-2">
-            Toggle Day
-          </button>
-          <button class="btn btn-light btn-sm btn-block mb-4 show-exe group-2">
-            Toggle exercise
-          </button>
-
-          <select name="months" class="screenshot-select group-3">
-            <option disabled selected value> -  select a month  - </option>
-              <% @record_months.each do |month, records| %>
-                <option value="<%= month.strftime('%Y-%m-%d') %>">
-                  <%= month.strftime('%B') %>
-                </option>
-              <% end %>
-          </select>
-
-          <%= link_to 'Make a screenshot', "#{screenshot_path}?start_date",
-              class: "btn btn-light btn-sm btn-block mt-4 screenshot group-3",
-              id: "screenshot",
-              style: "display:none;" %>
-
-          <script type="text/javascript">
-              $('.screenshot-select').change(function(){
-                  const selectedMonth = $(this).val(); // get the month value
-                  const $screenshotButton = $('#screenshot');
-                  const keep = $screenshotButton.attr('href').split('?')[0];
-                  const newQuery = `${keep}?start_date=${selectedMonth}`;
-                  // #{screenshot_path}?start_date=2018-02-01
-                  // $screenshotButton.attr('href') is `/screens?start_date=2018-04-01`
-                  // console.log($screenshotButton.attr('href'));
-                  $screenshotButton.attr('href',newQuery);
-                  $('#screenshot').show('slow');
-              })
-          </script>
-
-          <% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
-          <%= link_to "click to view",
-              asset_path("image-#{@user.id}-#{@user.first_name}.png"),
-              class: "btn btn-light btn-sm btn-block mt-4 view-image group-3"%>
-
-          <%= link_to "click to download",
-              asset_path("image-#{@user.id}-#{@user.first_name}.png"),
-              download: "#{@user.first_name}",
-              class: "btn btn-light btn-sm btn-block mt-4 download-image group-3" %>
-          <% end %>
-      </div>
-
-      <script>
-
-        document.querySelector('a.screenshot').addEventListener('click', ()=>{
-          document.querySelector('body').innerHTML =
-          `<div class="spinner"></div>
-          <div class="loading-info">
-            Generating image. Please do not refresh.
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Go to Another Month
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body px-2 py-2">
+                <div class="go-to-month">
+                  <p class="text-light">Go to other month:</p>
+                  <select name="select-year" class="select-year">
+                    <option value="2017">2017</option>
+                    <option value="2018" selected>2018</option>
+                  </select>
+                  <select name="select-month" class="select-month">
+                      <option disabled selected value> month </option>
+                      <% for month in 1..12 %>
+                        <option value="<%= month %>">
+                          <%= month %>
+                        </option>
+                      <% end %>
+                  </select>
+                  <button class="btn btn-light btn-sm" id="change-calendar"> go </button>
+                </div>
+              </div>
+            </div>
           </div>
-          `
-        })
-      </script>
+
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Home | Sign Out
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body px-2">
+                <%= link_to "Home", home_path,
+                class:"btn btn-light btn-sm btn-block mb-1 nav-home group-1" %>
+
+                <%= link_to(
+                  'Sign Out',
+                  session_path,
+                  class: "btn btn-light btn-sm btn-block mb-1 nav-signOut group-1",
+                  method: :delete,
+                  data: {confirm: 'Sign out?'}
+                ) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Screenshot a Month
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div class="card-body">
+                  <select name="months" class="screenshot-select group-3">
+                    <option disabled selected value> -  select a month  - </option>
+                      <% @record_months.each do |month, records| %>
+                        <option value="<%= month.strftime('%Y-%m-%d') %>">
+                          <%= month.strftime('%B') %>
+                        </option>
+                      <% end %>
+                  </select>
+
+                  <%= link_to 'Make a screenshot', "#{screenshot_path}?start_date",
+                      class: "btn btn-light btn-sm btn-block mt-4 screenshot group-3",
+                      id: "screenshot",
+                      style: "display:none;" %>
+
+                    <% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
+                    <%= link_to "click to view",
+                        asset_path("image-#{@user.id}-#{@user.first_name}.png"),
+                        class: "btn btn-light btn-sm btn-block mt-4 view-image group-3"%>
+
+                    <%= link_to "click to download",
+                        asset_path("image-#{@user.id}-#{@user.first_name}.png"),
+                        download: "#{@user.first_name}",
+                        class: "btn btn-light btn-sm btn-block mt-4 download-image group-3" %>
+                    <% end %>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingFour">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                  Statistics
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+              <div class="card-body">
+                <select name="chart-months" class="chart-select mb-4">
+                    <option disabled selected value> -  select a month  - </option>
+                    <% @record_months.each do |month, records| %>
+                    <option value="<%= month.strftime('%Y-%m-%d') %>">
+                      <%= month.strftime('%B') %>
+                    </option>
+                    <% end %>
+                </select>
+                <a href="#myChart"
+                    class="btn btn-light btn-sm btn-block mb-1 user-stats group-2">
+                  Create Chart
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingFive">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                  Calendar Effects
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+              <div class="card-body">
+                <button class="btn btn-light btn-sm btn-block mb-1 show-day group-2">
+                  Toggle Day
+                </button>
+                <button class="btn btn-light btn-sm btn-block mb-1 show-exe group-2">
+                  Toggle exercise
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
   </div>
 
 
-<%#-Show Screenshot Picture----------------------------------------------%>
-
-  <div class="show-image">
-    <!-- <% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
-      <img src="<%= asset_path("image-#{@user.id}-#{@user.first_name}.png") %>" >
-    <% else %>
-      <small>No image exists</small>
-    <% end %> -->
-  </div>
-<%#-HIDDEN------------------------------------------------------------%>
-
-<div class="all-records">
-    <% if @user %>
-        <h3><%= @user.first_name %></h3>
-        <% @user_records.each do |record| %>
-          <p id="show-<%= record.id%>"
-            data-toggle="modal"
-            data-target="#modal-<%= record.id %>">
-            show-<%= record.id %>
-          </p>
-
-          <% record.exercises.each do |exe| %>
-            <p> <%= exe.name %> </p>
-          <% end %>
-
-        <% end %>
-    <% else %>
-        <h1>later this (all records) will be seen by admin</h1>
-        <% @records.each do |record| %>
-          <p> <%= link_to record.date,record_path(record) %> </p>
-        <% end %>
-    <% end %>
-</div>
-
-<%#-CHART-----------------------------------------------------------%>
-
+<%#----------------------------------------------------------------CHART--%>
 <div class="m-auto pt-5 myChart">
   <canvas id="myChart" width="400" height="400"></canvas>
 </div>
 
+
+
+<%# below: Go to Another Month ------------------------------------JS - 4 %>
+  <script type="text/javascript">
+    $('#change-calendar').click(function(e){
+        e.preventDefault();
+        const selectMonth = $('.select-month').val();
+        const selectYear = $('.select-year').val();
+        window.location = "<%= user_path(@user) %>?start_date=" +
+                          selectYear + "-" + selectMonth + "-01"
+    });
+  </script>
+
+<%# below: Select Which month to take a screenshot ---------------JS - 3 %>
+  <script type="text/javascript">
+      $('.screenshot-select').change(function(){
+          const selectedMonth = $(this).val();
+          const $screenshotButton = $('#screenshot');
+          const keep = $screenshotButton.attr('href').split('?')[0];
+          const newQuery = `${keep}?start_date=${selectedMonth}`;
+          $screenshotButton.attr('href',newQuery);
+          $('#screenshot').show('slow');
+      })
+  </script>
+
+<%# below: Animation while screenshotting ---------------------------JS - 2 %>
+  <script>
+    document.querySelector('a.screenshot').addEventListener('click', ()=>{
+      document.querySelector('body').innerHTML =
+      `<div class="spinner"></div>
+      <div class="loading-info">
+        Generating image. Please do not refresh.
+      </div>
+      `
+    })
+  </script>
+
+<%# below : Chart Generating via Ajax ----------------------------JS - 1 - %>
 <script>
   $('.chart-select').change(function(){
       const selectedMonth = $(this).val();
@@ -249,11 +307,33 @@
               }
           });
         });
-
   });
-
 </script>
 
+<%#-HIDDEN---------------------------------------------------HIDDEN---%>
+
+<div class="all-records">
+    <% if @user %>
+        <h3><%= @user.first_name %></h3>
+        <% @user_records.each do |record| %>
+          <p id="show-<%= record.id%>"
+            data-toggle="modal"
+            data-target="#modal-<%= record.id %>">
+            show-<%= record.id %>
+          </p>
+
+          <% record.exercises.each do |exe| %>
+            <p> <%= exe.name %> </p>
+          <% end %>
+
+        <% end %>
+    <% else %>
+        <h1>later this (all records) will be seen by admin</h1>
+        <% @records.each do |record| %>
+          <p> <%= link_to record.date,record_path(record) %> </p>
+        <% end %>
+    <% end %>
+</div>
 
 
 </div>
