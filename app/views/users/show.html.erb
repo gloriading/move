@@ -76,6 +76,7 @@
     <div class="user-menu">
 
         <div id="accordion">
+<%# ------------------------------------------------------------- card 1  -%>
           <div class="card">
             <div class="card-header" id="headingOne">
               <h5 class="mb-0">
@@ -105,7 +106,7 @@
               </div>
             </div>
           </div>
-
+<%# ------------------------------------------------------------- card 2  -%>
           <div class="card">
             <div class="card-header" id="headingTwo">
               <h5 class="mb-0">
@@ -129,7 +130,7 @@
               </div>
             </div>
           </div>
-
+<%# ------------------------------------------------------------- card 3  -%>
           <div class="card">
             <div class="card-header" id="headingThree">
               <h5 class="mb-0">
@@ -144,7 +145,7 @@
                     <option disabled selected value> -  select a month  - </option>
                       <% @record_months.each do |month, records| %>
                         <option value="<%= month.strftime('%Y-%m-%d') %>">
-                          <%= month.strftime('%B') %>
+                          <%= month.strftime('%B %Y') %>
                         </option>
                       <% end %>
                   </select>
@@ -168,7 +169,7 @@
               </div>
             </div>
           </div>
-
+<%# ------------------------------------------------------------- card 4  -%>
           <div class="card">
             <div class="card-header" id="headingFour">
               <h5 class="mb-0">
@@ -195,7 +196,7 @@
               </div>
             </div>
           </div>
-
+<%# ------------------------------------------------------------- card 5  -%>
           <div class="card">
             <div class="card-header" id="headingFive">
               <h5 class="mb-0">
@@ -224,8 +225,7 @@
     </div>
   </div>
 
-
-<%#----------------------------------------------------------------CHART--%>
+<%#--------------------------------------------------------- Chart Display --%>
 <div class="m-auto pt-5 myChart">
   <canvas id="myChart" width="400" height="400"></canvas>
 </div>
