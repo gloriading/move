@@ -174,7 +174,7 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 
-- trying Ajax request
+- Ajax request----------------
 > rails g controller Api::V1::Charts --no-assets --no-helper
 
   namespace :api, defaults: { format: :json } do
@@ -186,5 +186,6 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 > rails g controller Api::Application --no-assets --no-helper --skip-template-engine
 > rails g migration add_api_key_to_user api_key:string
 
-
+- char.js
+- show.html.erb <script>
 <!--  -->

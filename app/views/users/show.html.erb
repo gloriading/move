@@ -2,10 +2,7 @@
 
   <div class="row mt-3">
     <div class="col-lg-9">
-      <!-- Calendar ---------------------------------------------------->
-      <%# Error: undefined method `start_time' for #<Record:0x00007ff5405b3118> %>
-      <%# solution: add a new column name `start_time` on record but the record %>
-
+    <!-- Calendar ---------------------------------------------------->
         <%= month_calendar events: @user_records do |date, user_records| %>
           <div class="cell">
             <div class="day-cell">
@@ -68,6 +65,7 @@
     </div>
 
 <%# User Info & Buttons ------------------------------------------------------%>
+
     <div class="col-lg-3">
       <div class="user-info">
         <div class="user-panel">
@@ -76,29 +74,47 @@
       </div>
 
       <div class="user-menu">
+        <select name="select-year" class="select-year mb-4">
+            <option disabled selected value> year </option>
+            <% for i in 1..12 %>
+              <option value="<%= i.to_s %>">
+            <% end %>
+            </option>
+
+        </select>
 
           <%= link_to "Home", home_path,
-          class:"btn btn-light btn-sm btn-block mb-4 nav-home" %>
+          class:"btn btn-light btn-sm btn-block mb-4 nav-home group-1" %>
 
           <%= link_to(
             'Sign Out',
             session_path,
-            class: "btn btn-light btn-sm btn-block mb-4 nav-signOut",
+            class: "btn btn-light btn-sm btn-block mb-4 nav-signOut group-1",
             method: :delete,
             data: {confirm: 'Sign out?'}
           ) %>
 
-          <a href="#myChart" class="btn btn-light btn-sm btn-block mb-4 user-stats">
+          <select name="chart-months" class="chart-select mb-4">
+              <option disabled selected value> -  select a month  - </option>
+              <% @record_months.each do |month, records| %>
+              <option value="<%= month.strftime('%Y-%m-%d') %>">
+                <%= month.strftime('%B') %>
+              </option>
+              <% end %>
+          </select>
+          <a href="#myChart"
+              class="btn btn-light btn-sm btn-block mb-4 user-stats group-2">
             Statistics
           </a>
-          <button class="btn btn-light btn-sm btn-block mb-4 show-day">
+
+          <button class="btn btn-light btn-sm btn-block mb-4 show-day group-2">
             Toggle Day
           </button>
-          <button class="btn btn-light btn-sm btn-block mb-4 show-exe">
+          <button class="btn btn-light btn-sm btn-block mb-4 show-exe group-2">
             Toggle exercise
           </button>
 
-          <select name="months" class="screenshot-select">
+          <select name="months" class="screenshot-select group-3">
             <option disabled selected value> -  select a month  - </option>
               <% @record_months.each do |month, records| %>
                 <option value="<%= month.strftime('%Y-%m-%d') %>">
@@ -108,7 +124,7 @@
           </select>
 
           <%= link_to 'Make a screenshot', "#{screenshot_path}?start_date",
-              class: "btn btn-light btn-sm btn-block mt-4 screenshot",
+              class: "btn btn-light btn-sm btn-block mt-4 screenshot group-3",
               id: "screenshot",
               style: "display:none;" %>
 
@@ -126,14 +142,16 @@
               })
           </script>
 
+          <% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
           <%= link_to "click to view",
               asset_path("image-#{@user.id}-#{@user.first_name}.png"),
-              class: "btn btn-light btn-sm btn-block mt-4 view-image"%>
+              class: "btn btn-light btn-sm btn-block mt-4 view-image group-3"%>
 
           <%= link_to "click to download",
               asset_path("image-#{@user.id}-#{@user.first_name}.png"),
               download: "#{@user.first_name}",
-              class: "btn btn-light btn-sm btn-block mt-4 download-image" %>
+              class: "btn btn-light btn-sm btn-block mt-4 download-image group-3" %>
+          <% end %>
       </div>
 
       <script>
@@ -187,53 +205,55 @@
 </div>
 
 <%#-CHART-----------------------------------------------------------%>
+
 <div class="m-auto pt-5 myChart">
   <canvas id="myChart" width="400" height="400"></canvas>
 </div>
 
 <script>
-  // get exercise frequency pair from users controller #show
-  const freqPair = <%= raw @json_freq_hash_pair || {} %>;
-  let pairData = [], pairLabel = [];
-  for(let key in freqPair){
-    pairLabel.push(key);
-    pairData.push(freqPair[key]);
-  }
-  // console.log(pairData.length);
-  // console.log(pairLabel);
+  $('.chart-select').change(function(){
+      const selectedMonth = $(this).val();
+      Charting.get(`${selectedMonth}`)
+              .then(freqPair=>{
 
-  function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
+          let pairData = [], pairLabel = [];
+          for(let key in freqPair){
+            pairLabel.push(key);
+            pairData.push(freqPair[key]);
+          }
 
-  let colorArr = [];
-  for(let i=1; i<=pairData.length;i++){
-    let temp = getRandomColor();
-    colorArr.push(temp);
-  }
-  console.log(colorArr);
+          function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+              color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+          }
 
-  var ctx = document.getElementById("myChart").getContext('2d');
-  var myChart = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-          datasets: [{
-              data: pairData,
-              backgroundColor: colorArr
-          }],
-          labels: pairLabel
-      }
+          let colorArr = [];
+          for(let i=1; i<=pairData.length;i++){
+            let temp = getRandomColor();
+            colorArr.push(temp);
+          }
+
+          var ctx = document.getElementById("myChart").getContext('2d');
+          var myChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                  datasets: [{
+                      data: pairData,
+                      backgroundColor: colorArr
+                  }],
+                  labels: pairLabel
+              }
+          });
+        });
+
   });
 
 </script>
 
-<script>
-  Charting.get('2018-01-01').then(console.log) ;
 
-</script>
+
 </div>

@@ -1,0 +1,66 @@
+<%#-CHART-----------------------------------------------------------%>
+
+<div class="m-auto pt-5 myChart">
+  <canvas id="myChart" width="400" height="400"></canvas>
+</div>
+<!-- <script>
+  // get exercise frequency pair from users controller #show
+  const freqPair = <%= raw @json_freq_hash_pair || {} %>;
+  let pairData = [], pairLabel = [];
+  for(let key in freqPair){
+    pairLabel.push(key);
+    pairData.push(freqPair[key]);
+  }
+  // console.log(pairData.length);
+  // console.log(pairLabel);
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  let colorArr = [];
+  for(let i=1; i<=pairData.length;i++){
+    let temp = getRandomColor();
+    colorArr.push(temp);
+  }
+
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          datasets: [{
+              data: pairData,
+              backgroundColor: colorArr
+          }],
+          labels: pairLabel
+      }
+  });
+
+</script> -->
+
+
+<!-- users controller
+
+    # current_month_rec = @user.records.where('start_time >?',DateTime.now.beginning_of_month)
+
+    # go to a month then the chart will show accordingly
+    month = params[:start_date]&.to_datetime&.month || DateTime.now.month
+    current_month_rec = @user.records.where('extract(month from start_time) = ?', month)
+    pairs = {}
+
+    current_month_rec.each do |r|
+        r.exercises.each do |e|
+            if pairs[e.name].present?
+              pairs[e.name] += 1
+            else
+              pairs[e.name] = 1
+            end
+        end
+    end
+
+    @json_freq_hash_pair = pairs.to_json -->

@@ -50,7 +50,7 @@ class RecordsController < ApplicationController
 
     def destroy
       @record.destroy
-      redirect_to records_path
+      redirect_to user_path(current_user)
     end
 
     private

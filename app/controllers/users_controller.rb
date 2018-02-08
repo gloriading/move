@@ -25,27 +25,6 @@ layout :diverse_layout
     @user = User.find params[:id]
     @user_records = @user.records.order(created_at: :desc)
     @record = Record.new
-
-    # current_month_rec = @user.records.where('start_time >?',DateTime.now.beginning_of_month)
-
-    # go to a month then the chart will show accordingly
-    month = params[:start_date]&.to_datetime&.month || DateTime.now.month
-    current_month_rec = @user.records.where('extract(month from start_time) = ?', month)
-    pairs = {}
-
-    current_month_rec.each do |r|
-        r.exercises.each do |e|
-            if pairs[e.name].present?
-              pairs[e.name] += 1
-            else
-              pairs[e.name] = 1
-            end
-        end
-    end
-
-    @json_freq_hash_pair = pairs.to_json
-
-
     @record_months = @user_records.group_by {|t| t.start_time.beginning_of_month }
 
   end
