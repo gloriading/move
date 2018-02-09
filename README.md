@@ -136,7 +136,7 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 * [ to-do / question] ********************************************
-
+- when cursor enters the graph...it's shaking and changing
 
 - how to select different month?
   in users controller #show
@@ -186,6 +186,6 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 > rails g controller Api::Application --no-assets --no-helper --skip-template-engine
 > rails g migration add_api_key_to_user api_key:string
 
-- char.js
+- chart.js
 - show.html.erb <script>
 <!--  -->

@@ -86,9 +86,8 @@
               </h5>
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body px-2 py-2">
+              <div class="card-body px-2">
                 <div class="go-to-month">
-                  <p class="text-light">Go to other month:</p>
                   <select name="select-year" class="select-year">
                     <option value="2017">2017</option>
                     <option value="2018" selected>2018</option>
@@ -141,7 +140,7 @@
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
               <div class="card-body">
-                  <select name="months" class="screenshot-select group-3">
+                  <select name="months" class="screenshot-select group-3 mb-1">
                     <option disabled selected value> -  select a month  - </option>
                       <% @record_months.each do |month, records| %>
                         <option value="<%= month.strftime('%Y-%m-%d') %>">
@@ -151,19 +150,19 @@
                   </select>
 
                   <%= link_to 'Make a screenshot', "#{screenshot_path}?start_date",
-                      class: "btn btn-light btn-sm btn-block mt-4 screenshot group-3",
+                      class: "btn btn-light btn-sm btn-block mb-1 screenshot group-3",
                       id: "screenshot",
                       style: "display:none;" %>
 
                     <% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
                     <%= link_to "click to view",
                         asset_path("image-#{@user.id}-#{@user.first_name}.png"),
-                        class: "btn btn-light btn-sm btn-block mt-4 view-image group-3"%>
+                        class: "btn btn-light btn-sm btn-block mb-1 view-image group-3"%>
 
                     <%= link_to "click to download",
                         asset_path("image-#{@user.id}-#{@user.first_name}.png"),
                         download: "#{@user.first_name}",
-                        class: "btn btn-light btn-sm btn-block mt-4 download-image group-3" %>
+                        class: "btn btn-light btn-sm btn-block mb-1 download-image group-3" %>
                     <% end %>
 
               </div>
@@ -189,10 +188,6 @@
                     </option>
                     <% end %>
                 </select>
-                <a href="#myChart"
-                    class="btn btn-light btn-sm btn-block mb-1 user-stats group-2">
-                  Create Chart
-                </a>
               </div>
             </div>
           </div>
@@ -225,11 +220,20 @@
     </div>
   </div>
 
-<%#--------------------------------------------------------- Chart Display --%>
-<div class="m-auto pt-5 myChart">
-  <canvas id="myChart" width="400" height="400"></canvas>
-</div>
+<%#---------------------------------------------- Chart Display on Modal--%>
 
+
+<button type="button" id="stat-modal" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" style="display:none;">Large modal</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="stat-modal-display">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="m-auto myChart">
+        <canvas id="myChart" width="400" height="400"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <%# below: Go to Another Month ------------------------------------JS - 4 %>
@@ -270,6 +274,7 @@
 <%# below : Chart Generating via Ajax ----------------------------JS - 1 - %>
 <script>
   $('.chart-select').change(function(){
+    $('#stat-modal').click();
       const selectedMonth = $(this).val();
       Charting.get(`${selectedMonth}`)
               .then(freqPair=>{

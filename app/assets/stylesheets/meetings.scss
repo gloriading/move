@@ -53,26 +53,10 @@ td.day {
   overflow:hidden;
 }
 // user-buttons
-.user-menu > .btn{
-  letter-spacing: 2px;
-  border-radius: 20px !important;
-  color: white;
-  border: 1px solid BLUE;
-  box-shadow: 2px 2px gray;
-}
-.user-menu > .btn:hover{
-  background-color: MEDIUMBLUE !important;
-  color: white !important;
-}
-.group-1{
-  background-color: #7458f4 !important;
-}
-.group-2{
-  background-color: #0251d1 !important;
-}
-.group-3{
-  background-color: #627dea !important;
-}
+
+.group-1{ background-color: #7458f4 !important; }
+.group-2{ background-color: #0251d1 !important; }
+.group-3{ background-color: #627dea !important; }
 
 .screenshot-select{
   width: 100%;
@@ -83,6 +67,40 @@ td.day {
   color:white;
   text-align: center;
 }
+.user-menu {
+  .card-header{
+    padding:2px;
+    background-color: #45d89c;
+
+    .btn-link{
+      text-decoration: none !important;
+      color:black;
+    }
+  }
+  .card-body{
+    background-color: #bbbbbb;
+    .btn{
+      letter-spacing: 2px;
+      border-radius: 50px !important;
+      color: white;
+      box-shadow: 2px 2px gray;
+    }
+    .btn:hover{
+      background-color: MEDIUMBLUE !important;
+      color: white !important;
+    }
+
+  }
+}
+
+// a{
+//   margin-left: 5px;
+//   text-decoration: none !important;
+// }
+// a:link{ color:hotpink; }
+// a:visited{ color:green; }
+// a:hover{ background-color: hotpink; color:white;}
+
 // Hidden field
 .all-records{
   display: none;
@@ -159,10 +177,10 @@ td.day {
 // Pie Chart
 .myChart{
   width: 100vh;
-  // background-color: whitesmoke;
-  // opacity: 0.8;
 }
-
+#stat-modal-display{
+  .modal-content{ background-color: transparent !important;}
+}
 
 // --------------------------------------------------[  Record Form  ]
 .scrollable-menu {
