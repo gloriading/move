@@ -216,7 +216,9 @@
 
   </div>
 
-
+  <div class="m-auto myChart">
+    <canvas id="myChart" width="400px" height="600px"></canvas>
+  </div>
 <%#---------------------------------------------- Chart Display on Modal--%>
 
 
@@ -271,7 +273,7 @@
 <%# below : Chart Generating via Ajax ----------------------------JS - 1 - %>
 <script>
   $('.chart-select').change(function(){
-    $('#stat-modal').click();
+    // $('#stat-modal').click();
       const selectedMonth = $(this).val();
       Charting.get(`${selectedMonth}`)
               .then(freqPair=>{

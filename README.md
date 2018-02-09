@@ -136,12 +136,9 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 * [ to-do / question] ********************************************
+- chart.js API_KEY ?!
 - when cursor enters the graph...it's shaking and changing
 - after screenshot, how to let user know where to look for the image
-
-- how to select different month?
-  in users controller #show
-  current_month_rec = @user.records.where('start_time >?',DateTime.now.beginning_of_month)
 
 - text-wrap/overflow thing within the calendar
 
@@ -162,6 +159,7 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
   + set a toggle so users do NOT have to input daily
 
+- user can publish their image to the home page wall
 
 - add minimun width to calendar
 
