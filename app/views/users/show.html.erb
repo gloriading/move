@@ -24,9 +24,9 @@
                         <button type="button" class="close ml-auto mr-3 mt-1" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true" style="color:white;">&times;</span>
                         </button>
-                          <h5 class="modal-title ml-2" id="exampleModalLongTitle">
+                          <!-- <h5 class="modal-title ml-2" id="exampleModalLongTitle">
                             <%= r.id %>
-                          </h5>
+                          </h5> -->
                         <div class="modal-body">
                           <% if can?(:crud, r) %>
                               <p>
@@ -79,17 +79,16 @@
               <%= link_to @user.first_name, user_path(@user)%>
               </h5>
               <div class="mb-2">
-                <%= link_to "home", home_path,
-                class:"btn btn-light btn-sm mb-1 nav-home" %>
+                <%= link_to home_path, class:"btn btn-light btn-sm mb-1 nav-home" do%>
+                  <i class="fas fa-home"></i>
+                <% end %>
 
-                <%= link_to(
-                  'sign out',
-                  session_path,
+                <%= link_to session_path,
                   class: "btn btn-light btn-sm mb-1 ml-2 nav-signOut",
                   method: :delete,
-                  data: {confirm: 'Sign out?'}
-                )
-                %>
+                  data: {confirm: 'Sign out?'} do %>
+                  <i class="fas fa-sign-out-alt"></i>
+                <% end %>
               </div>
             </div>
           </div>
@@ -100,7 +99,7 @@
             <div class="card-header" id="headingOne">
               <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Go to Other Month
+                  <i class="far fa-calendar-alt"></i> Go to Other Month
                 </button>
               </h5>
             </div>
@@ -130,7 +129,7 @@
             <div class="card-header" id="headingThree">
               <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Screenshot a Month
+                  <i class="fas fa-camera-retro"></i> Screenshot a Month
                 </button>
               </h5>
             </div>
@@ -169,7 +168,7 @@
             <div class="card-header" id="headingFour">
               <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                  Statistics
+                  <i class="far fa-file-alt"></i> Statistics
                 </button>
               </h5>
             </div>
@@ -192,7 +191,7 @@
             <div class="card-header" id="headingFive">
               <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                  Calendar Effects
+                  <i class="fas fa-certificate"></i> Calendar Effects
                 </button>
               </h5>
             </div>
