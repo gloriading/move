@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="row mt-3">
-    <div class="col-lg-9">
+    <div class="col-lg-9" name="top">
     <!-- Calendar ---------------------------------------------------->
         <%= month_calendar events: @user_records do |date, user_records| %>
           <div class="cell">
@@ -99,7 +99,10 @@
             <div class="card-header" id="headingOne">
               <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <i class="far fa-calendar-alt"></i> Go to Other Month
+                  <span class="btn btn-light btn-sm">
+                    <i class="far fa-calendar-alt"></i>
+                  </span>
+                  Go to Other Month
                 </button>
               </h5>
             </div>
@@ -129,7 +132,10 @@
             <div class="card-header" id="headingThree">
               <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  <i class="fas fa-camera-retro"></i> Screenshot a Month
+                  <span class="btn btn-light btn-sm">
+                    <i class="fas fa-camera-retro"></i>
+                  </span>
+                  Take a Screenshot
                 </button>
               </h5>
             </div>
@@ -168,7 +174,10 @@
             <div class="card-header" id="headingFour">
               <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                  <i class="far fa-file-alt"></i> Statistics
+                  <span class="btn btn-light btn-sm">
+                    <i class="far fa-file-alt"></i>
+                  </span>
+                  Statistics
                 </button>
               </h5>
             </div>
@@ -179,7 +188,7 @@
                     <option disabled selected value>   select a month   </option>
                     <% @record_months.each do |month, records| %>
                     <option value="<%= month.strftime('%Y-%m-%d') %>">
-                      <%= month.strftime('%B') %>
+                      <%= month.strftime('%Y %B') %>
                     </option>
                     <% end %>
                 </select>
@@ -191,7 +200,10 @@
             <div class="card-header" id="headingFive">
               <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                  <i class="fas fa-certificate"></i> Calendar Effects
+                  <span class="btn btn-light btn-sm">
+                    <i class="fas fa-certificate"></i>
+                  </span>
+                  Calendar Effects
                 </button>
               </h5>
             </div>
@@ -213,7 +225,11 @@
   </div>
 
 <%#---------------------------------------------------  Chart Display Area %>
-  <div id="chart-container" class="m-auto myChart"></div>
+  <div id="chart-container" class="m-auto myChart">
+    <a href="#top" title="Go to top" class="btn btn-light btn-sm go-top" id="go-top">
+      <i class="far fa-arrow-alt-circle-up"></i>
+    </a>
+  </div>
 
 <%# below: Go to Another Month ------------------------------------JS - 4 %>
   <script type="text/javascript">
@@ -234,7 +250,12 @@
           const keep = $screenshotButton.attr('href').split('?')[0];
           const newQuery = `${keep}?start_date=${selectedMonth}`;
           $screenshotButton.attr('href',newQuery);
+          // show the execution button
           $('#screenshot').show('slow');
+          // $('#collapseThree').addClass('show');
+          // window.onload = function(){
+          //   console.log('loaded')
+          // }
       })
   </script>
 
@@ -253,8 +274,12 @@
 <%# below : Chart Generating via Ajax ----------------------------JS - 1 - %>
 <script>
   $('.chart-select').change(function(){
-
       const selectedMonth = $(this).val();
+
+      $('html, body').animate({
+        scrollTop: $("#chart-container").offset().top
+      }, 1000);
+
       Charting.get(`${selectedMonth}`, '<%= api_key %>')
               .then(freqPair=>{
 
@@ -287,7 +312,7 @@
           const chartCanvas = document.createElement('canvas');
           chartCanvas.setAttribute('id', "myChart");
           chartCanvas.setAttribute('width', "400px");
-          chartCanvas.setAttribute('height', "600px");
+          chartCanvas.setAttribute('height', "400px");
           // chartCanvas
           chartContainer.appendChild(chartCanvas);
 
@@ -300,12 +325,30 @@
                       backgroundColor: colorArr
                   }],
                   labels: pairLabel
+              },
+              options: {
+                legend: {
+                    display: false
+                 },
+                 tooltips: {
+                    titleFontSize: 20,
+                    bodyFontSize: 20
+                  }
               }
           });
         });
   });
 </script>
-
+<%# below : show/hide the go-top button ----------------------------JS - 1.1 - %>
+<script type="text/javascript">
+  $(window).scroll(function(){
+   if( $(document).scrollTop() > 50 ) {
+      $('#go-top').fadeIn();
+   } else {
+      $('#go-top').fadeOut();
+   }
+  });
+</script>
 <%#-HIDDEN---------------------------------------------------HIDDEN---%>
 
 <div class="all-records">

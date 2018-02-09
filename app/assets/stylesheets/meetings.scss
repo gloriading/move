@@ -90,15 +90,23 @@
       a:hover{ color: whitesmoke; }
     }
     .card-header{
-        padding:2px;
+        padding:1px;
         background-color: #424949;
         border-bottom: 1px #A6ACAF solid;
 
         .btn-link{
+          margin:0;
           text-decoration: none !important;
           letter-spacing: 1px;
           text-align: center;
           color:white;
+            span.btn{
+                padding: 5px;
+                margin: 1px;
+                background-color: inherit;
+                color:inherit;
+                border:none;
+            }
         }
     }
     .card-body{
@@ -175,17 +183,15 @@
   font-size: 40px;
   color: White;
 }
-// Show Screenshot to user
-// .show-image {
-//   img{ width: 500px;}
-// }
-// Pie Chart
+
+// ---------------------------------------------------- [ the Chart thing]
 .myChart{
   // height: 100vh;
   width: 100vh;
 }
-#stat-modal-display{
-  .modal-content{ background-color: transparent !important;}
+.go-top{
+  border:none;
+  font-size: 20px !important;
 }
 
 // --------------------------------------------------[  Record Form  ]
