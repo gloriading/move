@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
     end
     helper_method :current_user
 
+    def api_key
+      @api_key ||= current_user&.api_key
+    end
+    helper_method :api_key
+
     private
 
     def authenticate_user!

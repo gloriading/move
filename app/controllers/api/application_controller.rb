@@ -13,7 +13,7 @@ skip_before_action :verify_authenticity_token
   helper_method :current_user
 
   private
-  
+
   def api_key
     request.headers['AUTHORIZATION']
   end

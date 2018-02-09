@@ -134,10 +134,26 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
     on the screenshot link, send the start_date as a param in the path
   - in screens controller, capture the start_date
 
+[solved by max]
+* issue: in chart.js set a fixed value of api
+  - in chart.js, pass API_KEY as another argument
+  - in regular application_controller:
+      <!-- def api_key
+        @api_key ||= current_user&.api_key
+      end
+      helper_method :api_key -->
+  - in user show.html.erb:
+      `Charting.get(`${selectedMonth}`, '<%= api_key %>')`
+* issue: cursor enters the graph...it's shaking and changing..
+  - remove the previous canvas if there's one
+  - create a canvas and set attributes of the canvas
+  - append the canvas to chart-container
+
+
+
 
 * [ to-do / question] ********************************************
-- chart.js API_KEY ?!
-- when cursor enters the graph...it's shaking and changing
+
 - after screenshot, how to let user know where to look for the image
 
 - text-wrap/overflow thing within the calendar

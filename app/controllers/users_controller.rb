@@ -25,8 +25,8 @@ layout :diverse_layout
     @user = User.find params[:id]
     @user_records = @user.records.order(created_at: :desc)
     @record = Record.new
-    @record_months = @user_records.group_by {|t| t.start_time.beginning_of_month }
-    p @record_months
+    @user_records_by_start_time = @user.records.order(start_time: :asc)
+    @record_months = @user_records_by_start_time.group_by {|t| t.start_time.beginning_of_month }
   end
 
 

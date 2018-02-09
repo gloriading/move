@@ -207,33 +207,13 @@
               </div>
             </div>
           </div>
-
         </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="m-auto myChart">
-    <canvas id="myChart" width="400px" height="600px"></canvas>
-  </div>
-<%#---------------------------------------------- Chart Display on Modal--%>
-
-
-<button type="button" id="stat-modal" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" style="display:none;">Large modal</button>
-
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="stat-modal-display">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="m-auto myChart">
-        <canvas id="myChart" width="400" height="400"></canvas>
       </div>
     </div>
   </div>
-</div>
 
+<%#---------------------------------------------------  Chart Display Area %>
+  <div id="chart-container" class="m-auto myChart"></div>
 
 <%# below: Go to Another Month ------------------------------------JS - 4 %>
   <script type="text/javascript">
@@ -273,9 +253,9 @@
 <%# below : Chart Generating via Ajax ----------------------------JS - 1 - %>
 <script>
   $('.chart-select').change(function(){
-    // $('#stat-modal').click();
+
       const selectedMonth = $(this).val();
-      Charting.get(`${selectedMonth}`)
+      Charting.get(`${selectedMonth}`, '<%= api_key %>')
               .then(freqPair=>{
 
           let pairData = [], pairLabel = [];
@@ -298,9 +278,21 @@
             let temp = getRandomColor();
             colorArr.push(temp);
           }
+          const chartContainer = document.getElementById("chart-container");
+          const child = document.getElementById("myChart");
+          // console.dir(child)
+          if (child) {
+            chartContainer.removeChild(child);
+          }
+          const chartCanvas = document.createElement('canvas');
+          chartCanvas.setAttribute('id', "myChart");
+          chartCanvas.setAttribute('width', "400px");
+          chartCanvas.setAttribute('height', "600px");
+          // chartCanvas
+          chartContainer.appendChild(chartCanvas);
 
-          var ctx = document.getElementById("myChart").getContext('2d');
-          var myChart = new Chart(ctx, {
+          var ctx = chartCanvas.getContext('2d');
+          new Chart(ctx, {
               type: 'doughnut',
               data: {
                   datasets: [{
