@@ -52,54 +52,60 @@ td.day {
   color:white;
   overflow:hidden;
 }
-// user-buttons
+// user-buttons ---------------------------------------------------------
 
-.group-1{ background-color: #7458f4 !important; }
-.group-2{ background-color: #0251d1 !important; }
-.group-3{ background-color: #627dea !important; }
 
-.screenshot-select{
-  width: 100%;
-  height: 30px;
-  border-radius: 20px;
-  letter-spacing: 2px;
-  font-family: inherit;
-  color:white;
-  text-align: center;
-}
 .user-menu {
-  .card-header{
-    padding:2px;
-    background-color: #45d89c;
+    #accordion{
+      margin-top: 10px;
+    }
+    .card{
+      border:none !important;
+    }
+    #user-info{
+      a {
+          font-weight: bold;
+          font-size: 30px;
+          color: #B3B6B7;
+          text-decoration: none !important;
+      }
+      a:hover{ color: whitesmoke; }
+    }
+    .card-header{
+        padding:2px;
+        background-color: #424949;
+        border-bottom: 1px #A6ACAF solid;
 
-    .btn-link{
-      text-decoration: none !important;
-      color:black;
+        .btn-link{
+          text-decoration: none !important;
+          letter-spacing: 1px;
+          text-align: center;
+          color:white;
+        }
     }
-  }
-  .card-body{
-    background-color: #bbbbbb;
-    .btn{
-      letter-spacing: 2px;
-      border-radius: 50px !important;
-      color: white;
-      box-shadow: 2px 2px gray;
-    }
-    .btn:hover{
-      background-color: MEDIUMBLUE !important;
-      color: white !important;
-    }
+    .card-body{
+        background-color: #bbbbbb;
 
-  }
+        select{
+          height:35px;
+          padding-left: 10px;
+        }
+
+        .btn{
+          letter-spacing: 2px;
+          background-color: #FF6600 !important;
+          border: #6E2C00 !important;
+          color: white;
+          box-shadow: 2px 2px gray;
+        }
+
+        .btn:hover{
+          background-color: MEDIUMBLUE !important;
+          color: white !important;
+        }
+
+    }
 }
-
-// a{
-//   margin-left: 5px;
-//   text-decoration: none !important;
-// }
-// a:link{ color:hotpink; }
-// a:visited{ color:green; }
-// a:hover{ background-color: hotpink; color:white;}
 
 // Hidden field
 .all-records{
@@ -116,18 +122,7 @@ td.day {
   padding: 5px;
 
 }
-// user_icon
-.user-panel > a {
-    font-weight: bold;
-    font-size: 30px;
-    color: white;
-    text-decoration: none !important;
-}
 
-.user-info{
-  margin-bottom: 30px;
-  text-align: right;
-}
 // calendar heading
 .calendar-heading > a{
   text-decoration: none;

@@ -67,21 +67,40 @@
 <%# User Info & Buttons ------------------------------------------------------%>
 
    <div class="col-lg-3">
-       <div class="user-info">
-         <div class="user-panel">
-          <%= link_to @user.first_name, user_path(@user)%>
-         </div>
-       </div>
+
 
     <div class="user-menu">
 
         <div id="accordion">
+<%#------------------------------------------------------------ card 0 -%>
+          <div class="card">
+            <div class="card-header text-center">
+              <h5 class="py-2 px-4" id="user-info">
+              <%= link_to @user.first_name, user_path(@user)%>
+              </h5>
+              <div class="mb-2">
+                <%= link_to "home", home_path,
+                class:"btn btn-light btn-sm mb-1 nav-home" %>
+
+                <%= link_to(
+                  'sign out',
+                  session_path,
+                  class: "btn btn-light btn-sm mb-1 ml-2 nav-signOut",
+                  method: :delete,
+                  data: {confirm: 'Sign out?'}
+                )
+                %>
+              </div>
+            </div>
+          </div>
+
+
 <%# ------------------------------------------------------------- card 1  -%>
           <div class="card">
             <div class="card-header" id="headingOne">
               <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Go to Another Month
+                  Go to Other Month
                 </button>
               </h5>
             </div>
@@ -106,30 +125,7 @@
             </div>
           </div>
 <%# ------------------------------------------------------------- card 2  -%>
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Home | Sign Out
-                </button>
-              </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-              <div class="card-body px-2">
-                <%= link_to "Home", home_path,
-                class:"btn btn-light btn-sm btn-block mb-1 nav-home group-1" %>
 
-                <%= link_to(
-                  'Sign Out',
-                  session_path,
-                  class: "btn btn-light btn-sm btn-block mb-1 nav-signOut group-1",
-                  method: :delete,
-                  data: {confirm: 'Sign out?'}
-                ) %>
-              </div>
-            </div>
-          </div>
-<%# ------------------------------------------------------------- card 3  -%>
           <div class="card">
             <div class="card-header" id="headingThree">
               <h5 class="mb-0">
@@ -140,8 +136,8 @@
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
               <div class="card-body">
-                  <select name="months" class="screenshot-select group-3 mb-1">
-                    <option disabled selected value> -  select a month  - </option>
+                  <select name="months" class="screenshot-select mb-1">
+                    <option disabled selected value>   select a month   </option>
                       <% @record_months.each do |month, records| %>
                         <option value="<%= month.strftime('%Y-%m-%d') %>">
                           <%= month.strftime('%B %Y') %>
@@ -150,25 +146,25 @@
                   </select>
 
                   <%= link_to 'Make a screenshot', "#{screenshot_path}?start_date",
-                      class: "btn btn-light btn-sm btn-block mb-1 screenshot group-3",
+                      class: "btn btn-light btn-sm btn-block mb-1 screenshot",
                       id: "screenshot",
                       style: "display:none;" %>
 
                     <% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
                     <%= link_to "click to view",
                         asset_path("image-#{@user.id}-#{@user.first_name}.png"),
-                        class: "btn btn-light btn-sm btn-block mb-1 view-image group-3"%>
+                        class: "btn btn-light btn-sm btn-block mb-1 view-image"%>
 
                     <%= link_to "click to download",
                         asset_path("image-#{@user.id}-#{@user.first_name}.png"),
                         download: "#{@user.first_name}",
-                        class: "btn btn-light btn-sm btn-block mb-1 download-image group-3" %>
+                        class: "btn btn-light btn-sm btn-block mb-1 download-image " %>
                     <% end %>
 
               </div>
             </div>
           </div>
-<%# ------------------------------------------------------------- card 4  -%>
+<%# ------------------------------------------------------------- card 3  -%>
           <div class="card">
             <div class="card-header" id="headingFour">
               <h5 class="mb-0">
@@ -180,8 +176,8 @@
 
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
               <div class="card-body">
-                <select name="chart-months" class="chart-select mb-4">
-                    <option disabled selected value> -  select a month  - </option>
+                <select name="chart-months" class="chart-select mb-1">
+                    <option disabled selected value>   select a month   </option>
                     <% @record_months.each do |month, records| %>
                     <option value="<%= month.strftime('%Y-%m-%d') %>">
                       <%= month.strftime('%B') %>
@@ -191,7 +187,7 @@
               </div>
             </div>
           </div>
-<%# ------------------------------------------------------------- card 5  -%>
+<%# ------------------------------------------------------------- card 4  -%>
           <div class="card">
             <div class="card-header" id="headingFive">
               <h5 class="mb-0">
@@ -203,11 +199,11 @@
 
             <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
               <div class="card-body">
-                <button class="btn btn-light btn-sm btn-block mb-1 show-day group-2">
-                  Toggle Day
+                <button class="btn btn-light btn-sm btn-block mb-1 show-day">
+                  toggle day
                 </button>
-                <button class="btn btn-light btn-sm btn-block mb-1 show-exe group-2">
-                  Toggle exercise
+                <button class="btn btn-light btn-sm btn-block mb-1 show-exe">
+                  toggle exercise
                 </button>
               </div>
             </div>
@@ -218,6 +214,7 @@
       </div>
 
     </div>
+
   </div>
 
 <%#---------------------------------------------- Chart Display on Modal--%>
