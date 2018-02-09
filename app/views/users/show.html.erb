@@ -150,12 +150,13 @@
                       <% end %>
                   </select>
 
-                  <%= link_to 'Make a screenshot', "#{screenshot_path}?start_date",
-                      class: "btn btn-light btn-sm btn-block mb-1 screenshot",
-                      id: "screenshot",
-                      style: "display:none;" %>
-
+                    <%= link_to 'Make a screenshot', "#{screenshot_path}?start_date",
+                        class: "btn btn-light btn-sm btn-block mb-1 screenshot",
+                        id: "screenshot",
+                        style: "display:none;" %>
+                    <hr>
                     <% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
+                    
                     <%= link_to "click to view",
                         asset_path("image-#{@user.id}-#{@user.first_name}.png"),
                         class: "btn btn-light btn-sm btn-block mb-1 view-image"%>
@@ -341,6 +342,7 @@
 </script>
 <%# below : show/hide the go-top button ----------------------------JS - 1.1 - %>
 <script type="text/javascript">
+  $('#go-top').hide();
   $(window).scroll(function(){
    if( $(document).scrollTop() > 50 ) {
       $('#go-top').fadeIn();
@@ -348,6 +350,9 @@
       $('#go-top').fadeOut();
    }
   });
+  // $('#go-top').click(function(){
+  //   $('#myChart').fadeOut;
+  // })
 </script>
 <%#-HIDDEN---------------------------------------------------HIDDEN---%>
 
