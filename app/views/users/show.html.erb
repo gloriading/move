@@ -139,7 +139,7 @@
                     <option disabled selected value>   select a month   </option>
                       <% @record_months.each do |month, records| %>
                         <option value="<%= month.strftime('%Y-%m-%d') %>">
-                          <%= month.strftime('%B %Y') %>
+                          <%= month.strftime('%Y %B ') %>
                         </option>
                       <% end %>
                   </select>
@@ -215,6 +215,7 @@
     </div>
 
   </div>
+
 
 <%#---------------------------------------------- Chart Display on Modal--%>
 

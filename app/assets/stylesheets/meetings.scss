@@ -1,59 +1,77 @@
 // Place all the styles related to the Meetings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
 .simple-calendar {
+    margin: 10px;
+    padding: 10px;
+    background-color: #424949;
+    // background-color: #7887AB;
+    box-shadow: 0 8px 10px -6px WHITESMOKE;
 
-  margin: 10px;
-  padding: 10px;
-  background-color: #7887AB;
-  box-shadow: 0 8px 10px -6px WHITESMOKE;
+    .calendar-heading{
+        .calendar-title{
+          margin-left: 5px;
+          font-size: 20px;
+          letter-spacing: 3px;
+          color:white;
+          text-shadow: 1px 1px black;
+        }
+        .arrow{
+          font-size: 20px;
+          color: #CCD1D1;
+        }
+        a{ text-decoration: none;}
+        a:hover{ color: black;}
+    }
+    .table{
+        th{
+          text-align: center;
+          color: #B3B6B7;
+          font-weight: normal;
+          letter-spacing: 2px;
+        }
+        .next-month, .prev-month { background-color: #707B7C; }
+        .today {
+          background-color: inherit;
+          border: 5px solid MEDIUMSLATEBLUE;
+        }
+        .current-month{
+          .day-cell{ color: #707B7C;}
+        }
+        .day {
+          cursor: pointer;
+          padding:0 !important;
+        }
+        .cell{
+          display:flex;
+          flex-direction: column;
+          height: 100%;
+              .day-cell{
+                display:none;
+                padding-left: 2px;
+              }
+              .inner-cell{
+                flex-grow: 1;
+                // the following is to center the text inside a day
+                display:flex;
+                justify-content:center;
+                align-content:center;
+                flex-direction:column;
+                font-size: 14px;
+                color:white;
+                overflow:hidden;
+              }
+        }
 
-  .today {
-    background-color: inherit;
-    border: 5px solid MEDIUMSLATEBLUE;
-  }
+    }
 
-  .next-month, .prev-month {
-    background-color: LIGHTSTEELBLUE;
-  }
-  .current-month {}
-  .start-date {}
-  .calendar-title{ font-size: 20px; color:white; text-shadow: 1px 1px black;}
 }
-//  ----------------------------------------- user show page - calendar
 
-td.day {
-  cursor: pointer;
-  padding:0 !important;
-}
 
-.calendar-title{
-  letter-spacing: 3px;
-}
 
-.day-cell{
-    display:none;
-}
-
-.cell{
-  display:flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.inner-cell{
-  flex-grow: 1;
-  // the following is to center the text inside a day
-  display:flex;
-  justify-content:center;
-  align-content:center;
-  flex-direction:column;
-  font-size: 14px;
-  color:white;
-  overflow:hidden;
-}
 // user-buttons ---------------------------------------------------------
-
 
 .user-menu {
     #accordion{
@@ -120,22 +138,14 @@ td.day {
   height: 250px !important;
   box-shadow: 0 8px 6px -6px black;
   padding: 5px;
-
 }
 
-// calendar heading
-.calendar-heading > a{
-  text-decoration: none;
-  font-size: 20px;
-  color:DARKBLUE;
-}
-// Loading animation
+// Loading animation -----------------------------------------------
 
 .spinner {
   width: 80px;
   height: 80px;
-  background-color: DodgerBlue;
-  border: 1px solid white;
+  background-color: #1A237E;
 
   margin: 100px auto;
   -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;

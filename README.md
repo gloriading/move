@@ -137,6 +137,7 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 * [ to-do / question] ********************************************
 - when cursor enters the graph...it's shaking and changing
+- after screenshot, how to let user know where to look for the image
 
 - how to select different month?
   in users controller #show
@@ -145,10 +146,11 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 - text-wrap/overflow thing within the calendar
 
 - provide a list of exercise that has been recorded before with a drop down menu
-
+- how to let user choose to take a screenshot with dates on it
 
 - after changing format of record form, the autocomplete does not work
 
+- fix the width of the calendar
 
 - automatching colour scheme... records/new.html.erb
   + when click on edit, no autocomplete
@@ -160,8 +162,6 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
   + set a toggle so users do NOT have to input daily
 
-- [user show page]
-  + JS to screenshot
 
 - add minimun width to calendar
 

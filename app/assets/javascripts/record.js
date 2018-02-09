@@ -114,9 +114,9 @@ $( document ).ready(function() {
 // -----------------------------------------------------------------
 // when first enter user show page, no date is shown
 // when the mouse enters, the date will shown
-$('.container .row').mouseenter(function(){
-	$('.day-cell').slideDown();
-})
+  setTimeout(function(){
+  	$('.day-cell').slideDown('fast');
+  },10);
 
 
 
