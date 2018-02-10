@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="row mt-3">
+  <div class="row mt-3" id="top">
     <div class="col-lg-9" name="top">
     <!-- Calendar ---------------------------------------------------->
         <%= month_calendar events: @user_records do |date, user_records| %>
@@ -128,7 +128,7 @@
           </div>
 <%# ------------------------------------------------------------- card 2  -%>
 
-          <div class="card">
+          <div class="card" id="screenshot-card">
             <div class="card-header" id="headingThree">
               <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -156,7 +156,7 @@
                         style: "display:none;" %>
                     <hr>
                     <% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
-                    
+
                     <%= link_to "click to view",
                         asset_path("image-#{@user.id}-#{@user.first_name}.png"),
                         class: "btn btn-light btn-sm btn-block mb-1 view-image"%>
@@ -227,9 +227,9 @@
 
 <%#---------------------------------------------------  Chart Display Area %>
   <div id="chart-container" class="m-auto myChart">
-    <a href="#top" title="Go to top" class="btn btn-light btn-sm go-top" id="go-top">
+    <div class="btn btn-light btn-sm go-top" id="go-top">
       <i class="far fa-arrow-alt-circle-up"></i>
-    </a>
+    </div>
   </div>
 
 <%# below: Go to Another Month ------------------------------------JS - 4 %>
@@ -253,13 +253,27 @@
           $screenshotButton.attr('href',newQuery);
           // show the execution button
           $('#screenshot').show('slow');
-          // $('#collapseThree').addClass('show');
-          // window.onload = function(){
-          //   console.log('loaded')
-          // }
       })
   </script>
+<%# below: Let screenshot card stays open ------------------------JS - 3.1 %>
+  <script type="text/javascript">
 
+    // $('#screenshot-card').click(function(e){
+    //
+    //     if (e.target.classList.contains('screenshot')) {
+    //         localStorage.setItem('test', true);
+    //     }
+    //     setTimeout(function(){
+    //         if(localStorage.getItem('test')){
+    //           $('#collapseThree').addClass('show');
+    //         }
+    //     },8000);
+    //     setTimeout(function(){
+    //       localStorage.removeItem('test');
+    //     },9000);
+    // });
+
+  </script>
 <%# below: Animation while screenshotting ---------------------------JS - 2 %>
   <script>
     document.querySelector('a.screenshot').addEventListener('click', ()=>{
@@ -312,8 +326,8 @@
           }
           const chartCanvas = document.createElement('canvas');
           chartCanvas.setAttribute('id', "myChart");
-          chartCanvas.setAttribute('width', "400px");
-          chartCanvas.setAttribute('height', "400px");
+          chartCanvas.setAttribute('width', "300px");
+          chartCanvas.setAttribute('height', "300px");
           // chartCanvas
           chartContainer.appendChild(chartCanvas);
 
@@ -332,8 +346,8 @@
                     display: false
                  },
                  tooltips: {
-                    titleFontSize: 20,
-                    bodyFontSize: 20
+                    titleFontSize: 18,
+                    bodyFontSize: 18
                   }
               }
           });
@@ -343,17 +357,23 @@
 <%# below : show/hide the go-top button ----------------------------JS - 1.1 - %>
 <script type="text/javascript">
   $('#go-top').hide();
+
+  $('#go-top').click(function(){
+      $('html, body').animate({
+        scrollTop: $("#top").offset().top
+      }, 3000);
+      $('#myChart').fadeOut(3000);
+  })
+
   $(window).scroll(function(){
-   if( $(document).scrollTop() > 50 ) {
-      $('#go-top').fadeIn();
-   } else {
-      $('#go-top').fadeOut();
-   }
+     if( $(document).scrollTop() > 300 ) {
+        $('#go-top').fadeIn();
+     } else {
+        $('#go-top').fadeOut();
+     }
   });
-  // $('#go-top').click(function(){
-  //   $('#myChart').fadeOut;
-  // })
 </script>
+
 <%#-HIDDEN---------------------------------------------------HIDDEN---%>
 
 <div class="all-records">

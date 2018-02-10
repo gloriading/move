@@ -153,9 +153,10 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 * [ to-do / question] ********************************************
-
+- size down of the chart
+- fix scolling up problem
 - after screenshot, how to let user know where to look for the image
-
+- filter doesn;t work
 - text-wrap/overflow thing within the calendar
 
 - provide a list of exercise that has been recorded before with a drop down menu

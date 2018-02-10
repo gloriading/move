@@ -9,10 +9,18 @@
       <% if @record.exercises != [] %>
           <p>
             <% @record.exercises.each do |exercise| %>
-            <span
-              style="font-size: 50px; color:<%= exercise.colour %>;">
+            <p
+              style="font-size: 50px;
+                    margin: 0;
+                    color:<%= exercise.colour %>;">
               <strong><%= exercise.name %></strong>
-            </span>
+            </p>
+            <small style="color:#7F8C8D;"><strong>Created at: </strong>
+              <%= time_ago_in_words(exercise.created_at) %> ago
+            </small>
+            <small style="color:#7F8C8D;"><strong>Update at: </strong>
+              <%= time_ago_in_words(exercise.updated_at) %> ago
+            </small>
             <% end %>
           </p>
       <% end %>
@@ -24,13 +32,6 @@
         </div>
       <% end %>
 
-      <small><strong>Created at: </strong>
-        <%= time_ago_in_words(@record.created_at) %> ago
-      </small>
-
-      <small><strong>Update at: </strong>
-        <%= time_ago_in_words(@record.updated_at) %> ago
-      </small>
 
       <% if can?(:crud, @record) %>
           <p class="float-right">
