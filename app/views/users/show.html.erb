@@ -154,9 +154,24 @@
                         class: "btn btn-light btn-sm btn-block mb-1 screenshot",
                         id: "screenshot",
                         style: "display:none;" %>
-                    <hr>
-                    <% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
-
+              </div>
+            </div>
+          </div>
+<%# ------------------------------------------------------------- card 2-1 -%>
+<% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
+          <div class="card" id="show-screenshot-card">
+            <div class="card-header" id="headingThree1">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree1" aria-expanded="false" aria-controls="collapseThree1">
+                  <span class="btn btn-light btn-sm">
+                    <i class="far fa-image"></i>
+                  </span>
+                  Your Image is Ready
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree1" class="collapse show" aria-labelledby="headingThree1" data-parent="#accordion">
+              <div class="card-body">
                     <%= link_to "click to view",
                         asset_path("image-#{@user.id}-#{@user.first_name}.png"),
                         class: "btn btn-light btn-sm btn-block mb-1 view-image"%>
@@ -165,11 +180,11 @@
                         asset_path("image-#{@user.id}-#{@user.first_name}.png"),
                         download: "#{@user.first_name}",
                         class: "btn btn-light btn-sm btn-block mb-1 download-image " %>
-                    <% end %>
-
               </div>
             </div>
           </div>
+
+    <% end %>
 <%# ------------------------------------------------------------- card 3  -%>
           <div class="card">
             <div class="card-header" id="headingFour">
