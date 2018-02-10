@@ -76,11 +76,6 @@ $( document ).ready(function() {
       e.preventDefault();
       const id = $(this).attr('id');
       $(`[data-target="#modal-${id}"]`)[0].click();
-      // let target = '[data-target="#modal-' + x + '"]';
-      // console.log(target);
-      // console.dir($(target).click())
-      // $(target).click();
-
   });
 
 // When user enters an exercise that has been entered before,
@@ -107,7 +102,6 @@ $( document ).ready(function() {
     if (e.target.classList.contains('add_fields')) {
       c++;
     }
-    console.log(c);
     c >= 3 ? a.hide() : a.show();
   })
 

@@ -1,4 +1,7 @@
-# Exercise Log
+# MOVE
+### `move` is a web app for visualizing exercise records. Users can actually see their achievements they’ve made and obtain/maintain exercise habits. The technologies that have been used for this app are Ruby on Rails, JavaScript, AJAX, jQuery, HTML, CSS, Bootstrap. 🐰
+
+
 - Home page
   + rails g controller welcome --no-assets --no-helper
 
@@ -153,8 +156,10 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 * [ to-do / question] ********************************************
+- provide instant workout challenges
+- user can publish their story
 - size down of the chart
-- fix scolling up problem
+- fix scolling up problem / ok
 - after screenshot, how to let user know where to look for the image
 - filter doesn;t work
 - text-wrap/overflow thing within the calendar

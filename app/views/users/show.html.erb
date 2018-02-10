@@ -151,7 +151,7 @@
                   </select>
 
                     <%= link_to 'Make a screenshot', "#{screenshot_path}?start_date",
-                        class: "btn btn-light btn-sm btn-block mb-1 screenshot",
+                        class: "btn btn-light btn-sm btn-block my-1 screenshot",
                         id: "screenshot",
                         style: "display:none;" %>
               </div>
@@ -242,7 +242,7 @@
 
 <%#---------------------------------------------------  Chart Display Area %>
   <div id="chart-container" class="my-5 mx-auto myChart">
-    <div class="btn btn-light btn-sm go-top" id="go-top">
+    <div class="btn btn-light btn-sm go-top" id="go-top" style="float:right;">
       <i class="far fa-arrow-alt-circle-up"></i>
     </div>
   </div>
@@ -270,27 +270,21 @@
           $('#screenshot').show('slow');
       })
   </script>
-<%# below: Let screenshot card stays open ------------------------JS - 3.1 %>
-  <script type="text/javascript">
 
-    // $('#screenshot-card').click(function(e){
-    //
-    //     if (e.target.classList.contains('screenshot')) {
-    //         localStorage.setItem('test', true);
-    //     }
-    //     setTimeout(function(){
-    //         if(localStorage.getItem('test')){
-    //           $('#collapseThree').addClass('show');
-    //         }
-    //     },8000);
-    //     setTimeout(function(){
-    //       localStorage.removeItem('test');
-    //     },9000);
-    // });
-
-  </script>
 <%# below: Animation while screenshotting ---------------------------JS - 2 %>
-  <script>
+<script>
+  $('a.screenshot').click(function(){
+    $('body').html(
+      `<div class="spinner"></div>
+      <div class="loading-info">
+        Generating image.
+        Please do not refresh. ❤️
+      </div>
+      `
+    )
+  });
+</script>
+  <!-- <script>
     document.querySelector('a.screenshot').addEventListener('click', ()=>{
       document.querySelector('body').innerHTML =
       `<div class="spinner"></div>
@@ -299,7 +293,7 @@
       </div>
       `
     })
-  </script>
+  </script> -->
 
 <%# below : Chart Generating via Ajax ----------------------------JS - 1 - %>
 <script>
@@ -442,6 +436,7 @@
      }
   });
 </script>
+<%#-------------------------------------------------------------------%>
 
 <%#-HIDDEN---------------------------------------------------HIDDEN---%>
 

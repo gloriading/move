@@ -4,30 +4,26 @@
     <%= render 'form' %>
 
 
-  <%#= @user_pair_string %>
-<br />
 
+</div>
 
 <script type="text/javascript">
     const allPairs = <%= raw @user_pair_string || {} %>;
     console.log(allPairs);
-    let exercise;
 
-    $('.exe').on('change', function(){
-      temp = $(this).val().toLowerCase();
-      exercise = temp[0].toUpperCase()+ temp.slice(1);
-
-      for (let p in allPairs){
-        if(p == exercise){
-          console.log("match!");
-          const mini = $(this).parents('.nested-fields').find('#mini');
-          console.log(mini);
-          mini.val(allPairs[p]);
+    function matching(){
+      $('.exe-input').on('change', function(){
+        let exercise = $(this).val().toLowerCase();
+        for (let p in allPairs){
+          if(p == exercise){
+            console.log("match!");
+            const mini = $(this).parents('.row').find('#mini');
+            mini.val(allPairs[p]);
+          }
         }
-      }
-    })
-
+      })
+    }
+    matching();
 
 
 </script>
-</div>

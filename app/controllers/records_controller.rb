@@ -41,9 +41,9 @@ class RecordsController < ApplicationController
 
     def update
       if @record.update record_params
-        # redirect_to user_path(@record.user)
         redirect_to record_path(@record)
       else
+        get_user_pairs
         render :edit
       end
     end
@@ -78,17 +78,17 @@ class RecordsController < ApplicationController
     end
 
     def get_user_pairs
-      if user_signed_in?
+      # if user_signed_in?
         user_pairs = {}
         # all the exercise:colour pairs of a user
-        current_user.records.each do |r|
+        current_user&.records.each do |r|
           r.exercises.each do |e|
             user_pairs[e.name] = e.colour
           end
         end
         @user_pairs = user_pairs
         @user_pair_string = user_pairs.to_json
-      end
+      # end
     end
 
 end

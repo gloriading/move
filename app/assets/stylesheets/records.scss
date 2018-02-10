@@ -68,9 +68,7 @@
     }
 
 }
-
-
-// user-buttons ---------------------------------------------------------
+// --------------------------------------------------------- [ user-panel ]
 
 .user-menu {
     #accordion{
@@ -132,11 +130,10 @@
     }
 }
 
-// Hidden field
-.all-records{
-  display: none;
-}
-// Modal
+// ------------------------------------------------------------ [Hidden field]
+.all-records { display: none; }
+
+// -------------------------------------------------------------[  Modal ]
 .show-modal {
   background-color: NAVY !important;
   opacity: 0.8;
@@ -147,7 +144,7 @@
   padding: 5px;
 }
 
-// Loading animation -----------------------------------------------
+//  ------------------------------------------------------- [Loading animation]
 
 .spinner {
   width: 80px;
@@ -181,11 +178,11 @@
   text-align: center;
   font-size: 40px;
   color: White;
+  text-shadow: 1px 1px navy;
 }
 
-// ---------------------------------------------------- [ the Chart thing]
+// --------------------------------------------------------- [ the Chart ]
 .myChart{
-  // height: 100vh;
   width: 80vh;
 }
 .go-top{
@@ -193,13 +190,13 @@
   font-size: 20px !important;
 }
 
-// --------------------------------------------------[  Record Form  ]
+// --------------------------------------------------------- [  Record Form  ]
 
 .record-card{
   background-color: whitesmoke;
   opacity: 0.8;
   width: 60vw;
-  padding:15px;
+  padding: 15px;
   box-shadow: 0 8px 16px -6px black;
 }
 .selected-date{
@@ -270,9 +267,18 @@ input:focus,textarea:focus {
 }
 
 //-----------------------------------------------------------[record show page]
-
-
-
+.exe-time{
+  color:#7F8C8D;
+  display: none;
+}
+.exe-item{
+  font-size: 50px;
+  margin: 0;
+}
+.exe-notes{
+  border: 1px solid gray;
+  padding: 5px;
+}
 //-----------------------------------------------------------------[Home page]
 .content-list-container{
   margin-top: 10px;

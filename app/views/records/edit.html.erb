@@ -1,4 +1,25 @@
 <div class="container mt-3">
-  
+
   <%= render 'form' %>
 </div>
+
+
+<script type="text/javascript">
+    const allPairs = <%= raw @user_pair_string || {} %>;
+    console.log(allPairs);
+    let exercise;
+
+    $('.exe-input').on('change', function(){
+      exercise = $(this).val().toLowerCase();
+
+      for (let p in allPairs){
+        if(p == exercise){
+          console.log("match!");
+          const mini = $(this).parents('.nested-fields').find('#mini');
+          console.log(mini);
+          mini.val(allPairs[p]);
+        }
+      }
+    })
+
+</script>
