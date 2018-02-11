@@ -33,8 +33,7 @@ puts Cowsay.say("Create #{users.count} users", :tux)
 # end
 ['yoga', 'swim', 'jogging', 'cycling', 'weight training', 'tai-chi'].each do |exercise_name|
   Exercise.create(
-    name: exercise_name,
-    user: users.sample
+    name: exercise_name
   )
 end
 

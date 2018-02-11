@@ -22,6 +22,7 @@ class RecordsController < ApplicationController
         flash[:notice] = " ADDED!"
         redirect_to user_path(current_user)
       else
+        # binding.pry
         get_user_pairs
         get_latest_pair
         render :new
@@ -60,7 +61,6 @@ class RecordsController < ApplicationController
     def record_params
       # params.require(:record).permit(:duration, :date, :note, { exercise_ids: [] })
       params.require(:record).permit(
-        :duration,
         :date,
         :note,
         :start_time,
