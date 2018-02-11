@@ -114,6 +114,12 @@
 * Statistics
   - chart.js
 
+* Remove duration column from records table
+  > rails g migration remove_duration_from_records duration:integer
+
+* Add duration column to exercise table 
+  > rails g migration add_duration_to_exercises duration:integer
+
 [solved]
 
 - when render the new record form , when i click on exercise input field

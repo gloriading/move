@@ -46,7 +46,6 @@ puts Cowsay.say("Create #{exercises.count} exercises", :cow)
 50.times do
   Record.create(
     date: Faker::Date.between_except(1.month.ago, 1.month.from_now, Date.today),
-    duration: rand(5..200),
     note: Faker::Lorem.paragraph,
     user: users.sample,
     exercises: [exercises.sample]
