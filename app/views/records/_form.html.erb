@@ -6,7 +6,7 @@
         <p><%= @record.start_time&.strftime("%A, %B %d, %Y") %></p>
       </div>
       <div class="col-sm-6">
-        <%#= f.input :start_time, as: :time,
+        <%= f.input :start_time, as: :time,
             input_html: {class: "time-format"},
             label: false, required: false %>
       </div>
