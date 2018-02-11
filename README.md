@@ -117,7 +117,7 @@
 * Remove duration column from records table
   > rails g migration remove_duration_from_records duration:integer
 
-* Add duration column to exercise table 
+* Add duration column to exercise table
   > rails g migration add_duration_to_exercises duration:integer
 
 [solved]
@@ -162,6 +162,8 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 * [ to-do / question] ********************************************
+- only allow + - exerise button appear after inserting a set 
+- add duration to exercises table
 - record new/edit: if add 2 more fiels and click on send then ...
 - provide instant workout challenges
 - user can publish their story
@@ -215,4 +217,17 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 - chart.js
 - show.html.erb <script>
+
+
+
+> rails g controller Api::V1::Records --no-assets --no-helper --skip-template-engine
+
+namespace :api, defaults: { format: :json } do
+  namespace :v1 do
+    resources :charts
+    resources :records
+  end
+end
+
+
 <!--  -->

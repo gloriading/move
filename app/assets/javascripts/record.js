@@ -87,26 +87,14 @@ $( document ).ready(function() {
 // Limit how many fields can be added in new form ------------
 // event delegation
 
+  const exeVal = $('.exe-input').val();
+  const colVal = $('.colour-box').val();
 // The first remove button will never shown
   const r = $('.remove_fields');
   const a = $('.add_fields');
-  let c = 1;
-  r.hide();
 
-// click on the parent ( #options ) and check if the actual thing we clicked on
-// i.e. the 'target' has the class 'remove_fields' or 'add_fields'
-  $('#options').click(function (e) {
-    if (e.target.classList.contains('remove_fields')) {
-      c--;
-        console.log(c);
-    }
-    if (e.target.classList.contains('add_fields')) {
-      c++;
-        console.log(c);
-    }
-    c >= 3 ? a.hide() : a.show();
-  })
-
+  r.eq(0).hide();
+  
 // -----------------------------------------------------------------
 // when first enter user show page, no date is shown
 // when the mouse enters, the date will shown
