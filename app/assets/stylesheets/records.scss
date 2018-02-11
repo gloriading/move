@@ -35,7 +35,8 @@
         .next-month, .prev-month { background-color: #707B7C; }
         .today {
           background-color: inherit;
-            .day-cell{ color:#FF6600 !important;}
+            .day-cell{ color:white !important; font-weight: 500;}
+            .cell:hover{ border: 2px white solid; }
         }
         .current-month{
           .day-cell{ color: #707B7C;}
@@ -215,6 +216,7 @@
 
 .colour-box{
   height: 35px !important;
+  width: 200px !important;
 }
 .colour-label{
   display: block !important;
@@ -222,9 +224,10 @@
 .advanced-options{
   display:none;
 }
-.show-adv-opt{
+.show-adv-opt, .latest-record{
   color:ROYALBLUE !important;
 }
+
 // Form Error Messages
  .has-error > .help-block {
    color:darkblue;

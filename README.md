@@ -156,6 +156,7 @@ the `- exercise` tab disappears. want to make it not appeared in the first place
 
 
 * [ to-do / question] ********************************************
+- record new/edit: if add 2 more fiels and click on send then ...
 - provide instant workout challenges
 - user can publish their story
 - size down of the chart

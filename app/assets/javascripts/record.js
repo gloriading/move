@@ -98,9 +98,11 @@ $( document ).ready(function() {
   $('#options').click(function (e) {
     if (e.target.classList.contains('remove_fields')) {
       c--;
+        console.log(c);
     }
     if (e.target.classList.contains('add_fields')) {
       c++;
+        console.log(c);
     }
     c >= 3 ? a.hide() : a.show();
   })

@@ -110,15 +110,25 @@
               <div class="card-body px-2">
                 <div class="go-to-month">
                   <select name="select-year" class="select-year">
-                    <option value="2017">2017</option>
-                    <option value="2018" selected>2018</option>
+                      <% for year in 2000..2020 %>
+                        <% if year == DateTime.now.year %>
+                          <option value="<%= year %>" selected><%= year %></option>
+                        <% else %>
+                          <option value="<%= year %>"><%= year %></option>
+                        <% end %>
+                      <% end %>
                   </select>
                   <select name="select-month" class="select-month">
-                      <option disabled selected value> month </option>
                       <% for month in 1..12 %>
-                        <option value="<%= month %>">
-                          <%= month %>
-                        </option>
+                          <% if month == DateTime.now.month %>
+                            <option value="<%= month %>" selected>
+                              <%= month %>
+                            </option>
+                          <% else %>
+                            <option value="<%= month %>">
+                              <%= month %>
+                            </option>
+                          <% end %>
                       <% end %>
                   </select>
                   <button class="btn btn-light btn-sm" id="change-calendar"> go </button>
@@ -166,16 +176,18 @@
                   <span class="btn btn-light btn-sm">
                     <i class="far fa-image"></i>
                   </span>
-                  Your Image is Ready
+                  Your Screenshot
                 </button>
               </h5>
             </div>
             <div id="collapseThree1" class="collapse show" aria-labelledby="headingThree1" data-parent="#accordion">
               <div class="card-body">
-                    <%= link_to "click to view",
-                        asset_path("image-#{@user.id}-#{@user.first_name}.png"),
-                        class: "btn btn-light btn-sm btn-block mb-1 view-image"%>
-
+                      <button type="button"
+                        class="btn btn-light btn-sm btn-block mb-1 view-image"
+                        data-toggle="modal"
+                        data-target=".modal-image-display">
+                        click to view
+                      </button>
                     <%= link_to "click to download",
                         asset_path("image-#{@user.id}-#{@user.first_name}.png"),
                         download: "#{@user.first_name}",
@@ -424,8 +436,8 @@
   $('#go-top').click(function(){
       $('html, body').animate({
         scrollTop: $("#top").offset().top
-      }, 3000);
-      $('#myChart').fadeOut(3000);
+      }, 1000);
+      $('#myChart').fadeOut(1000);
   })
 
   $(window).scroll(function(){
@@ -436,8 +448,17 @@
      }
   });
 </script>
-<%#-------------------------------------------------------------------%>
 
+<%#----------------------------------------- Modal for image display ---%>
+<% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
+  <div class="modal fade modal-image-display" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <%= image_tag("/assets/image-#{@user.id}-#{@user.first_name}.png") %>
+      </div>
+    </div>
+  </div>
+<% end %>
 <%#-HIDDEN---------------------------------------------------HIDDEN---%>
 
 <div class="all-records">

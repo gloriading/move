@@ -8,6 +8,7 @@ class RecordsController < ApplicationController
       @record.exercises.build
 
       get_user_pairs
+      get_latest_pair
       # this is the helper method defined below private
       # this has to be placed in create 'else' when new is rendered again
 
@@ -22,6 +23,7 @@ class RecordsController < ApplicationController
         redirect_to user_path(current_user)
       else
         get_user_pairs
+        get_latest_pair
         render :new
       end
     end
@@ -81,6 +83,7 @@ class RecordsController < ApplicationController
       # if user_signed_in?
         user_pairs = {}
         # all the exercise:colour pairs of a user
+        current_user&.reload
         current_user&.records.each do |r|
           r.exercises.each do |e|
             user_pairs[e.name] = e.colour
@@ -91,4 +94,12 @@ class RecordsController < ApplicationController
       # end
     end
 
+    def get_latest_pair
+      latest_pair = {}
+      current_user&.reload
+      current_user&.records.last.exercises.each do |e|
+        latest_pair[e.name] = e.colour
+      end
+      @latest_pair = latest_pair.to_json
+    end
 end

@@ -14,10 +14,6 @@
     </div>
 
     <div id="options">
-      <p class="latest-record btn btn-light">
-        <i class="far fa-hand-point-down"></i>
-        apply your last record
-      </p>
       <%= f.simple_fields_for :exercises do |opt| %>
         <%= render 'exercise_fields', f: opt %>
       <% end %>
