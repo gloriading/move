@@ -65,6 +65,9 @@
                 overflow:hidden;
               }
         }
+        .has-events{
+            .inner-cell:hover{ filter: brightness(55%); }
+        }
 
     }
 
