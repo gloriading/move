@@ -24,7 +24,7 @@
       })
     }
     matching();
-    
+
     $('#options').click(function(e){
       matching();
     })
@@ -37,5 +37,7 @@
     $('.latest-record').click(function(){
       $('.exe-input').eq(0).val(latestExercise);
       $('#mini').val(latestPair[latestExercise]);
+      // $('.colour-box').eq(0).css('background-color',latestPair[latestExercise]);
+
     });
 </script>

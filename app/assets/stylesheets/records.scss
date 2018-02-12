@@ -224,6 +224,11 @@
 .colour-label{
   display: block !important;
 }
+
+ul{
+  .minicolors-swatch{ margin-left: 2px !important;}
+}
+
 .advanced-options{
   display:none;
 }
@@ -325,4 +330,7 @@ input:focus,textarea:focus {
 }
 
 }
+
+
+
 //

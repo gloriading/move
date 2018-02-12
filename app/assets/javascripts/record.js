@@ -19,15 +19,58 @@ $( document ).ready(function() {
   });
 
 // set the first colour field--------------------------------------
-  $('.nested-fields #mini').minicolors();
-// set the newly created colour field,
-//use setTimeout to deal with timing issue
+function colourShow(){
+  $('.nested-fields #mini').minicolors({
+    control: 'wheel',
+    animationSpeed: 100,
+    showSpeed: 100,
+    position: 'top right',
+    swatches: ['#FF69B4','#FA8072','#DDA0DD','#98FB98','#66CDAA','#43A047', '#87CEFA','#4169E1','#F4A460','#F4D03F','#BCAAA4']
+  });
+}
+colourShow();
+// set the newly created colour field, use setTimeout to deal with timing issue
   $('.add_fields').click(function(){
   	setTimeout(function(){
-  		$('.nested-fields #mini').minicolors();
+  		colourShow();
       }, 10);
   });
 
+$.minicolors = {
+  defaults: {
+    animationSpeed: 50,
+    animationEasing: 'swing',
+    change: null,
+    changeDelay: 0,
+    control: 'wheel',
+    defaultValue: '',
+    format: 'hex',
+    hide: null,
+    hideSpeed: 100,
+    inline: false,
+    keywords: '',
+    letterCase: 'lowercase',
+    opacity: false,
+    position: 'bottom left',
+    show: null,
+    showSpeed: 100,
+    theme: 'default',
+    swatches: []
+  }
+};
+// function setColorBoxBackground(){
+//   $('.colour-box').on('keyup',function(){
+//     const bg = $(this).val();
+//     $(this).css('background-color',bg);
+//   })
+// }
+// setColorBoxBackground();
+
+// $('#options').click(function(e){
+//   if(e.target.classList.contains('add_fields')){
+//     setColorBoxBackground();
+//   }
+// })
 // Show/Hide date on a day-------------------------------------------
 
   $('.show-day').click(function(event){
@@ -120,9 +163,10 @@ $( document ).ready(function() {
 // $(function() {
 //   $('#datepicker').datepicker();
 // });
-// $( function() {
-//   $( document ).tooltip();
-// } );
+$( function() {
+  $( document ).tooltip();
+} );
+// $('.colour-label').attr('title','🌈 pick a colour for your exercise')
 // $('.inner-cell').attr('title','thanks')
 //
 //
