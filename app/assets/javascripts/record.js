@@ -85,26 +85,36 @@ $( document ).ready(function() {
 
 
 // Limit how many fields can be added in new form ------------
-// event delegation
-
-  const exeVal = $('.exe-input').val();
-  const colVal = $('.colour-box').val();
 // The first remove button will never shown
   const r = $('.remove_fields');
-  const a = $('.add_fields');
-
   r.eq(0).hide();
-  
+
+//
+  $(function() {
+    $('#options').on('cocoon:after-insert', function() {
+      check_to_hide_or_show_add_link();
+    });
+
+    $('#options').on('cocoon:after-remove', function() {
+      check_to_hide_or_show_add_link();
+    });
+
+    check_to_hide_or_show_add_link();
+
+    function check_to_hide_or_show_add_link() {
+      if ($('#options .nested-fields').length == 3) {
+        $('a.add_fields').hide();
+      } else {
+        $('a.add_fields').show();
+      }
+    }
+  })
+
 // -----------------------------------------------------------------
 // when first enter user show page, no date is shown
 // when the mouse enters, the date will shown
   setTimeout(function(){
   	$('.day-cell').slideDown('fast');
   },10);
-
-
-
-
-
 
 });
