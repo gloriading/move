@@ -4,5 +4,4 @@ module ApplicationHelper
     Rails.application.assets.find_asset(asset_name).present?
   end
 
-
 end

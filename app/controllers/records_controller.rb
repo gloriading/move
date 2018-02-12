@@ -20,9 +20,9 @@ class RecordsController < ApplicationController
 
       if @record.save
         flash[:notice] = " ADDED!"
-        redirect_to user_path(current_user)
+        # redirect_to user_path(current_user)
+        redirect_to record_path(Record.last)
       else
-        # binding.pry
         get_user_pairs
         get_latest_pair
         render :new
