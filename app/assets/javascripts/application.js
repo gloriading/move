@@ -16,5 +16,6 @@
 //= require popper
 //= require bootstrap
 //= require rails-ujs
+//= require jquery-ui
 //= require cocoon
 //= require_tree .

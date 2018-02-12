@@ -18,7 +18,11 @@
         <%= render 'exercise_fields', f: opt %>
       <% end %>
       <div class="links">
-        <%= link_to_add_association ' + exercise', f, :exercises, class:"btn btn-dark btn-sm mt-1"  %>
+        <%#= link_to_add_association ' + exercise', f, :exercises, class:"btn btn-dark btn-sm mt-1"  %>
+        <%= link_to_add_association f, :exercises,
+        class:"btn btn-dark btn-sm mt-1" do %>
+          <i class="fas fa-plus-square"></i> exercise
+        <% end %>
       </div>
     </div>
 

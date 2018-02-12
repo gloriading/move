@@ -41,6 +41,7 @@ gem 'cocoon'
 gem "simple_calendar", "~> 2.0"
 gem 'gastly'
 gem 'mini_magick'
+gem 'jquery-ui-rails'
 
 
 # Use Capistrano for deployment

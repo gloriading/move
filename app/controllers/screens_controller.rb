@@ -12,7 +12,7 @@ class ScreensController < ApplicationController
     # @image.resize(width: 500, height: 500)
 
     # if @image.save('app/assets/images/test.png')
-    if @image.save("app/assets/images/image-#{id}-#{first_name}.png") 
+    if @image.save("app/assets/images/image-#{id}-#{first_name}.png")
       redirect_to user_path(current_user)
     end
 

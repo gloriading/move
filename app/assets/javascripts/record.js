@@ -116,5 +116,16 @@ $( document ).ready(function() {
   setTimeout(function(){
   	$('.day-cell').slideDown('fast');
   },10);
+//---------------------------------------------------------- jQuery UI
+// $(function() {
+//   $('#datepicker').datepicker();
+// });
+// $( function() {
+//   $( document ).tooltip();
+// } );
+// $('.inner-cell').attr('title','thanks')
+//
+//
+
 
 });
