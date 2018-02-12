@@ -24,6 +24,10 @@
       })
     }
     matching();
+    
+    $('#options').click(function(e){
+      matching();
+    })
 
     // applying the lasest record
     const latestPair = <%= raw @latest_pair|| {} %>;
@@ -31,7 +35,6 @@
     const latestExercise = Object.keys(latestPair)[0];
 
     $('.latest-record').click(function(){
-      console.log('here');
       $('.exe-input').eq(0).val(latestExercise);
       $('#mini').val(latestPair[latestExercise]);
     });

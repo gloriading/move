@@ -5,21 +5,25 @@
 
 
 <script type="text/javascript">
-    const allPairs = <%= raw @user_pair_string || {} %>;
-    console.log(allPairs);
-    let exercise;
+  const allPairs = <%= raw @user_pair_string || {} %>;
+  console.log(allPairs);
 
+  function matching(){
     $('.exe-input').on('change', function(){
-      exercise = $(this).val().toLowerCase();
-
+      let exercise = $(this).val().toLowerCase();
       for (let p in allPairs){
         if(p == exercise){
           console.log("match!");
-          const mini = $(this).parents('.nested-fields').find('#mini');
-          console.log(mini);
+          const mini = $(this).parents('.row').find('#mini');
           mini.val(allPairs[p]);
         }
       }
     })
+  }
+  matching();
+
+  $('#options').click(function(e){
+    matching();
+  })
 
 </script>
