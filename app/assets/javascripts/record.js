@@ -58,13 +58,14 @@ $.minicolors = {
     swatches: []
   }
 };
-// function setColorBoxBackground(){
-//   $('.colour-box').on('keyup',function(){
-//     const bg = $(this).val();
-//     $(this).css('background-color',bg);
-//   })
-// }
-// setColorBoxBackground();
+function setColorBoxBackground(){
+  $('.colour-box').on('keyup',function(){
+    const bg = $(this).val();
+    console.log($(this));    
+    $(this).css('background-color',bg);
+  })
+}
+setColorBoxBackground();
 
 // $('#options').click(function(e){
 //   if(e.target.classList.contains('add_fields')){
@@ -164,10 +165,24 @@ $.minicolors = {
 //   $('#datepicker').datepicker();
 // });
 $( function() {
-  $( document ).tooltip();
-} );
-// $('.colour-label').attr('title','🌈 pick a colour for your exercise')
-// $('.inner-cell').attr('title','thanks')
+  $( document ).tooltip({
+    position: { my: "left-120% top-90% center", at: "right center" }
+  });
+});
+
+function colorTitle(){
+  $('.colour-label').attr('title','🌈 pick a colour for your exercise');
+}
+
+colorTitle();
+
+$('#options').click(function(){
+  setTimeout(function(){
+    colorTitle();
+  },10)
+
+})
+
 //
 //
 

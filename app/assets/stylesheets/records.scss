@@ -195,7 +195,17 @@
 }
 
 // --------------------------------------------------------- [  Record Form  ]
-
+.ui-tooltip {
+  padding: 10px 20px;
+  color: black;
+  background-color: #CCD1D1;
+  border-radius: 10px;
+  border:none;
+  font: 12px "Helvetica Neue", Sans-Serif;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  box-shadow: 0 0 7px #707B7C;
+}
 .record-card{
   background-color: whitesmoke;
   opacity: 0.8;

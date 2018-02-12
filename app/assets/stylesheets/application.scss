@@ -20,6 +20,9 @@
       margin: 0;
       height: 100%;
   }
+  input {
+     background-color: inherit !important;
+  }
   .grad1 {
       height: 100%;
       background: lightblue; /* For browsers that do not support gradients */
