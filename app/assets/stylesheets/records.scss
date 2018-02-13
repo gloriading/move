@@ -153,7 +153,7 @@
 .spinner {
   width: 80px;
   height: 80px;
-  background-color: #1A237E;
+  background-color: #FAFAFA;
 
   margin: 100px auto;
   -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
@@ -178,13 +178,26 @@
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }
 }
+// Animated text color
 .loading-info{
   text-align: center;
   font-size: 40px;
-  color: White;
-  text-shadow: 1px 1px navy;
+  width:100%;
+  margin: 0 auto;
+  color:#313131;
+  font-size:40px;
+  text-shadow: 1px 1px 2px black;
+  position: absolute;
+  -webkit-animation:colorchange 10s infinite alternate;
 }
 
+@-webkit-keyframes colorchange {
+  0% { color: #F5F5F5; }
+  20% { color: #1abc9c; }
+  40% { color: #FFECB3; }
+  80% { color: #E0F7FA; }
+  100% { color: #FFCDD2; }
+}
 // --------------------------------------------------------- [ the Chart ]
 .myChart{
   width: 80vh;
