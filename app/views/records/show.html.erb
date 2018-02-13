@@ -69,8 +69,28 @@
           </p>
       <% end %>
     </div>
+    <div class="card-footer mb-0 py-0">
+      <p><small><em class="randomPhrase"></em></small></p>
+    </div>
   </div>
 
-
-
 </div>
+
+
+<script type="text/javascript">
+  const inspire = [
+  'Sweat is Fat Crying',
+  'Sore Today, Strong Tomorrow',
+  'Make Sweat Your Best Accessory',
+  'Fit is Not a Destination. It is a way of life.',
+  'Wake up. Work out. Kiss ass. Repeat.',
+  'Better Sore than Sorry',
+  'Work Out. Eat Well. Be Patient.',
+  'Do something today that your future self will thank you for.',
+  'Life begins at the end of your comfort zone.',
+  'When you feel like quitting, think about why you started',
+  'Don’t let the scale define you. Be active, be healthy, be happy.'
+  ]
+  let index = Math.floor( Math.random() * inspire.length )
+  $('.randomPhrase').append(` "${inspire[index]}" `);
+</script>
