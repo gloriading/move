@@ -1,11 +1,22 @@
 <div class="container mt-3">
 
-  <div class="card record-card">
+  <div class="card record-card-show">
     <div class="card-body">
-      <h5>on
-        <%#= @record.start_time.strftime("%A, %b %e, %l:%M %p, %Y") %>
-        <%= @record.start_time.strftime("%A, %b %e, %Y") %>
-      </h5>
+
+      <div class="fancy-date">
+        <span class="fancy-day">
+          <%= @record.start_time.strftime("%e") %>
+        </span>
+        <span class="fancy-month">
+          &nbsp;&nbsp;
+          <%= @record.start_time.strftime("%b") %>
+          &nbsp;&nbsp;
+        </span>
+        <span class="fancy-year">
+          <%= @record.start_time.strftime("%Y") %>
+        </span>
+      </div>
+
       <% if @record.exercises != [] %>
 
         <% @record.exercises.each do |exercise| %>
@@ -41,18 +52,18 @@
           <p class="text-right">
             <%= link_to "back",
                 user_path(@record.user),
-                class:"btn btn-light btn-sm"
+                class:"btn btn-light btn-sm btn-show-card"
             %>
             <%= link_to "edit",
                 edit_record_path(@record),
-                class:"btn btn-light btn-sm"
+                class:"btn btn-light btn-sm btn-show-card"
             %>
             <%= link_to(
                  'delete',
                  record_path(@record),
                  method: :delete,
                  data: {confirm: 'Are you sure?'},
-                 class:"btn btn-light btn-sm"
+                 class:"btn btn-light btn-sm btn-show-card"
                )
             %>
           </p>

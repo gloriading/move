@@ -61,7 +61,7 @@ $.minicolors = {
 function setColorBoxBackground(){
   $('.colour-box').on('keyup',function(){
     const bg = $(this).val();
-    console.log($(this));    
+    console.log(bg);
     $(this).css('background-color',bg);
   })
 }
@@ -72,6 +72,7 @@ setColorBoxBackground();
 //     setColorBoxBackground();
 //   }
 // })
+
 // Show/Hide date on a day-------------------------------------------
 
   $('.show-day').click(function(event){
