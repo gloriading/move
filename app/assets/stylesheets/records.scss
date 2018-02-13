@@ -354,13 +354,16 @@ input:focus,textarea:focus {
 }
 .exe-item{
   font-size: 50px;
-  margin: 0;
+  margin: 0 10px 0 0;
+  display: inline-block;
 }
 .exe-notes{
   border: 1px solid gray;
   padding: 5px;
 }
 .btn-show-card{
+  margin-right: 2px;
+  letter-spacing: 2px;
   background-color: inherit !important;
   border:none !important;
 }

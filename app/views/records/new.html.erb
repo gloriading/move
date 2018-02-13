@@ -17,8 +17,13 @@
         for (let p in allPairs){
           if(p == exercise){
             console.log("match!");
-            const mini = $(this).parents('.row').find('#mini');
-            mini.val(allPairs[p]);
+
+            const colourBlock = $(this).parents('.row').find('.minicolors-swatch-color').eq(0);
+            colourBlock.css('backgroundColor', allPairs[p]);
+            
+            let colourValue = $(this).parents('.row').find('#mini').eq(0);
+            colourValue.val(allPairs[p]);
+
           }
         }
       })
@@ -37,7 +42,6 @@
     $('.latest-record').click(function(){
       $('.exe-input').eq(0).val(latestExercise);
       $('#mini').val(latestPair[latestExercise]);
-      $('.colour-box').eq(0).css('background-color',latestPair[latestExercise]);
-
+      $('span.minicolors-swatch-color').eq(0).css('background-color',latestPair[latestExercise]);
     });
 </script>
