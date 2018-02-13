@@ -212,6 +212,9 @@
 
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
               <div class="card-body">
+                <button class="btn btn-light btn-sm btn-block mb-2 all-records">
+                  all records
+                </button>
                 <select name="chart-months" class="chart-select mb-1">
                     <option disabled selected value>   select a month   </option>
                     <% @record_months.each do |month, records| %>
@@ -427,6 +430,23 @@
          });
 //--------------------------------------------above: put text within the chart
         });
+  });
+</script>
+
+<script type="text/javascript">
+  $('.all-records').click(function(){
+    console.log('clicked');
+    getRecords.get('<%= api_key %>')
+      .then(all_exe=>{
+        let allExeData = [], allExeLabel = [];
+        for(let key in all_exe){
+          allExeLabel.push(key);
+          allExeData.push(all_exe[key]);
+        }
+        // apply polar chart later
+
+      });
+
   });
 </script>
 <%# below : show/hide the go-top button ----------------------------JS - 1.1 - %>
