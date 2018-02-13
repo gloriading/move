@@ -25,7 +25,8 @@ function colourShow(){
     animationSpeed: 100,
     showSpeed: 100,
     position: 'top right',
-    swatches: ['#FF69B4','#FA8072','#DDA0DD','#98FB98','#66CDAA','#43A047', '#87CEFA','#4169E1','#F4A460','#F4D03F','#BCAAA4']
+    swatches: ['#FF69B4','#FA8072','#DDA0DD','#98FB98','#66CDAA','#43A047', '#87CEFA','#4169E1','#F4A460','#F4D03F','#BCAAA4'],
+    theme: 'bootstrap'
   });
 }
 colourShow();

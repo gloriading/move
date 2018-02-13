@@ -54,6 +54,7 @@ gem "kaminari" # for pagination
 gem 'chosen-rails'
 gem 'active_model_serializers'
 gem 'feedjira'
+gem 'rails-erd'
 
 group :development, :test do
   gem 'rails-controller-testing'
