@@ -14,6 +14,7 @@ get('/about', {to: 'about#index', as: :about})
 
 resources :records
 resources :users, only: [:new, :create, :show]
+resources :shares
 resource :session, only: [:new, :create, :destroy]
 
 get('/screens', {to: 'screens#index', as: :screenshot})

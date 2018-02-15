@@ -2,31 +2,11 @@
   <div class="container-fluid home">
 
     <% if user_signed_in? %>
-      <% if @feeds.present? %>
-        <div class="container news">
-
-          <h5 class="mt-3">Science Daily</h5>
-
-          <div class="content-list-container">
-              <%# FeedBuilder.new(current_user).feed.each do |entry, index| %>
-              <% @feeds.each do |entry, index| %>
-              <%# FeedBuilder.new(current_user).feed returns an array of objects %>
-              <ul class="content-list">
-                <li>
-                  <%= entry[:title] %>
-                  <%= link_to "  Read", entry[:url], target: "_blank" %>
-                </li>
-              </ul>
-                  <%# entry[:content].html_safe %>
-                  <%# entry[:content] %>
-              <% end %>
-          </div>
-
-
-        </div>
-        <% else %>
-        No Internet Connections Detected.
+      <div class="container share-wall">
+        <% @shares.each do |s| %>
+        <p><%= s.content %></p>
         <% end %>
+      </div>
     <% else %>
       <h1 class="display-2 ml-3 my-0">move</h1>
       <h1 class="display-4 ml-3" style="display: none;">to make a difference</h1>
