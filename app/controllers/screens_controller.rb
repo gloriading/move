@@ -10,9 +10,10 @@ class ScreensController < ApplicationController
     @screenshot.selector = '.simple-calendar'
     @image = @screenshot.capture
     # @image.resize(width: 500, height: 500)
+    # date_mark = params[:start_date].split('-')[0..1].join('-')
 
-    # if @image.save('app/assets/images/test.png')
     if @image.save("app/assets/images/image-#{id}-#{first_name}.png")
+    # if @image.save("public/images/image-#{id}-#{first_name}-#{date_mark}.png")
       redirect_to user_path(current_user)
     end
 
