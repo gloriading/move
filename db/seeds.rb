@@ -31,14 +31,14 @@ puts Cowsay.say("Create #{users.count} users", :tux)
 # Exercise.all.each do |exercise|
 #   puts exercise.name
 # end
-['yoga', 'swim', 'jogging', 'cycling', 'weight training', 'tai-chi'].each do |exercise_name|
-  Exercise.create(
-    name: exercise_name
-  )
-end
-
-exercises = Exercise.all
-puts Cowsay.say("Create #{exercises.count} exercises", :cow)
+# ['yoga', 'swim', 'jogging', 'cycling', 'weight training', 'tai-chi'].each do |exercise_name|
+#   Exercise.create(
+#     name: exercise_name
+#   )
+# end
+#
+# exercises = Exercise.all
+# puts Cowsay.say("Create #{exercises.count} exercises", :cow)
 
 
 # Records --------------------------------------------------------------------
@@ -53,3 +53,13 @@ end
 
 records = Record.all
 puts Cowsay.say("Create #{records.count} records", :ghostbusters)
+
+# Workouts --------------------------------------------------------------------
+WORKOUTS = ["Walking", "Tai Chi", "Stretching", "Jogging", "Yoga", "Skating", "Jumping" "Rope", "Surfing", "Tennis","Hockey", "Soccer", "Bicycling", "Martial Art", "TRX", "Boxing", "Plank", "Sit-ups", "HITT"]
+
+WORKOUTS.each do |w|
+  Workout.create(name: w)
+end 
+
+workouts = Workout.all
+puts Cowsay.say("Create #{workouts.count} workouts", :cow)

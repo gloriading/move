@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211202326) do
+ActiveRecord::Schema.define(version: 20180215053326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20180211202326) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "colour"
+    t.bigint "workout_id"
+    t.index ["workout_id"], name: "index_exercises_on_workout_id"
   end
 
   create_table "links", force: :cascade do |t|
@@ -61,6 +63,13 @@ ActiveRecord::Schema.define(version: 20180211202326) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "workouts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "exercises", "workouts"
   add_foreign_key "links", "exercises"
   add_foreign_key "links", "records"
   add_foreign_key "records", "users"
