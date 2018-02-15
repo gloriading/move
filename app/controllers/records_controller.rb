@@ -64,7 +64,7 @@ class RecordsController < ApplicationController
         :date,
         :note,
         :start_time,
-        exercises_attributes:[:id, :name, :colour, :_destroy])
+        exercises_attributes:[:id, :name, :colour, :workout_id, :_destroy])
 
     end
 
