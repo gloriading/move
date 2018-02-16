@@ -79,12 +79,15 @@
               <%= link_to @user.first_name, user_path(@user)%>
               </h5>
               <div class="mb-2">
-                <%= link_to home_path, class:"btn btn-light btn-sm mb-1 nav-home" do%>
-                  <i class="fas fa-home"></i>
+                <%= link_to home_path,
+                title: "Edit your profile",
+                class:"btn btn-light btn-sm mb-1 nav-home" do%>
+                  <i class="fas fa-folder-open"></i>
                 <% end %>
 
                 <%= link_to session_path,
                   class: "btn btn-light btn-sm mb-1 ml-2 nav-signOut",
+                  title: "Log out",
                   method: :delete,
                   data: {confirm: 'Sign out?'} do %>
                   <i class="fas fa-sign-out-alt"></i>
@@ -265,14 +268,14 @@
 
           <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
             <div class="card-body">
-              <%= link_to new_share_path do%>
-                <button class="btn btn-light btn-sm btn-block mb-1">
-                  Create a Share
-                </button>
-              <% end %>
               <%= link_to shares_path do%>
                 <button class="btn btn-light btn-sm btn-block mb-1">
-                  Your Shares
+                  Your Share Page
+                </button>
+              <% end %>
+              <%= link_to home_path do%>
+                <button class="btn btn-light btn-sm btn-block mb-1">
+                  Public Share Page
                 </button>
               <% end %>
             </div>

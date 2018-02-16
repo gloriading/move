@@ -29,9 +29,9 @@
   opacity: 0.8;
 }
 
-
+/* Form for new posts */
 textarea {
-   resize: none;
+   resize: none !important;
 }
 
 .image-upload {
@@ -39,25 +39,19 @@ textarea {
   border-radius: 5px;
   background-color: #CCD1D1;
   color: #17202A;
+  font-size: 12px;
+  font-weight: bold;
   display: inline-block;
-  padding: 4px 10px;
+  padding: 2px 15px;
   cursor: pointer;
 }
 
 .image-upload:hover {
-  background-color: #424949;
-  color:white;
+  border: 2px solid white;
 }
 
 input[type="file"] {
     display: none;
-}
-.btn-share {
-  letter-spacing: 2px;
-  color: black;
-}
-.btn-share:hover {
-  border: 2px white solid;
 }
 .share-panel {
   position: absolute;
@@ -80,4 +74,11 @@ input[type="file"] {
     background-color: #000;
     color: white;
   }
+}
+.btn-share {
+  letter-spacing: 2px;
+  color: black;
+}
+.btn-share:hover {
+  border: 2px white solid !important;
 }

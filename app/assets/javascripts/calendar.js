@@ -162,7 +162,7 @@ setColorBoxBackground();
 // });
 $( function() {
   $( document ).tooltip({
-    position: { my: "left-120% top-90% center", at: "right center" }
+    position: { my: "left-120% top-150% center", at: "right center" }
   });
 });
 

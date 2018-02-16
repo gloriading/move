@@ -11,9 +11,9 @@ class SharesController < ApplicationController
     @share = Share.new share_params
     @share.user = current_user
     if @share.save
-      redirect_to user_path(current_user)
+      redirect_to shares_path
     else
-      render :new
+      redirect_to shares_path
     end
   end
 
