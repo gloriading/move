@@ -34,6 +34,9 @@ class Ability
       can :crud, Record do |record|
         user == record.user
       end
+      can :crud, Share do |share|
+        user == share.user
+      end
 
   end
 end

@@ -97,7 +97,7 @@ class RecordsController < ApplicationController
     def get_latest_pair
       latest_pair = {}
       current_user&.reload
-      current_user&.records.last.exercises.each do |e|
+      current_user&.records&.last&.exercises&.each do |e|
         latest_pair[e.name] = e.colour
       end
       @latest_pair = latest_pair.to_json

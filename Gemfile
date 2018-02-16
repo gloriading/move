@@ -42,7 +42,7 @@ gem "simple_calendar", "~> 2.0"
 gem 'gastly'
 gem 'mini_magick'
 gem 'jquery-ui-rails'
-
+gem 'carrierwave', '~> 1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
