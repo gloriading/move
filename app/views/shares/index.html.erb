@@ -1,35 +1,60 @@
-<div class="container">
-  <h4>Your Share</h4>
+<div class="container-fluid">
 
-    <% @shares.each do |s| %>
-      <div class="card mb-1" style="width: 60rem;">
-        <div class="card-body row">
-          <div class="col-sm-3">
-            <% if s.image.present? %>
-                <%= image_tag s.image, style: "width:30%;"%>
-            <% end %>
+  <div class="splitL left">
+    <h5 class="ml-4 mt-4">Create a new post</h5>
+    <div class="share-form mx-1 mt-2">
+      <%= render 'form' %>
+    </div>
+
+    <div class="ml-2 share-panel">
+      <%= link_to user_path(current_user) do %>
+        <i class="fas fa-user"></i> your page
+      <% end %>
+      <%= link_to home_path do%>
+        <i class="fas fa-clipboard"></i> Public Posts
+      <% end %>
+      <%= link_to session_path,
+                method: :delete, data: {confirm: 'Sign out?'} do %>
+        <i class="fas fa-sign-out-alt"></i>Sign Out
+      <% end %>
+
+    </div>
+  </div>
+
+  <div class="splitR right">
+    <!-- <h4 class="ml-2">Your posts:</h4> -->
+
+      <% @shares.each do |s| %>
+        <div class="card mb-1 mx-1">
+          <div class="card-body row">
+            <div class="col-sm-3">
+              <% if s.image.present? %>
+                  <%= image_tag s.image, style: "width:50%;"%>
+              <% end %>
+            </div>
+            <div class="col-sm-9">
+              <p class="card-text"><%= s.content %></p>
+                <p class="mb-0"><small><strong>Created at: </strong>
+                  <%= time_ago_in_words(s.created_at) %> ago
+                </small></p>
+                <p class="my-0"><small><strong>Update at: </strong>
+                  <%= time_ago_in_words(s.updated_at) %> ago
+                </small></p>
+            </div>
+
           </div>
-          <div class="col-sm-9">
-            <p class="card-text"><%= s.content %></p>
-              <p class="mb-0"><small><strong>Created at: </strong>
-                <%= time_ago_in_words(s.created_at) %> ago
-              </small></p>
-              <p class="my-0"><small><strong>Update at: </strong>
-                <%= time_ago_in_words(s.updated_at) %> ago
-              </small></p>
-          </div>
+          <% if can?(:crud, s) %>
+            <div class="ml-auto mr-2">
+              <%= link_to "edit", edit_share_path(s) %>
+              <%= link_to "delete", share_path(s),
+              method: :delete, data: {confirm: 'Are you sure?'} %>
+            </div>
+          <% end %>
 
         </div>
-        <% if can?(:crud, s) %>
-          <div class="ml-auto mr-2">
-            <%= link_to "edit", edit_share_path(s) %>
-            <%= link_to "delete", share_path(s),
-            method: :delete, data: {confirm: 'Are you sure?'} %>
-          </div>
-        <% end %>
 
-      </div>
+      <% end %>
 
-    <% end %>
+  </div>
 
 </div>

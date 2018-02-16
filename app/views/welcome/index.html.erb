@@ -3,9 +3,13 @@
 
     <% if user_signed_in? %>
       <div class="container share-wall">
+
         <% @shares.each do |s| %>
-        <p><%= s.content %></p>
+        <div class="share-card">
+          <p><%= s.content %></p>
+        </div>
         <% end %>
+
       </div>
     <% else %>
       <h1 class="display-2 ml-3 my-0">move</h1>

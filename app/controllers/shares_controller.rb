@@ -1,9 +1,10 @@
 class SharesController < ApplicationController
+  layout 'share'
   before_action :authenticate_user!
   before_action :find_share, only: [:edit, :update, :destroy]
 
   def new
-    @share = Share.new
+    # @share = Share.new
   end
 
   def create
@@ -17,6 +18,7 @@ class SharesController < ApplicationController
   end
 
   def index
+    @share = Share.new
     @shares = current_user.shares.order(updated_at: :desc)
   end
 

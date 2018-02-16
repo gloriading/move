@@ -34,6 +34,7 @@
   }
 
   .bg-welcome {
+    background-color: #c5d5cb; //fallback background colour
     background:
       linear-gradient(
         rgba(52, 58, 64, 0.45),
@@ -47,11 +48,7 @@
      background-position: center;
   }
   .bg-content {
-    // background:
-    //   linear-gradient(
-    //     rgba(179, 179, 179, 0.10),
-    //     rgba(179, 179, 179, 0.10)
-    //     ), url("https://images.pexels.com/photos/685534/pexels-photo-685534.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+    background-color: #e3e0cf; //fallback background colour
     background-image: url("https://images.pexels.com/photos/685534/pexels-photo-685534.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
     height: 100%;
     background-repeat:no-repeat;
@@ -59,7 +56,15 @@
     background-attachment: fixed;
     background-position: center;
   }
-
+.bg-share{
+  background-color: #b3c2bf; //fallback background colour
+  background-image: url("https://images.pexels.com/photos/106056/pexels-photo-106056.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb");
+  height: 100%;
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
   // Animated background--------------------------------------------------
   .element {
     width: 100%;

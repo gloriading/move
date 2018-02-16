@@ -1,7 +1,11 @@
-<div class="container share-form" style="background-color: pink;">
+<div class="container">
   <%= simple_form_for @share do |f| %>
-    <%= f.input :content %>
-    <%= f.input :image %>
-    <%= f.button :submit %>
+    <%= f.input :content, required: false,
+                label: false,
+                input_html: {rows: 8, class: 'share-content'} %>
+    <%= f.input :image,label: 'Upload Image',
+                label_html: { class: 'image-upload' } %>
+    <%= f.button :submit, "Create a Post",
+                  class:"btn btn-dark btn-sm btn-block btn-share" %>
   <% end %>
 </div>
