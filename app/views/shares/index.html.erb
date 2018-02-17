@@ -1,8 +1,11 @@
 <div class="container-fluid">
 
   <div class="splitL left">
-    
+
     <h5 class="ml-4 mt-4">Create a new post</h5>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
     <div class="share-form mx-1 mt-2">
       <%= render 'form' %>
     </div>
@@ -23,7 +26,16 @@
   </div>
 
   <div class="splitR right">
-     <%= render partial: 'usershare', locals: { shares: @shares } %>
+    <p id="share-all">TEST</p>
+     <%#= render partial: 'usershare', locals: { shares: @shares } %>
   </div>
 
 </div>
+
+<script type="text/javascript">
+  $('#share-all').click(function(){
+    Sharing.all('<%= api_key %>')
+    .then(console.log)
+  })
+
+</script>

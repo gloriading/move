@@ -5,6 +5,7 @@ namespace :api, defaults: { format: :json } do
   namespace :v1 do
     resources :charts, only: [:index]
     resources :records, only: [:index]
+    resources :shares    
   end
 end
 

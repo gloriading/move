@@ -13,7 +13,7 @@ class SharesController < ApplicationController
     if @share.save
       redirect_to shares_path
     else
-      flash[:notice] = 'Successfully checked in'
+      flash[:notice] = 'error'
       redirect_to shares_path
     end
   end
