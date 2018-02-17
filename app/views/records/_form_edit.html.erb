@@ -14,7 +14,7 @@
 
     <div id="options">
       <%= f.simple_fields_for :exercises do |opt| %>
-        <%= render 'exercise_fields', f: opt %>
+        <%= render 'exercise_fields_edit', f: opt %>
       <% end %>
       <div class="links">
         <%#= link_to_add_association ' + exercise', f, :exercises, class:"btn btn-dark btn-sm mt-1"  %>

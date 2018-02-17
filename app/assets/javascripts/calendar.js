@@ -126,7 +126,8 @@ setColorBoxBackground();
 
 // Limit how many fields can be added in new form ------------
 // The first remove button will never shown
-  const r = $('.remove_fields');
+  // const r = $('.remove_fields');
+  const r = $('.remove-f');
   r.eq(0).hide();
 
 //
