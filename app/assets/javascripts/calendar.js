@@ -158,11 +158,14 @@ setColorBoxBackground();
   	$('.day-cell').slideDown('fast');
   },10);
 //---------------------------------------------------------- jQuery UI
-// $(function() {
-//   $('#datepicker').datepicker();
+
+// $( function() {
+//   $( document ).tooltip({
+//     position: { my: "left-120% top-150% center", at: "right center" }
+//   });
 // });
 $( function() {
-  $( document ).tooltip({
+  $('#accordion, .record_exercises_colour').tooltip({
     position: { my: "left-120% top-150% center", at: "right center" }
   });
 });

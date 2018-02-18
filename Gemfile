@@ -44,6 +44,7 @@ gem 'mini_magick'
 gem 'jquery-ui-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'aasm'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

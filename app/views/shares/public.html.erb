@@ -25,7 +25,7 @@
                   <% end %>
                 </div>
                 <div class="col-sm-10">
-                  <p class="card-text"><%= s.content %></p>
+                  <p class="card-text"><%= raw s.content %></p>
                     <p class="mb-0 float-right text-secondary">
                       <small><strong>Created at: </strong>
                         <%= time_ago_in_words(s.created_at) %> ago

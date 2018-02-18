@@ -18,4 +18,5 @@
 //= require rails-ujs
 //= require jquery-ui
 //= require cocoon
+//= require ckeditor/init
 //= require_tree .
