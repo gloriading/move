@@ -2,16 +2,7 @@
   <div class="container-fluid home">
 
     <% if user_signed_in? %>
-      <div class="container share-wall">
 
-        <% @shares.each do |s| %>
-          <div class="share-card">
-            <p><%= s.content %></p>
-            <small>Last updated: <%= s.updated_at.strftime('%b %e, %l:%M %p')  %> </small>
-          </div>
-        <% end %>
-
-      </div>
     <% else %>
       <h1 class="display-2 ml-3 my-0">move</h1>
       <h1 class="display-4 ml-3" style="display: none;">to make a difference</h1>

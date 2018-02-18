@@ -5,7 +5,7 @@ namespace :api, defaults: { format: :json } do
   namespace :v1 do
     resources :charts, only: [:index]
     resources :records, only: [:index]
-    resources :shares    
+    resources :shares
   end
 end
 
@@ -15,7 +15,12 @@ get('/about', {to: 'about#index', as: :about})
 
 resources :records
 resources :users, only: [:new, :create, :show]
-resources :shares
+resources :shares do
+  collection do
+    get 'public'
+  end
+end
+
 resource :session, only: [:new, :create, :destroy]
 
 get('/screens', {to: 'screens#index', as: :screenshot})

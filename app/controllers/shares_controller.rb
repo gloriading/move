@@ -4,7 +4,7 @@ class SharesController < ApplicationController
   before_action :find_share, only: [:edit, :update, :destroy]
 
   def new
-    # @share = Share.new
+    @share = Share.new
   end
 
   def create
@@ -13,13 +13,12 @@ class SharesController < ApplicationController
     if @share.save
       redirect_to shares_path
     else
-      flash[:notice] = 'error'
-      redirect_to shares_path
+      # flash[:notice] = 'error'
+      render :new
     end
   end
 
   def index
-    @share = Share.new
     @shares = current_user.shares.order(updated_at: :desc)
   end
 
@@ -38,6 +37,11 @@ class SharesController < ApplicationController
     @share.destroy
     redirect_to shares_path
   end
+
+  def public
+    @shares = Share.all.order(updated_at: :desc)
+  end
+
 
   private
   def share_params
