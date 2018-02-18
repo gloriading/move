@@ -39,7 +39,8 @@ class SharesController < ApplicationController
   end
 
   def public
-    @shares = Share.all.order(updated_at: :desc)
+    @shares = Share.order(updated_at: :desc)
+    @published = @shares.where(aasm_state: 'published')
   end
 
 

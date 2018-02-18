@@ -79,3 +79,44 @@ input[type="file"] {
 .btn-share:hover {
   border: 2px white solid !important;
 }
+
+/* Public Page */
+.splitPL {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.splitPR {
+  height: 100%;
+  width: 80%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.share-panel-public {
+  // position: absolute;
+  // top: 20px;
+  width: 90px;
+  background-color: lightgray;
+  background: linear-gradient(transparent, lightgray);
+  a {
+      display: block;
+      text-align: center;
+      padding: 20px 0 5px 0;
+      height: calc(50vh / 3);
+      transition: all 0.3s ease;
+      color: black;
+      font-size: 14px;
+      text-decoration: none !important;
+  }
+  a:hover {
+    background-color: #000;
+    color: white;
+  }
+}

@@ -1,22 +1,22 @@
 <div class="container">
 
-    <div class="splitL left">
-      <div class="ml-2 share-panel">
+    <div class="splitPL left">
+      <div class="ml-2 share-panel-public">
           <%= link_to user_path(current_user) do %>
-            <i class="fas fa-user"></i> Your Calendar
+            <i class="fas fa-user"></i> <br> Your Calendar
           <% end %>
           <%= link_to new_share_path do%>
-            <i class="far fa-edit"></i> New Post
+            <i class="far fa-edit"></i> <br> New Post
           <% end %>
           <%= link_to shares_path do %>
-            <i class="fas fa-paste"></i> Your Posts
+            <i class="fas fa-paste"></i> <br> Your Posts
           <% end %>
       </div>
     </div>
 
-    <div class="splitR right">
+    <div class="splitPR right">
 
-      <% @shares.each do |s| %>
+      <% @published.each do |s| %>
             <div class="card mb-1 mx-1">
               <div class="card-body row">
                 <div class="col-sm-3">
@@ -35,6 +35,9 @@
                 </div>
 
               </div>
+              <% if can?(:recycle, s) && s.may_recycle? %>
+                <%= link_to 'cancel publish', share_recyclings_path(s), method: :post %>
+              <% end %>
               <% if can?(:crud, s) %>
                 <div class="ml-auto mr-2">
                   <%= link_to "edit", edit_share_path(s), class:"btn btn-dark btn-sm" %>

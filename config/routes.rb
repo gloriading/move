@@ -19,6 +19,8 @@ resources :shares do
   collection do
     get 'public'
   end
+  resources :publishings, only: [:create]
+  resources :recyclings, only: [:create]
 end
 
 resource :session, only: [:new, :create, :destroy]
