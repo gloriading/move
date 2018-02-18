@@ -21,6 +21,7 @@ resources :shares do
   end
   resources :publishings, only: [:create]
   resources :recyclings, only: [:create]
+  resources :likes, only: [:create, :destroy], shallow: true
 end
 
 resource :session, only: [:new, :create, :destroy]

@@ -19,34 +19,46 @@
       <% @published.each do |s| %>
             <div class="card mb-1 mx-1">
               <div class="card-body row">
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                   <% if s.image.present? %>
-                      <%= image_tag s.image, style: "width:50%;"%>
+                      <%= image_tag s.image, class:"img-left" %>
                   <% end %>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-10">
                   <p class="card-text"><%= s.content %></p>
-                    <p class="mb-0"><small><strong>Created at: </strong>
-                      <%= time_ago_in_words(s.created_at) %> ago
-                    </small></p>
-                    <p class="my-0"><small><strong>Update at: </strong>
-                      <%= time_ago_in_words(s.updated_at) %> ago
-                    </small></p>
+                    <p class="mb-0 float-right text-secondary">
+                      <small><strong>Created at: </strong>
+                        <%= time_ago_in_words(s.created_at) %> ago
+                      </small>
+                      <small class="ml-2"><strong>Update at: </strong>
+                        <%= time_ago_in_words(s.updated_at) %> ago
+                      </small></p>
                 </div>
 
               </div>
-              <% if can?(:recycle, s) && s.may_recycle? %>
-                <%= link_to 'cancel publish', share_recyclings_path(s), method: :post %>
-              <% end %>
-              <% if can?(:crud, s) %>
-                <div class="ml-auto mr-2">
-                  <%= link_to "edit", edit_share_path(s), class:"btn btn-dark btn-sm" %>
-                  <%= link_to "delete", share_path(s),
-                      method: :delete,
-                      data: {confirm: 'Are you sure?'},
-                      class:"btn btn-dark btn-sm" %>
-                </div>
-              <% end %>
+              <div class="ml-auto mr-1 mb-1">
+                <% if can?(:recycle, s) && s.may_recycle? %>
+                  <%= link_to 'withhold',
+                      share_recyclings_path(s),
+                      method: :post,
+                      class:"btn btn-warning btn-sm" %>
+                <% end %>
+
+                <% @user_like = current_user.likes.find_by_share_id(s) if user_signed_in? %>
+
+                <% if can?(:like, s) %>
+                    <% if @user_like %>
+                        <%= link_to like_path(@user_like), method: :delete do%>
+                          <i class="fas fa-heart text-danger"></i>
+                        <% end %>
+                    <% else %>
+                        <%= link_to share_likes_path(s), method: :post do %>
+                          <i class="far fa-heart text-danger"></i>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                (<%= pluralize(s.likes.count, 'like') %>)
+              </div>
 
             </div>
       <% end %>

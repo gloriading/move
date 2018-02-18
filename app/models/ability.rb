@@ -34,15 +34,25 @@ class Ability
       can :crud, Record do |record|
         user == record.user
       end
+
       can :crud, Share do |share|
         user == share.user
       end
+
       can :publish, Share do |share|
         share.user == user
       end
+
       can :recycle, Share do |share|
         share.user == user
       end
 
+      can :crud, Like do |like|
+        like.user == user
+      end
+
+      can :like, Share do |share|
+        share.user != user
+      end
   end
 end
