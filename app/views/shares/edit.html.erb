@@ -1,18 +1,18 @@
 <div class="container my-3">
-  <div class="splitL left">
+  <div class="splitPL left">
     <div class="ml-2 share-panel">
         <%= link_to user_path(current_user) do %>
-          <i class="fas fa-user"></i> Your Calendar
+          <i class="fas fa-calendar-alt"></i> <br> Your Calendar
         <% end %>
         <%= link_to public_shares_path do%>
-          <i class="fas fa-clipboard"></i> Public Posts
+          <i class="fas fa-clipboard"></i> <br> Public Posts
         <% end %>
         <%= link_to shares_path do %>
-          <i class="fas fa-paste"></i> Your Posts
+          <i class="fas fa-paste"></i> <br> Your Posts
         <% end %>
     </div>
   </div>
-  <div class="splitR right">
+  <div class="splitPR right">
     <%= render 'form_edit' %>
   </div>
 </div>

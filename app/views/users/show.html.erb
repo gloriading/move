@@ -185,13 +185,25 @@
             </div>
             <div id="collapseThree1" class="collapse show" aria-labelledby="headingThree1" data-parent="#accordion">
               <div class="card-body">
-                      <button type="button"
+                <select name="months" class="screenshot-select mb-1">
+                  <option disabled selected value>   select a month   </option>
+                    <% @record_months.each do |month, records| %>
+
+                        <%# if image_tag("/images/image-#{@user.id}-#{@user.first_name}-#{month.strftime('%Y-%m')}.png") %>
+
+                        <option value="<%= month.strftime('%Y-%m-%d') %>">
+                          <%= month.strftime('%Y-%m') %>
+                        </option>
+                      <%# end %>
+                    <% end %>
+                </select>
+                      <!-- <button type="button"
                         class="btn btn-light btn-sm btn-block mb-1 view-image"
                         data-toggle="modal"
                         data-target=".modal-image-display">
                         click to view
-                      </button>
-                    <%= link_to "click to download",
+                      </button> -->
+                    <%#= link_to "click to download",
                         asset_path("image-#{@user.id}-#{@user.first_name}.png"),
                         download: "#{@user.first_name}",
                         class: "btn btn-light btn-sm btn-block mb-1 download-image " %>
@@ -208,7 +220,7 @@
                   <span class="btn btn-light btn-sm">
                     <i class="far fa-file-alt"></i>
                   </span>
-                  Workouts by Month
+                  Monthly Analysis
                 </button>
               </h5>
             </div>

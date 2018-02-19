@@ -1,23 +1,24 @@
 <div class="container-fluid">
 
-  <div class="splitL left">
-
+  <div class="splitPL left">
     <div class="ml-2 share-panel">
+        <p class="panel-head">
+          YOUR <br> POSTS
+        </p>
         <%= link_to user_path(current_user) do %>
-          <i class="fas fa-user"></i> Your Calendar
+          <i class="fas fa-calendar-alt"></i> <br> Your Calendar
+        <% end %>
+        <%= link_to new_share_path do%>
+          <i class="far fa-edit"></i> <br> New Post
         <% end %>
         <%= link_to public_shares_path do%>
-          <i class="fas fa-clipboard"></i> Public Posts
-        <% end %>
-        <%= link_to new_share_path do %>
-          <i class="far fa-edit"></i> New Post
+          <i class="fas fa-clipboard"></i> <br> Public Posts
         <% end %>
     </div>
   </div>
 
-  <div class="splitR right">
-    <div id="test">
-    </div>
+    <div class="splitPR right">
+
     <div class="user_shares" id="user_shares">
       <%= render partial: 'usershare' %>
     </div>

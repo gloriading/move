@@ -1,12 +1,21 @@
 <div class="container">
 
     <div class="splitPL left">
-      <div class="ml-2 share-panel-public">
+      <div class="ml-2 share-panel">
+          <p class="panel-head">
+            PUBLIC <br> POSTS
+          </p>
           <%= link_to user_path(current_user) do %>
-            <i class="fas fa-user"></i> <br> Your Calendar
+            <i class="fas fa-calendar-alt"></i> <br> Your Calendar
           <% end %>
-          <%= link_to new_share_path do%>
-            <i class="far fa-edit"></i> <br> New Post
+          <% if @liked %>
+              <%= link_to public_shares_path do %>
+                <i class="fas fa-users"></i> <br> All Posts
+              <% end %>
+          <% else %>
+              <%= link_to public_shares_path({liked: true}) do %>
+                <i class="fab fa-gratipay"></i> <br> Liked Posts
+              <% end %>
           <% end %>
           <%= link_to shares_path do %>
             <i class="fas fa-paste"></i> <br> Your Posts

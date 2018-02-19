@@ -40,7 +40,13 @@ class SharesController < ApplicationController
 
   def public
     @shares = Share.order(updated_at: :desc)
-    @published = @shares.where(aasm_state: 'published')
+
+    @liked = params[:liked]
+    if @liked
+      @published = current_user.liked_shares.where(aasm_state: 'published')
+    else
+      @published = @shares.where(aasm_state: 'published')
+    end
   end
 
 

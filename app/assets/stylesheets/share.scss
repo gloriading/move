@@ -1,32 +1,66 @@
-/* Split the screen in half */
-.splitL {
+.splitPL {
   height: 100%;
-  width: 40%;
+  width: 20%;
   position: fixed;
   z-index: 1;
   top: 0;
   overflow-x: hidden;
   padding-top: 20px;
 }
-.splitR {
+
+.splitPR {
   height: 100%;
-  width: 60%;
+  width: 80%;
   position: fixed;
   z-index: 1;
   top: 0;
   overflow-x: hidden;
   padding-top: 20px;
 }
-/* Control the left side */
+
+
 .left {
   left: 0;
   opacity: 0.8;
 }
 
-/* Control the right side */
+
 .right {
   right: 0;
   opacity: 0.8;
+}
+
+
+.share-panel {
+  width: 100px;
+  background-color: lightgray;
+  background: linear-gradient(transparent, lightgray);
+
+    .panel-head{
+      text-align: center;
+      letter-spacing: 1px;
+      height: 70px;
+      background-color: black;
+      color: white;
+      margin-bottom: 0;
+      padding: 10px 0px;
+    }
+
+    a {
+        display: block;
+        text-align: center;
+        padding: 20px 0 5px 0;
+        height: calc(50vh / 3);
+        transition: all 0.3s ease;
+        color: black;
+        font-size: 14px;
+        text-decoration: none !important;
+
+        &:hover {
+          background-color: #000;
+          color: white;
+        }
+    }
 }
 
 /* Form for new posts */
@@ -52,75 +86,15 @@ textarea {
 input[type="file"] {
     display: none;
 }
-.share-panel {
-  position: absolute;
-  top: 20px;
-  width: 90%;
-  overflow: auto;
-  a {
-      float: left;
-      width: calc(100% / 3);
-      text-align: center;
-      padding: 8px 0;
-      transition: all 0.3s ease;
-      color: black;
-      font-size: 14px;
-      text-decoration: none !important;
-  }
-  a:hover {
-    background-color: #000;
-    color: white;
-  }
-}
 .btn-share {
   letter-spacing: 2px;
-  color: black;
+  color: black !important;
 }
 .btn-share:hover {
   border: 2px white solid !important;
 }
 
-/* Public Page */
-.splitPL {
-  height: 100%;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-.splitPR {
-  height: 100%;
-  width: 80%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-.share-panel-public {
-  // position: absolute;
-  // top: 20px;
-  width: 90px;
-  background-color: lightgray;
-  background: linear-gradient(transparent, lightgray);
-  a {
-      display: block;
-      text-align: center;
-      padding: 20px 0 5px 0;
-      height: calc(50vh / 3);
-      transition: all 0.3s ease;
-      color: black;
-      font-size: 14px;
-      text-decoration: none !important;
-  }
-  a:hover {
-    background-color: #000;
-    color: white;
-  }
-}
-.img-left{
+.img-left {
   float: left;
   width: 50%;
 }
