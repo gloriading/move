@@ -27,5 +27,8 @@ module Log
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.assets.precompile += Ckeditor.assets
+    config.assets.precompile += %w( ckeditor/* )
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end

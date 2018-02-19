@@ -18,7 +18,7 @@ $( document ).ready(function() {
     });
   });
 
-// set the first colour field--------------------------------------
+// set the first colour field---------------------------------[ minicolors ]
 function colourShow(){
   $('.nested-fields #mini').minicolors({
     control: 'wheel',
@@ -59,6 +59,7 @@ $.minicolors = {
     swatches: []
   }
 };
+// -------------------------------------------------[colour field background]
 function setColorBoxBackground(){
   $('.colour-box').on('keyup',function(){
     const bg = $(this).val();
@@ -74,7 +75,7 @@ setColorBoxBackground();
 //   }
 // })
 
-// Show/Hide date on a day-------------------------------------------
+// ------------------------------------------- [ Show/Hide date on a day ]
 
   $('.show-day').click(function(event){
     event.stopPropagation();
@@ -82,34 +83,19 @@ setColorBoxBackground();
     // $('tr th').html("").toggle();
   });
 
-// Show/Hide exercise name on a day---------------------------------
+// ----------------------------------- [ Show/Hide exercise name on a day ]
   $('.show-exe').click(function(event){
     event.stopPropagation();
     $('.inner-cell span').toggle('3000');
   });
 
-// _form.html.erb--------------------------------------------------
-// click to toggle advanced options
+// _form.html.erb-------------------------------[ toggle advanced options ]
+
   $('.show-adv-opt').click(function(){
     $('.advanced-options').toggle('slow');
   })
 
-
-// clicking on area without exercise names brings a new form ----- note
-// the JS is in `_month_calendar.html.erb`
-
-// Logic: window.location will be triggered only when the `target`
-//        is on `day-cell` or `cell`
-
-// $('td.day').on('click', function(e) {
-//   if (e.target.classList.contains('day-cell') ||
-//     e.target.classList.contains('cell')) {
-//     window.location = "<%= new_record_path %>?date=" + $(this).data('date');
-//   }
-// });
-
-
-// click on the record of a day will bring up a modal -----------------
+//  ----------------- [ click on a record of a day will bring up a modal ]
 
   $('.inner-cell').click(function(e){
       e.stopPropagation();
@@ -118,19 +104,12 @@ setColorBoxBackground();
       $(`[data-target="#modal-${id}"]`)[0].click();
   });
 
-// When user enters an exercise that has been entered before,
-// the colour to the exercise will automatically set
-// the Js code is in records/new/html.erb----------------------note
+//  --------------------[ Limit the # of fields can be added in new form ]
+// The first remove button will never show in new form but will show in edit
 
-
-
-// Limit how many fields can be added in new form ------------
-// The first remove button will never shown
-  // const r = $('.remove_fields');
   const r = $('.remove-f');
   r.eq(0).hide();
 
-//
   $(function() {
     $('#options').on('cocoon:after-insert', function() {
       check_to_hide_or_show_add_link();
@@ -151,19 +130,12 @@ setColorBoxBackground();
     }
   })
 
-// -----------------------------------------------------------------
-// when first enter user show page, no date is shown
-// when the mouse enters, the date will shown
+// -------------------------------[ delay the date shown in the calendar ]
   setTimeout(function(){
   	$('.day-cell').slideDown('fast');
   },10);
-//---------------------------------------------------------- jQuery UI
 
-// $( function() {
-//   $( document ).tooltip({
-//     position: { my: "left-120% top-150% center", at: "right center" }
-//   });
-// });
+//---------------------------------------------------------- jQuery UI
 $( function() {
   $('#accordion, .record_exercises_colour').tooltip({
     position: { my: "left-120% top-150% center", at: "right center" }
@@ -183,8 +155,11 @@ $('#options').click(function(){
 
 })
 
-//
-//
+
+
+
+
+
 
 
 });
