@@ -6,6 +6,12 @@
                 input_html: {rows: 8, class: 'share-content'} %>
     <%= f.input :image,label: 'Upload Image',
                 label_html: { class: 'image-upload' } %>
+    <% if @share.image.present? %>
+      <label>
+        <%= f.check_box :remove_image %>
+        Remove your previous image
+      </label>
+    <% end %>
     <%= f.button :submit, "Update this Post",
                   class:"btn btn-dark btn-sm btn-block btn-share" %>
   <% end %>

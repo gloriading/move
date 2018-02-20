@@ -26,6 +26,8 @@ class SharesController < ApplicationController
   end
 
   def update
+    @share.remove_image!
+    @share.save
     if @share.update share_params
       redirect_to shares_path
     else
