@@ -41,6 +41,7 @@ class SharesController < ApplicationController
   end
 
   def public
+
     @shares = Share.order(updated_at: :desc)
 
     @liked = params[:liked]
