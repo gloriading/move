@@ -16,47 +16,50 @@
  *= require_tree .
  *= require_self
  */
+
  body, html {
       margin: 0;
       height: 100%;
   }
 
 input {  background-color: inherit !important; }
-a { text-decoration: none !important;}  
+a { text-decoration: none !important;}
 
-  .grad1 {
-      height: 100%;
-      background: lightblue; /* For browsers that do not support gradients */
-      background: linear-gradient(to bottom right, lightblue, CornflowerBlue); /* Standard syntax (must be last) */
-  }
-  .transparent-bg{
-    background: transparent !important;
-    border-bottom: 1px solid white;
-  }
-
-  .bg-welcome {
-    background-color: #c5d5cb; //fallback background colour
-    background:
-      linear-gradient(
-        rgba(52, 58, 64, 0.45),
-        rgba(52, 58, 64, 0.45)
-        ),
-       url("https://images.pexels.com/photos/221210/pexels-photo-221210.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
-     height: 100%;
-     background-repeat:no-repeat;
-     background-size: cover;
-     background-attachment: fixed;
-     background-position: center;
-  }
-  .bg-content {
-    background-color: #e3e0cf; //fallback background colour
-    background-image: url("https://images.pexels.com/photos/685534/pexels-photo-685534.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+.grad1 {
     height: 100%;
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-  }
+    background: lightblue; // For browsers that do not support gradients
+    background: linear-gradient(to bottom right, lightblue, CornflowerBlue);
+}
+.transparent-bg{
+  background: transparent !important;
+  border-bottom: 1px solid white;
+}
+
+.bg-welcome {
+  background-color: #c5d5cb; //fallback background colour
+  background:
+    linear-gradient(
+      rgba(52, 58, 64, 0.45),
+      rgba(52, 58, 64, 0.45)
+      ),
+     url("https://images.pexels.com/photos/221210/pexels-photo-221210.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+   height: 100%;
+   background-repeat:no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+   background-position: center;
+}
+
+.bg-content {
+  background-color: #e3e0cf; //fallback background colour
+  background-image: url("https://images.pexels.com/photos/685534/pexels-photo-685534.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+  height: 100%;
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
 .bg-share{
   background-color: #b3c2bf; //fallback background colour
   background-image: url("https://images.pexels.com/photos/106056/pexels-photo-106056.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb");
@@ -66,7 +69,8 @@ a { text-decoration: none !important;}
   background-attachment: fixed;
   background-position: center;
 }
-  // Animated background--------------------------------------------------
+
+// Animated background--------------------------------------------------
   .element {
     width: 100%;
     height: 100%;
@@ -86,9 +90,5 @@ a { text-decoration: none !important;}
   }
 
 //-------------------------------------------------------------------------
-
-
-
-
  @import 'bootstrap';
  @import 'font-awesome';

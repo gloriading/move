@@ -7,26 +7,24 @@
     margin: 10px;
     padding: 10px;
     background-color: #424949;
-    // background-color: #7887AB;
     box-shadow: 0 8px 10px -6px WHITESMOKE;
 
-    .calendar-heading{
-        .calendar-title{
+    .calendar-heading {
+        .calendar-title {
           margin-left: 5px;
           font-size: 20px;
           letter-spacing: 3px;
           color:white;
           text-shadow: 1px 1px black;
         }
-        .arrow{
+        .arrow {
           font-size: 20px;
           color: #CCD1D1;
         }
-        a{ text-decoration: none;}
-        a:hover{ color: black;}
+        a:hover { color: black; }
     }
-    .table{
-        th{
+    .table {
+        th {
           text-align: center;
           color: #B3B6B7;
           font-weight: normal;
@@ -35,25 +33,28 @@
         .next-month, .prev-month { background-color: #707B7C; }
         .today {
           background-color: inherit;
-            .day-cell{ color:white !important; font-weight: 500;}
-            .cell:hover{ border: 2px white solid; }
+            .day-cell {
+              color:white !important;
+              font-weight: 500;
+            }
+            .cell:hover { border: 2px white solid; }
         }
-        .current-month{
-          .day-cell{ color: #707B7C;}
+        .current-month {
+          .day-cell { color: #707B7C;}
         }
         .day {
           cursor: pointer;
           padding:0 !important;
         }
-        .cell{
+        .cell {
           display:flex;
           flex-direction: column;
           height: 100%;
-              .day-cell{
+              .day-cell {
                 display:none;
                 padding-left: 2px;
               }
-              .inner-cell{
+              .inner-cell {
                 flex-grow: 1;
                 // the following is to center the text inside a day
                 display:flex;
@@ -66,7 +67,7 @@
               }
         }
         .has-events{
-            .inner-cell:hover{ filter: brightness(55%); }
+            .inner-cell:hover { filter: brightness(55%); }
         }
 
     }
@@ -75,31 +76,28 @@
 // --------------------------------------------------------- [ user-panel ]
 
 .user-menu {
-    #accordion{
-      margin-top: 10px;
-    }
-    .card{
-      border:none !important;
-    }
-    #user-info{
+    #accordion { margin-top: 10px; }
+    .card{ border:none !important; }
+    #user-info {
       a {
           font-weight: bold;
           font-size: 30px;
           color: #B3B6B7;
+          &:hover { color: whitesmoke; }
       }
-      a:hover{ color: whitesmoke; }
     }
-    .card-header{
-        padding:1px;
+    .card-header {
+        padding: 1px;
         background-color: #424949;
         border-bottom: 1px #A6ACAF solid;
 
-        .btn-link{
-          margin:0;
+        .btn-link {
+          text-decoration: none;
+          margin: 0;
           letter-spacing: 1px;
           text-align: center;
-          color:white;
-            span.btn{
+          color: white;
+            span.btn {
                 padding: 5px;
                 margin: 1px;
                 background-color: inherit;
@@ -108,27 +106,25 @@
             }
         }
     }
-    .card-body{
+    .card-body {
         background-color: #bbbbbb;
 
-        select{
-          height:35px;
+        select {
+          height: 35px;
           padding-left: 10px;
         }
 
-        .btn{
+        .btn {
           letter-spacing: 2px;
           background-color: #FF6600 !important;
           border: #6E2C00 !important;
           color: white;
           box-shadow: 2px 2px gray;
+          &:hover{
+            background-color: MEDIUMBLUE !important;
+            color: white !important;
+          }
         }
-
-        .btn:hover{
-          background-color: MEDIUMBLUE !important;
-          color: white !important;
-        }
-
     }
 }
 
@@ -177,13 +173,13 @@
   }
 }
 // Animated text color
-.loading-info{
+.loading-info {
   text-align: center;
   font-size: 40px;
-  width:100%;
+  width: 100%;
   margin: 0 auto;
-  color:#313131;
-  font-size:40px;
+  color: #313131;
+  font-size: 40px;
   text-shadow: 1px 1px 2px black;
   position: absolute;
   -webkit-animation:colorchange 10s infinite alternate;
@@ -197,10 +193,8 @@
   100% { color: #FFCDD2; }
 }
 // --------------------------------------------------------- [ the Chart ]
-.myChart{
-  width: 80vh;
-}
-.go-top{
+.myChart { width: 80vh; }
+.go-top {
   border:none;
   padding: 5px 15px !important;
   font-size: 30px !important;
@@ -227,7 +221,6 @@
 }
 .record-card-show{
   background: linear-gradient(-45deg, WHITE, #FBFCFC, #EAEDED, #99A3A4);
-  // background: linear-gradient(-45deg, #ECEFF1, #FFCCBC, #F9FBE7, #D7CCC8);
   background-size: 400% 400%;
   -webkit-animation: Gradient 12s ease infinite;
   -moz-animation: Gradient 12s ease infinite;
@@ -275,9 +268,8 @@
 	}
 }
 
-
-.selected-date{
-    p{
+.selected-date {
+    p {
       font-size: 20px;
       font-weight: bolder;
       color: DARKBLUE;
@@ -285,21 +277,14 @@
     }
 }
 
-.colour-box{
-  height: 35px !important;
-  // width: 200px !important;
-}
-.colour-label{
-  display: block !important;
+.colour-box { height: 35px !important; }
+.colour-label {display: block !important; }
+
+ul {
+  .minicolors-swatch { margin-left: 2px !important;}
 }
 
-ul{
-  .minicolors-swatch{ margin-left: 2px !important;}
-}
-
-.advanced-options{
-  display:none;
-}
+.advanced-options { display:none; }
 .show-adv-opt, .latest-record{
   color:ROYALBLUE !important;
 }
@@ -313,23 +298,22 @@ ul{
  }
 
 // Sign Up Form
-.form-card{
+.form-card {
   width: 40vw;
   box-shadow: 0 8px 6px -6px black;
   opacity: 0.8;
 }
 
 // Form button
-.dark-blue-btn{
-  // border-radius: 30px !important;
+.dark-blue-btn {
   letter-spacing: 2px;
   background-color: MEDIUMBLUE !important;
 }
-.dark-blue-btn:hover{
+.dark-blue-btn:hover {
   background-color: DARKBLUE !important;
 }
 // Sign-in flash message
-.flash-alert{
+.flash-alert {
   color:darkblue;
   font-size: 0.8em;
   font-weight: bold;
@@ -337,38 +321,40 @@ ul{
   margin-bottom: 10px;
 }
 
-.form-control{
+.form-control {
   border: none !important;
   border-bottom: 1px gray solid !important;
 
 }
-input:focus,textarea:focus {
+input:focus, textarea:focus {
   background-color: WHITESMOKE !important;
 }
 
 //-----------------------------------------------------------[record show page]
-.exe-time{
+.exe-time {
   color:#7F8C8D;
   display: none;
 }
-.exe-item{
+.exe-item {
   font-size: 50px;
   margin: 0 10px 0 0;
   display: inline-block;
 }
-.exe-notes{
+.exe-notes {
   border: 1px solid gray;
   padding: 5px;
 }
-.btn-show-card{
+
+.btn-show-card {
   margin-right: 2px;
   letter-spacing: 2px;
   background-color: inherit !important;
   border:none !important;
+  &:hover{
+    border-bottom: 3px solid gray !important;
+  }
 }
-.btn-show-card:hover{
-  border: 1px solid gray !important;
-}
+
 .fancy-date {
   background-color: #99A3A4;
   box-shadow: 1px 1px 5px black;
@@ -401,41 +387,43 @@ input:focus,textarea:focus {
 
 //-----------------------------------------------------------------[Home page]
 
-.content-list-container{
-  margin-top: 10px;
-  padding: 10px;
-  border: 5px white solid;
-  background-color: whitesmoke;
-  opacity: 0.9;
-  height: 80vh;
-  overflow: auto;
-  a{
-    margin-left: 5px;
-  }
-  a:link{ color:hotpink; }
-  a:visited{ color:green; }
-  a:hover{ background-color: hotpink; color:white;}
-}
+// .content-list-container{
+//   margin-top: 10px;
+//   padding: 10px;
+//   border: 5px white solid;
+//   background-color: whitesmoke;
+//   opacity: 0.9;
+//   height: 80vh;
+//   overflow: auto;
+//   a {
+//     margin-left: 5px;
+//     &:link { color:hotpink; }
+//     &:visited { color:green; }
+//     &:hover { background-color: hotpink; color:white;}
+//   }
+// }
+
 .display-2, .display-4 {
-  color:whitesmoke;
+  color: whitesmoke;
 }
-.home > h1{
-  text-shadow: 1px 1px black;
+.home {
+  h1 { text-shadow: 1px 1px black; }
 }
+
 // ------------------------------------------------------------------[About]
-.about{
+.about {
   background-color: WHITESMOKE;
-  opacity:0.8;
-  margin-top:30px;
+  opacity: 0.8;
+  margin-top: 30px;
 }
 .tab-content {
-  p{
+  p {
     font-family: Tahoma, Helvetica;
     font-size: 1.1em;
   }
-.my-links{
-  font-size: 30px;
-}
+  .my-links {
+    font-size: 30px;
+  }
 
 }
 
