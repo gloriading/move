@@ -3,7 +3,9 @@
     <div class="card-body row">
       <div class="col-sm-3">
         <% if s.image.present? %>
-            <%= image_tag s.image, style: "width:50%;"%>
+              <%= image_tag s.image, style: "width:50%;"%>
+              <%#= image_tag s.image.url(:thumb) %>
+              <%#= image_tag s.image.url(:content) %>
         <% end %>
       </div>
       <div class="col-sm-9">
