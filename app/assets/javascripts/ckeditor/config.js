@@ -1,7 +1,7 @@
 
 CKEDITOR.editorConfig = function (config) {
   // ... other configuration ...
-
+  config.uiColor = '#c0dfd9';
   config.toolbar_Pure = [
     '/', {
       name: 'basicstyles',

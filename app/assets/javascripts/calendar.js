@@ -89,6 +89,10 @@ setColorBoxBackground();
     $('.inner-cell span').toggle('3000');
   });
 
+  $('.btn-link').click(function(){
+    $('.day-cell').show('slow');
+    $('.inner-cell span').show('slow');
+  })
 // _form.html.erb-------------------------------[ toggle advanced options ]
 
   $('.show-adv-opt').click(function(){
