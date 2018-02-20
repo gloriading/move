@@ -20,7 +20,7 @@ super_user = User.create(
     first_name: first_name,
     last_name: last_name,
     email: "#{first_name.downcase}.#{last_name.downcase}@example.com",
-    password: PASSWORD
+    password: 123
   )
 end
 
@@ -44,10 +44,9 @@ puts Cowsay.say("Create #{users.count} users", :tux)
 # Records --------------------------------------------------------------------
 50.times do
   Record.create(
-    date: Faker::Date.between_except(1.month.ago, 1.month.from_now, Date.today),
+    start_time: Faker::Date.between_except(1.month.ago, 1.month.from_now, Date.today),
     note: Faker::Lorem.paragraph,
-    user: users.sample,
-    exercises: [exercises.sample]
+    user: users.sample
   )
 end
 
@@ -59,7 +58,18 @@ WORKOUTS = ["Walking", "Tai Chi", "Stretching", "Jogging", "Yoga", "Skating", "J
 
 WORKOUTS.each do |w|
   Workout.create(name: w)
-end 
+end
 
 workouts = Workout.all
 puts Cowsay.say("Create #{workouts.count} workouts", :cow)
+
+# Shares ------------------------------------------------------------------------
+20.times do
+  Share.create(
+    content: Faker::Lovecraft.paragraph,
+    user: users.sample
+  )
+end
+
+shares = Share.all
+puts Cowsay.say("Create #{shares.count} shares", :ghostbusters)
