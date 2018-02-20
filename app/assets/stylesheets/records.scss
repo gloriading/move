@@ -86,7 +86,6 @@
           font-weight: bold;
           font-size: 30px;
           color: #B3B6B7;
-          text-decoration: none !important;
       }
       a:hover{ color: whitesmoke; }
     }
@@ -97,7 +96,6 @@
 
         .btn-link{
           margin:0;
-          text-decoration: none !important;
           letter-spacing: 1px;
           text-align: center;
           color:white;
@@ -204,7 +202,8 @@
 }
 .go-top{
   border:none;
-  font-size: 20px !important;
+  padding: 5px 15px !important;
+  font-size: 30px !important;
 }
 
 // --------------------------------------------------------- [  Record Form  ]
@@ -412,7 +411,6 @@ input:focus,textarea:focus {
   overflow: auto;
   a{
     margin-left: 5px;
-    text-decoration: none !important;
   }
   a:link{ color:hotpink; }
   a:visited{ color:green; }

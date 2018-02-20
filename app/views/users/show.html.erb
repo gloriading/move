@@ -231,13 +231,14 @@
                   all records
                 </button> -->
                 <select name="chart-months" class="chart-select mb-1">
-                    <option disabled selected value>   select a month   </option>
+                    <option disabled selected value="">   select a month   </option>
                     <% @record_months.each do |month, records| %>
                     <option value="<%= month.strftime('%Y-%m-%d') %>">
                       <%= month.strftime('%Y %B') %>
                     </option>
                     <% end %>
                 </select>
+                <button class="btn btn-light btn-sm" id="change-chart"> go </button>
               </div>
             </div>
           </div>
@@ -345,21 +346,12 @@
     )
   });
 </script>
-  <!-- <script>
-    document.querySelector('a.screenshot').addEventListener('click', ()=>{
-      document.querySelector('body').innerHTML =
-      `<div class="spinner"></div>
-      <div class="loading-info">
-        Generating image. Please do not refresh.
-      </div>
-      `
-    })
-  </script> -->
 
 <%# below : Chart Generating via Ajax ----------------------------JS - 1 - %>
 <script>
-  $('.chart-select').change(function(){
-      let selectedMonth = $(this).val();
+  // $('.chart-select').change(function(){
+  $('#change-chart').click(function(){
+      let selectedMonth = $('.chart-select').val();
       let tempArr = selectedMonth.split("-");
       let innerMessage = tempArr[0] + " - " +  tempArr[1];
       console.log(innerMessage);

@@ -60,14 +60,15 @@
                 </div>
 
               </div>
-              <div class="ml-auto mr-1 mb-1">
+              <div class="mr-auto ml-1">
                 <% if can?(:recycle, s) && s.may_recycle? %>
                   <%= link_to 'withhold',
                       share_recyclings_path(s),
                       method: :post,
                       class:"btn btn-warning btn-sm" %>
                 <% end %>
-
+              </div>
+              <div class="ml-auto mr-1 mb-1">
                 <% @user_like = current_user.likes.find_by_share_id(s) if user_signed_in? %>
 
                 <% if can?(:like, s) %>
@@ -81,7 +82,9 @@
                         <% end %>
                     <% end %>
                 <% end %>
-                (<%= pluralize(s.likes.count, 'like') %>)
+                <strong class="mr-2">
+                  <small><%= s.likes.count %></small>
+                </strong>
               </div>
 
             </div>
