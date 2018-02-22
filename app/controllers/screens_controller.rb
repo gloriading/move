@@ -1,5 +1,5 @@
 class ScreensController < ApplicationController
-
+before_action :authenticate_user!
 
   def index
     id = current_user.id
@@ -12,6 +12,11 @@ class ScreensController < ApplicationController
 
     # if @image.save("app/assets/images/image-#{id}-#{first_name}.png")
     if @image.save("public/images/image-#{id}-#{first_name}-#{date_mark}.png")
+      Screenshot.create(
+        user: current_user,
+        path: "image-#{id}-#{first_name}-#{date_mark}.png",
+        display: date_mark
+      )
       uploader = ScreenshotUploader.new
       file = File.open("public/images/image-#{id}-#{first_name}-#{date_mark}.png")
       uploader.store!(file)

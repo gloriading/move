@@ -171,7 +171,7 @@
             </div>
           </div>
 <%# ------------------------------------------------------------- card 2-1 -%>
-<% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
+<% if @uploaded_screenshots.length > 0 %>
           <div class="card" id="show-screenshot-card">
             <div class="card-header" id="headingThree1">
               <h5 class="mb-0">
@@ -183,18 +183,14 @@
                 </button>
               </h5>
             </div>
-            <div id="collapseThree1" class="collapse show" aria-labelledby="headingThree1" data-parent="#accordion">
+            <div id="collapseThree1" class="collapse" aria-labelledby="headingThree1" data-parent="#accordion">
               <div class="card-body">
-                <select name="months" class="screenshot-select mb-1">
-                  <option disabled selected value>   select a month   </option>
-                    <% @record_months.each do |month, records| %>
-
-                        <%# if image_tag("/images/image-#{@user.id}-#{@user.first_name}-#{month.strftime('%Y-%m')}.png") %>
-
-                        <option value="<%= month.strftime('%Y-%m-%d') %>">
-                          <%= month.strftime('%Y-%m') %>
+                <select name="months" class="image-select mb-1">
+                  <option disabled selected value>   select an image   </option>
+                    <% @uploaded_screenshot_group_by_display.each do |k, arr| %>
+                        <option value="<%= arr[0].id %>">
+                          <%= arr[0].display %>
                         </option>
-                      <%# end %>
                     <% end %>
                 </select>
                       <!-- <button type="button"
@@ -211,7 +207,7 @@
             </div>
           </div>
 
-    <% end %>
+<% end %>
 <%# ------------------------------------------------------------- card 3  -%>
           <div class="card">
             <div class="card-header" id="headingFour">
@@ -513,15 +509,15 @@
 </script>
 
 <%#----------------------------------------- Modal for image display ---%>
-<% if asset_exists?("image-#{@user.id}-#{@user.first_name}.png") %>
+
   <div class="modal fade modal-image-display" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <%= image_tag("/assets/image-#{@user.id}-#{@user.first_name}.png") %>
+        <%#= image_tag() %>
       </div>
     </div>
   </div>
-<% end %>
+
 <%#-HIDDEN---------------------------------------------------HIDDEN---%>
 
 <div class="all-records">
@@ -547,5 +543,5 @@
     <% end %>
 </div>
 
-<%= image_tag(@screenshot_url) %>
+<%#= image_tag(@screenshot_url) %>
 </div>

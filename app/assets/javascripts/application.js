@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery3
-//= require chosen-jquery
 //= require jquery.minicolors
 //= require popper
 //= require bootstrap
