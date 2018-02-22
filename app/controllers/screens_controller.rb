@@ -8,11 +8,13 @@ class ScreensController < ApplicationController
     @screenshot = Gastly.screenshot(target)
     @screenshot.selector = '.simple-calendar'
     @image = @screenshot.capture
-    # @image.resize(width: 500, height: 500)
     date_mark = params[:start_date].split('-')[0..1].join('-')
 
     # if @image.save("app/assets/images/image-#{id}-#{first_name}.png")
     if @image.save("public/images/image-#{id}-#{first_name}-#{date_mark}.png")
+      uploader = ScreenshotUploader.new
+      file = File.open("public/images/image-#{id}-#{first_name}-#{date_mark}.png")
+      uploader.store!(file)
       redirect_to user_path(current_user)
     end
 
