@@ -27,6 +27,10 @@ layout :diverse_layout
     @record = Record.new
     @user_records_by_start_time = @user.records.order(start_time: :asc)
     @record_months = @user_records_by_start_time.group_by {|t| t.start_time.beginning_of_month }
+
+    a = ScreenshotUploader.new
+    a.retrieve_from_store!("image-#{@user.id}-#{@user.first_name}-2018-02.png")
+    @screenshot_url = a.url
   end
 
 

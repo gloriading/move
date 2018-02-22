@@ -302,6 +302,8 @@
     </div>
   </div>
 
+
+
 <%#---------------------------------------------------  Chart Display Area %>
   <div id="chart-container" class="my-5 mx-auto myChart">
     <div class="btn btn-light btn-sm go-top" id="go-top" style="float:right;">
@@ -324,6 +326,9 @@
   <script type="text/javascript">
       $('.screenshot-select').change(function(){
           const selectedMonth = $(this).val();
+          let temp = selectedMonth.split('-');
+          console.log(temp[0] + "-" + temp[1]);//2018-02-01
+
           const $screenshotButton = $('#screenshot');
           const keep = $screenshotButton.attr('href').split('?')[0];
           const newQuery = `${keep}?start_date=${selectedMonth}`;
@@ -542,5 +547,5 @@
     <% end %>
 </div>
 
-
+<%= image_tag(@screenshot_url) %>
 </div>
