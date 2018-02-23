@@ -518,6 +518,28 @@
     </div>
   </div>
 
+
+
+<%#-------------------------------------------- show image from S3 --%>
+
+<%#= image_tag(@screenshot_url) %>
+
+<% @uploaded_screenshot_group_by_display.each do |k, arr| %>
+  <% temp = ScreenshotUploader.new %>
+  <% temp.retrieve_from_store!(arr[0].path) %>
+  <div class="display_screenshot" id="div-<%= arr[0].id %>" style="display:none;">
+    <%= image_tag temp.url, id: "image-#{arr[0].id}" %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+  $('.image-select').change(function(){
+      let selectedImageId = $(this).val();
+      let selectedDiv = `div-${selectedImageId}`;
+      $(`#${selectedDiv}`).show();
+  })
+</script>
 <%#-HIDDEN---------------------------------------------------HIDDEN---%>
 
 <div class="all-records">
@@ -543,5 +565,6 @@
     <% end %>
 </div>
 
-<%#= image_tag(@screenshot_url) %>
+
+
 </div>
