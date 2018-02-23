@@ -186,19 +186,21 @@
             <div id="collapseThree1" class="collapse" aria-labelledby="headingThree1" data-parent="#accordion">
               <div class="card-body">
                 <select name="months" class="image-select mb-1">
-                  <option disabled selected value>   select an image   </option>
+                    <option disabled selected value>  select an image </option>
                     <% @uploaded_screenshot_group_by_display.each do |k, arr| %>
                         <option value="<%= arr[0].id %>">
                           <%= arr[0].display %>
                         </option>
                     <% end %>
                 </select>
-                      <!-- <button type="button"
-                        class="btn btn-light btn-sm btn-block mb-1 view-image"
-                        data-toggle="modal"
-                        data-target=".modal-image-display">
-                        click to view
-                      </button> -->
+                <button type="button"
+                  class="btn btn-light btn-sm btn-block mb-1 view-image"
+                  data-toggle="modal"
+                  data-target=".modal-image-display"
+                  disabled
+                  >
+                  view
+                </button>
                     <%#= link_to "click to download",
                         asset_path("image-#{@user.id}-#{@user.first_name}.png"),
                         download: "#{@user.first_name}",
@@ -511,33 +513,36 @@
 <%#----------------------------------------- Modal for image display ---%>
 
   <div class="modal fade modal-image-display" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
       <div class="modal-content">
-        <%#= image_tag() %>
+        <% @uploaded_screenshot_group_by_display.each do |k, arr| %>
+          <% temp = ScreenshotUploader.new %>
+          <% temp.retrieve_from_store!(arr[0].path) %>
+          <div class="display_screenshot"
+                id="div-<%= arr[0].id %>"
+                style="display:none;"
+          >
+            <%= image_tag temp.url,
+                id: "image-#{arr[0].id}",
+                class: 'modal-img'
+                %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-
-
-
 <%#-------------------------------------------- show image from S3 --%>
-
-<%#= image_tag(@screenshot_url) %>
-
-<% @uploaded_screenshot_group_by_display.each do |k, arr| %>
-  <% temp = ScreenshotUploader.new %>
-  <% temp.retrieve_from_store!(arr[0].path) %>
-  <div class="display_screenshot" id="div-<%= arr[0].id %>" style="display:none;">
-    <%= image_tag temp.url, id: "image-#{arr[0].id}" %>
-  </div>
-<% end %>
-
-
 <script type="text/javascript">
   $('.image-select').change(function(){
       let selectedImageId = $(this).val();
       let selectedDiv = `div-${selectedImageId}`;
+      $('.view-image').prop('disabled', false); // enable the disabled button
+      // $('.view-image').click(function(){
+      //   console.log('here!');
+      // })
+
       $(`#${selectedDiv}`).show();
+
   })
 </script>
 <%#-HIDDEN---------------------------------------------------HIDDEN---%>

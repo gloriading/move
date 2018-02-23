@@ -131,7 +131,7 @@
 // ------------------------------------------------------------ [Hidden field]
 .all-records { display: none; }
 
-// -------------------------------------------------------------[  Modal ]
+// ------------------------------------------------------[  Modal in calendar]
 .show-modal {
   background-color: NAVY !important;
   opacity: 0.8;
@@ -199,7 +199,14 @@
   padding: 5px 15px !important;
   font-size: 30px !important;
 }
-
+//--------------------------------------------------[modal to show screenshot]
+.modal-img {
+   height: 400px;
+   width: auto;
+}
+.hd {
+  display: none;
+}
 // --------------------------------------------------------- [  Record Form  ]
 .ui-tooltip {
   padding: 5px 20px;
