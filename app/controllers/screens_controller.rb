@@ -4,7 +4,8 @@ before_action :authenticate_user!
   def index
     id = current_user.id
     first_name = current_user.first_name
-    target = "http://localhost:3000/users/#{id}?start_date=#{params[:start_date]}"
+    base_url = Rails.env.production? ? "https://healthymove.herokuapp.com" : "http://localhost:3000"
+    target = "#{base_url}/users/#{id}?start_date=#{params[:start_date]}"
     @screenshot = Gastly.screenshot(target)
     @screenshot.selector = '.simple-calendar'
     @image = @screenshot.capture
