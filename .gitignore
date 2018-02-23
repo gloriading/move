@@ -21,4 +21,3 @@ config/initializers/app_keys.rb
 my_notes.md
 erd.pdf
 /public/uploads/*
-/public/images/*
