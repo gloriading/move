@@ -189,14 +189,15 @@
                     <option disabled selected value>  select an image </option>
                     <% @uploaded_screenshot_group_by_display.each do |k, arr| %>
                         <option value="<%= arr[0].id %>">
-                          <%= arr[0].display %>
+                          <% optionDisplay = arr[0].display + '-01' %>
+                          <%= optionDisplay.to_date.strftime('%Y %B') %>
                         </option>
                     <% end %>
                 </select>
                 <button type="button"
                   class="btn btn-light btn-sm btn-block mb-1 view-image"
                   data-toggle="modal"
-                  data-target=".modal-image-display"
+                  data-target="#modal-image-display"
                   disabled
                   >
                   view
@@ -512,7 +513,7 @@
 
 <%#----------------------------------------- Modal for image display ---%>
 
-  <div class="modal fade modal-image-display" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modal-image-display" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <% @uploaded_screenshot_group_by_display.each do |k, arr| %>
@@ -524,7 +525,8 @@
           >
             <%= image_tag temp.url,
                 id: "image-#{arr[0].id}",
-                class: 'modal-img'
+                class: 'modal-img',
+                style: "display:none;"
                 %>
           </div>
         <% end %>
@@ -533,18 +535,30 @@
   </div>
 <%#-------------------------------------------- show image from S3 --%>
 <script type="text/javascript">
+
+let prevImgShown = "";
+
   $('.image-select').change(function(){
       let selectedImageId = $(this).val();
       let selectedDiv = `div-${selectedImageId}`;
+      let showImg = `image-${selectedImageId}`;
       $('.view-image').prop('disabled', false); // enable the disabled button
-      // $('.view-image').click(function(){
-      //   console.log('here!');
-      // })
 
-      $(`#${selectedDiv}`).show();
-
+      // show the image within the div first, then show the div
+      $(`#${showImg}`).show();
+      prevImgShown = `#${showImg}`;
+      setTimeout(function(){
+        $(`#${selectedDiv}`).show();
+      },10);
   })
+
+  $('#modal-image-display').on('hidden.bs.modal', function(e) {
+      $('.view-image').prop('disabled', true);
+      $(prevImgShown).hide();
+  })
+
 </script>
+
 <%#-HIDDEN---------------------------------------------------HIDDEN---%>
 
 <div class="all-records">
