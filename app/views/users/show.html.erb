@@ -186,7 +186,8 @@
             <div id="collapseThree1" class="collapse" aria-labelledby="headingThree1" data-parent="#accordion">
               <div class="card-body">
                 <select name="months" class="image-select mb-1">
-                    <option disabled selected value>  select an image </option>
+                    <!-- <option disabled selected value>  select an image </option> -->
+                    <option value="default" selected>  select an image </option>
                     <% @uploaded_screenshot_group_by_display.each do |k, arr| %>
                         <option value="<%= arr[0].id %>">
                           <% optionDisplay = arr[0].display + '-01' %>
@@ -540,16 +541,18 @@ let prevImgShown = "";
 
   $('.image-select').change(function(){
       let selectedImageId = $(this).val();
-      let selectedDiv = `div-${selectedImageId}`;
-      let showImg = `image-${selectedImageId}`;
-      $('.view-image').prop('disabled', false); // enable the disabled button
+      if(selectedImageId != 'default'){
+          let selectedDiv = `div-${selectedImageId}`;
+          let showImg = `image-${selectedImageId}`;
+          $('.view-image').prop('disabled', false); // enable the disabled button
 
-      // show the image within the div first, then show the div
-      $(`#${showImg}`).show();
-      prevImgShown = `#${showImg}`;
-      setTimeout(function(){
-        $(`#${selectedDiv}`).show();
-      },10);
+          // show the image within the div first, then show the div
+          $(`#${showImg}`).show();
+          prevImgShown = `#${showImg}`;
+          setTimeout(function(){
+            $(`#${selectedDiv}`).show();
+          },10);
+      }
   })
 
   $('#modal-image-display').on('hidden.bs.modal', function(e) {

@@ -1,7 +1,15 @@
+let base_url;
+if(location.href.indexOf('local') > -1){
+  base_url = "http://localhost:3000";
+}else{
+  base_url = "https://healthymove.herokuapp.com";
+}
+
+
 const Charting = {
   get (dates, API_KEY) {
     return fetch(
-      `http://localhost:3000/api/v1/charts?start_date=${dates}`,
+      `${base_url}/api/v1/charts?start_date=${dates}`,
       {
         method: 'GET',
         headers: {
