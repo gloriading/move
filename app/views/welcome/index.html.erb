@@ -4,10 +4,24 @@
     <% if user_signed_in? %>
 
     <% else %>
-      <h1 class="display-2 ml-3 my-0">move</h1>
-      <h1 class="display-4 ml-3" style="display: none;">to make a difference</h1>
-      <h1 class="display-4 ml-3" style="display: none;">to make yourself proud</h1>
-      <h1 id="demo"></h1>
+    <div class="home-display">
+      <div class="welcome-animation">
+        <h1 class="display-2 ml-3 my-0">move</h1>
+        <!-- <h1 class="ml-3">to make a difference</h1>
+        <h1 class="ml-3">to make yourself proud</h1> -->
+        <h1 id="demo"></h1>
+      </div>
+      <div class="autologin ml-auto mr-auto text-center">
+        <p>Thank you for visiting <strong>move</strong>. </p>
+
+        <%= link_to "Login as a Guest",
+        session_path(session:
+                            { email:'healthymove@gmail.com',
+                              password: 'move' }),
+                      method: :post,
+                      class: "btn btn-light guest" %>
+      </div>
+    </div>
     <% end %>
   </div>
 

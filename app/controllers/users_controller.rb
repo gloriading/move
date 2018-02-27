@@ -12,7 +12,7 @@ layout :diverse_layout
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Thank you for signing up, #{@user.first_name}!"
-      redirect_to home_path
+      redirect_to @user
     else
       render :new
     end

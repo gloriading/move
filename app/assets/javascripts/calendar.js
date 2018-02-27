@@ -3,20 +3,20 @@ $( document ).ready(function() {
 
 // welcoms/index.html.erb ----------------------------------------------
 // A mouse movement within the div with class home will trigger the animation
-
- $(".home").one("mouseover", function(){
-   $(".display-2").css('position','relative');
-    $(".display-2").animate({left: '30px'}, "1000");
-    $(".display-2").animate({left: '0px'}, "1000");
-    $(".display-2").animate({left: '30px'}, "1000");
-    $(".display-2").animate({left: '0px'}, "1000", function(){
-        $('.display-4').eq(0).fadeIn(3000, function(){
-          $(this).fadeOut(3000, function(){
-            $('.display-4').eq(1).fadeIn(3000);
-          });
-        });
-    });
-  });
+ // 
+ // $(".home").one("mouseover", function(){
+ //   $(".display-2").css('position','relative');
+ //    $(".display-2").animate({left: '30px'}, "500");
+ //    $(".display-2").animate({left: '0px'}, "500");
+ //    $(".display-2").animate({left: '30px'}, "500");
+ //    $(".display-2").animate({left: '0px'}, "500", function(){
+ //        $('.display-4').eq(0).fadeIn(1500, function(){
+ //          $(this).fadeOut(1500, function(){
+ //            $('.display-4').eq(1).fadeIn(1000);
+ //          });
+ //        });
+ //    });
+ //  });
 
 // set the first colour field---------------------------------[ minicolors ]
 function colourShow(){
