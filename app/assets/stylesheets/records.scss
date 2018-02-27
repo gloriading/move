@@ -74,7 +74,23 @@
 
 }
 // --------------------------------------------------------- [ user-panel ]
-
+#siteInfoBox {
+  width: 500px;
+  padding: 20px;
+  strong {
+    color: deeppink;
+    border:1px solid deeppink;
+    padding:2px 4px;
+    border-radius: 3px;
+  }
+  .info-content{
+    padding: 5px;
+    border-top: 1px dashed lightgray;
+    &:hover {
+      background-color: lightgray;
+    }
+  }
+}
 .user-menu {
     #accordion { margin-top: 10px; }
     .card{ border:none !important; }

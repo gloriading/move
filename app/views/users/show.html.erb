@@ -79,11 +79,12 @@
               <%= link_to @user.first_name, user_path(@user)%>
               </h5>
               <div class="mb-2">
-                <%= link_to user_path(@user),
-                title: "comming soon",
-                class:"btn btn-light btn-sm mb-1 nav-home" do%>
-                  <i class="fas fa-folder-open"></i>
-                <% end %>
+                <a href="#" title="Hints on how to use this app"
+                  class="btn btn-light btn-sm mb-1"
+                  data-toggle="modal" data-target="#site-info"
+                  id="nav-info">
+                  <i class="fas fa-question-circle"></i>
+                </a>
 
                 <%= link_to session_path,
                   class: "btn btn-light btn-sm mb-1 ml-2 nav-signOut",
@@ -311,6 +312,34 @@
     </div>
   </div>
 
+<%# ------------------------------------------------------ Site Info Modal %>
+
+<div class="modal fade" id="site-info" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content" id="siteInfoBox">
+      <div class="info-content">
+        <i class="far fa-calendar-alt"></i>
+        Click on a date on the calendar to create/edit a record.
+      </div>
+      <div class="info-content">
+        <i class="fas fa-camera-retro"></i>
+        Choose a month and <strong>take a screenshot</strong> of the calendar.
+      </div>
+      <div class="info-content">
+        <i class="far fa-image"></i>
+        After generating the screenshot, under <strong>your screenshot</strong>, click to view the image.
+      </div>
+      <div class="info-content">
+        <i class="far fa-file-alt"></i>
+        <strong>monthly analysis</strong> provides a quick view of workouts distribution.
+      </div>
+      <div class="info-content">
+        <i class="fab fa-slideshare"></i>
+        For sharing and posting information about workouts/ health, go to <strong>fitness sharing</strong>
+      </div>
+    </div>
+  </div>
+</div>
 <%# below: Go to Another Month ------------------------------------JS - 4 %>
   <script type="text/javascript">
     $('#change-calendar').click(function(e){
