@@ -559,7 +559,9 @@
         <%= link_to "click to download",
             temp.url,
             download: "#{@user.first_name}",
-            class: "btn btn-light btn-sm my-1 download-image" %>
+            class: "btn btn-light btn-sm my-1 download-image",
+            id:"downloadButton-#{arr[0].id}",
+            style: "display:none;" %>
         <% end %>
       </div>
     </div>
@@ -568,6 +570,7 @@
 <script type="text/javascript">
 
 let prevImgShown = "";
+let prevDownloadBtn = "";
 
   $('.image-select').change(function(){
       let selectedImageId = $(this).val();
@@ -582,6 +585,8 @@ let prevImgShown = "";
           setTimeout(function(){
             $(`#${selectedDiv}`).show();
           },10);
+          $(`#downloadButton-${selectedImageId}`).show();
+          prevDownloadBtn = `#downloadButton-${selectedImageId}`;
       }
   })
 
@@ -589,6 +594,7 @@ let prevImgShown = "";
   $('#modal-image-display').on('hidden.bs.modal', function(e) {
       $('.view-image').prop('disabled', true);
       $(prevImgShown).hide();
+      $(prevDownloadBtn).hide();
       $('.image-select').val("default");
   })
 
