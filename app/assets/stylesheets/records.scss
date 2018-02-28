@@ -216,13 +216,22 @@
   font-size: 30px !important;
 }
 //--------------------------------------------------[modal to show screenshot]
-.modal-img {
-   height: 400px;
-   width: auto;
+#modal-image-display {
+  .modal-content {
+    height: 450px;
+    background-color: transparent;
+  }
+  .modal-img {
+     height: 400px;
+     width: auto;
+  }
+  .download-image {
+    width: 50%;
+  }
 }
-.hd {
-  display: none;
-}
+
+
+
 // --------------------------------------------------------- [  Record Form  ]
 .ui-tooltip {
   padding: 5px 20px;

@@ -204,10 +204,7 @@
                   >
                   view
                 </button>
-                    <%#= link_to "click to download",
-                        asset_path("image-#{@user.id}-#{@user.first_name}.png"),
-                        download: "#{@user.first_name}",
-                        class: "btn btn-light btn-sm btn-block mb-1 download-image " %>
+
               </div>
             </div>
           </div>
@@ -559,6 +556,10 @@
                 style: "display:none;"
                 %>
           </div>
+        <%= link_to "click to download",
+            temp.url,
+            download: "#{@user.first_name}",
+            class: "btn btn-light btn-sm my-1 download-image" %>
         <% end %>
       </div>
     </div>
@@ -584,9 +585,11 @@ let prevImgShown = "";
       }
   })
 
+  // After closing the modal:
   $('#modal-image-display').on('hidden.bs.modal', function(e) {
       $('.view-image').prop('disabled', true);
       $(prevImgShown).hide();
+      $('.image-select').val("default");
   })
 
 </script>
