@@ -3,7 +3,7 @@ $( document ).ready(function() {
 
 // welcoms/index.html.erb ----------------------------------------------
 // A mouse movement within the div with class home will trigger the animation
- // 
+ //
  // $(".home").one("mouseover", function(){
  //   $(".display-2").css('position','relative');
  //    $(".display-2").animate({left: '30px'}, "500");

@@ -1,0 +1,45 @@
+/* Style the tab buttons */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: calc(100% /3);
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+    margin-top: 50px;
+    height: 60vh;
+    overflow: auto;
+    color: white;
+    display: none;
+    padding: 30px 50px;
+    text-align: center;
+    p {
+      font-size: 17px;
+      color: #FFF8DC;
+    }
+    .my-links {
+      letter-spacing: 1px;
+      font-size: 25px;
+      a {
+        color: deeppink !important;
+        &:hover {color: maroon !important; }
+      }
+    }
+}
+
+/* Style each tab content individually */
+#why {background-color:rgba(199, 173, 136, 0.75);}
+#how {background-color:rgba(100, 112, 108, 0.75);}
+#me {background-color:rgba(147, 83, 71, 0.75);}
