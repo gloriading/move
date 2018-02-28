@@ -256,39 +256,21 @@
 
 }
 @-webkit-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+	0% { background-position: 0% 50	}
+	50% { background-position: 100% 50% }
+	100% { background-position: 0% 50% }
 }
 
 @-moz-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+	0% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+	100% { background-position: 0% 50% }
 }
 
 @keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+	0% { background-position: 0% 50% }
+	50% { background-position: 100% 50% }
+	100% {background-position: 0% 50% }
 }
 
 .selected-date {
@@ -332,9 +314,11 @@ ul {
   letter-spacing: 2px;
   background-color: MEDIUMBLUE !important;
 }
+
 .dark-blue-btn:hover {
   background-color: DARKBLUE !important;
 }
+
 // Sign-in flash message
 .flash-alert {
   color:darkblue;
@@ -349,6 +333,7 @@ ul {
   border-bottom: 1px gray solid !important;
 
 }
+
 input:focus, textarea:focus {
   background-color: WHITESMOKE !important;
 }
@@ -358,11 +343,13 @@ input:focus, textarea:focus {
   color:#7F8C8D;
   display: none;
 }
+
 .exe-item {
   font-size: 50px;
   margin: 0 10px 0 0;
   display: inline-block;
 }
+
 .exe-notes {
   border: 1px solid gray;
   padding: 5px;
@@ -373,7 +360,7 @@ input:focus, textarea:focus {
   letter-spacing: 2px;
   background-color: inherit !important;
   border:none !important;
-  &:hover{
+  &:hover {
     border-bottom: 3px solid gray !important;
   }
 }
