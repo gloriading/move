@@ -368,12 +368,11 @@
 <script>
   $('a.screenshot').click(function(){
     $('body').html(
-      `<div class="spinner"></div>
-      <div class="loading-info">
-        <p>Generating image.</p>
-        <p>Please do not refresh the page.</p>
-      </div>
-      `
+      `<div id="loadingZone">
+        <div id="loadingMessage">
+          LOADING
+        </div>
+      </div>`
     )
   });
 </script>

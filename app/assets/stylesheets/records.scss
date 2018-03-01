@@ -158,55 +158,28 @@
   padding: 5px;
 }
 
-//  ------------------------------------------------------- [Loading animation]
-
-.spinner {
-  width: 80px;
-  height: 80px;
-  background-color: #FAFAFA;
-
-  margin: 100px auto;
-  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
-  animation: sk-rotateplane 1.2s infinite ease-in-out;
-}
-
-@-webkit-keyframes sk-rotateplane {
-  0% { -webkit-transform: perspective(120px) }
-  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
-  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
-}
-
-@keyframes sk-rotateplane {
-  0% {
-    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
-  } 50% {
-    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
-  } 100% {
-    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-  }
-}
-// Animated text color
-.loading-info {
-  text-align: center;
-  font-size: 40px;
+// ------------------------------------------------ [my custom loading amination]
+#loadingZone {
+  height: 100%;
   width: 100%;
-  margin: 0 auto;
-  color: #313131;
-  font-size: 40px;
-  text-shadow: 1px 1px 2px black;
-  position: absolute;
-  -webkit-animation:colorchange 10s infinite alternate;
+  margin: auto;
+  text-align: center;
+  line-height: 500px;
+}
+#loadingMessage {
+  font-size: 50px;
+  letter-spacing: 5px;
+  font-family: Helvetica;
+  font-weight: bold;
+  animation: flash 3s ease infinite alternate;
 }
 
-@-webkit-keyframes colorchange {
-  0% { color: #F5F5F5; }
-  20% { color: #1abc9c; }
-  40% { color: #FFECB3; }
-  80% { color: #E0F7FA; }
-  100% { color: #FFCDD2; }
+@keyframes flash {
+    0%   {color:red; font-size:1.2em;}
+    25%  {color:white;}
+    50%  {color:yellow;}
+    75%  {color:green;}
+    100% {color:hotpink; letter-spacing: 20px;}
 }
 // --------------------------------------------------------- [ the Chart ]
 .myChart { width: 80vh; }
