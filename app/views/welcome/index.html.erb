@@ -2,14 +2,15 @@
   <div class="container-fluid home">
 
     <% if user_signed_in? %>
+    <div id="signInMessageBox">
+      <h1 id="demo"></h1>
+      <%= link_to 'your calendar', user_path(current_user), class: 'btn btn-light' %>
+    </div>
 
     <% else %>
     <div class="home-display">
       <div class="welcome-animation">
         <h1 class="display-2 ml-3 my-0">move</h1>
-        <!-- <h1 class="ml-3">to make a difference</h1>
-        <h1 class="ml-3">to make yourself proud</h1> -->
-        <h1 id="demo"></h1>
       </div>
       <div class="autologin ml-auto mr-auto text-center">
         <p>Thank you for visiting <strong>move</strong>. </p>
@@ -26,19 +27,17 @@
   </div>
 
 <script>
-// window.onload = function() {
-//   typeWriter();
-// }
-//
-// let i = 0;
-// const txt = 'MOVE to make a difference, to make yourself proud';
-// let speed = 50 + Math.ceil(Math.random()*500);
-//
-// function typeWriter() {
-//   if (i < txt.length) {
-//       document.getElementById("demo").innerHTML += txt.charAt(i);
-//       i++;
-//       setTimeout(typeWriter, speed);
-//     }
-//   }
+  window.onload = function() { typeWriter(); }
+
+  let i = 0;
+  const txt = 'Did you do workouts today?';
+  let speed = 50 + Math.ceil(Math.random()*100);
+
+  function typeWriter() {
+    if (i < txt.length) {
+        document.getElementById("demo").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
 </script>

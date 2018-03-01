@@ -382,6 +382,16 @@ input:focus, textarea:focus {
 
 .home { color: whitesmoke; }
 
+#signInMessageBox {
+  text-align: center;
+  padding-top: 100px;
+  letter-spacing: 5px;
+  .btn {
+    padding: 2px 15px !important;
+    &:hover { font-weight: bold;}
+  }
+}
+
 .autologin {
   border: 1px white solid;
   border-radius: 5px;
