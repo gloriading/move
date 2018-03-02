@@ -15,12 +15,11 @@
       <div class="autologin ml-auto mr-auto text-center">
         <p>Thank you for visiting <strong>move</strong>. </p>
 
-        <%= link_to "Login as a Guest",
-        session_path(session:
-                            { email:'healthymove@gmail.com',
-                              password: 'move' }),
-                      method: :post,
-                      class: "btn btn-light guest" %>
+        <%= form_for :session, url: session_path do |f| %>
+            <%= f.hidden_field :email, value: 'healthymove@gmail.com' %>
+            <%= f.hidden_field :password, value: 'move' %>
+            <%= f.submit 'Login as a Guest', class: 'btn btn-light guest'%>
+        <% end %>
       </div>
     </div>
     <% end %>
