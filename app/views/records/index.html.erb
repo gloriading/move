@@ -1,9 +1,9 @@
 <div class="container mt-3">
 <h1>records index page</h1>
     <div class="faker" style="width:500px;">
-      <%= month_calendar events: @user_records do |date, user_records| %>
+      <%= month_calendar events: @records do |date, records| %>
         <div class="cell">
-          <% user_records.each do |r| %>
+          <% records.each do |r| %>
               <% r.exercises.each do |e| %>
                 <div id="<%= r.id %>"
                   class="inner-cell text-center"
