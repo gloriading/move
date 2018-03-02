@@ -3,15 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: session_params[:email])
-
-    if user && user.authenticate(session_params[:password])
-      session[:user_id] = user.id
-      flash[:success] = 'Welcome back! You have been logged in.'
-      redirect_to user
+    if params[:session].present?
+      regular_log_in
     else
-      flash.now[:danger] = 'Wrong email or password.'
-      render :new
+      # Log in as Guest User 
+      user = User.find 13
+      session[:user_id] = user.id
+      redirect_to user
     end
   end
 
@@ -22,9 +20,23 @@ class SessionsController < ApplicationController
   end
 
 
-private
+  private
+
   def session_params
     params.require(:session).permit(:email, :password)
+  end
+
+  def regular_log_in
+    user = User.find_by(email: session_params[:email])
+
+    if user && user.authenticate(session_params[:password])
+      session[:user_id] = user.id
+      flash[:success] = "Welcome back! #{user.first_name}."
+      redirect_to user
+    else
+      flash.now[:danger] = "Invalid log in, please try again."
+      render :new
+    end
   end
 
 end
