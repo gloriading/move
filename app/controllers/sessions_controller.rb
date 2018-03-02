@@ -6,8 +6,12 @@ class SessionsController < ApplicationController
     if params[:session].present?
       regular_log_in
     else
-      # Log in as Guest User 
-      user = User.find 13
+      # Log in as Guest User
+      if Rails.env.production? 
+        user = User.find 2
+      else
+        user = User.find 13
+      end
       session[:user_id] = user.id
       redirect_to user
     end
