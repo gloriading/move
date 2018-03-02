@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-    before_action :authenticate_user!, except: [:show, :index]
+    before_action :authenticate_user!
     before_action :find_record, only: [:show, :edit, :update, :destroy]
     before_action :authorize_user!, only: [:edit, :update, :destroy]
 
@@ -9,9 +9,6 @@ class RecordsController < ApplicationController
 
       get_user_pairs
       get_latest_pair
-      # this is the helper method defined below private
-      # this has to be placed in create 'else' when new is rendered again
-
     end
 
     def create
@@ -19,8 +16,7 @@ class RecordsController < ApplicationController
       @record.user = current_user
 
       if @record.save
-        flash[:notice] = " ADDED!"
-        # redirect_to user_path(current_user)
+        flash[:success] = "Record has been created successfully."
         redirect_to record_path(Record.last)
       else
         get_user_pairs
@@ -30,12 +26,11 @@ class RecordsController < ApplicationController
     end
 
     def index
-      @records = Record.order(created_at: :desc)
-      @user_records = current_user.records.order(created_at: :desc) if current_user
+      # Limit the scope: don't use Record.all
+      @records = current_user.records.order(created_at: :desc)
     end
 
     def show
-
     end
 
     def edit
@@ -44,7 +39,8 @@ class RecordsController < ApplicationController
 
     def update
       if @record.update record_params
-        redirect_to record_path(@record)
+        flash[:success] = "Record has been updated successfully."
+        redirect_to @record
       else
         get_user_pairs
         render :edit
@@ -52,14 +48,18 @@ class RecordsController < ApplicationController
     end
 
     def destroy
-      @record.destroy
-      redirect_to user_path(current_user)
+      if @record.destroy
+        flash[:info] = 'Record has been destroyed'
+        redirect_to user_path(current_user)
+      else
+        flash[:warning]= 'Destroy failed.'
+        redirect_to user_path(current_user)
+      end
     end
 
     private
 
     def record_params
-      # params.require(:record).permit(:duration, :date, :note, { exercise_ids: [] })
       params.require(:record).permit(
         :date,
         :note,
@@ -69,21 +69,23 @@ class RecordsController < ApplicationController
     end
 
     def find_record
-      @record = Record.find params[:id]
+      # Security concern
+      @record = current_user.records.find params[:id]
     end
 
     def authorize_user!
       unless can?(:crud, @record)
-        flash[:alert] = 'Access Denied!'
+        flash[:danger] = 'Access Denied!'
         redirect_to home_path
       end
     end
 
     def get_user_pairs
-      # if user_signed_in?
         user_pairs = {}
         # all the exercise:colour pairs of a user
         current_user&.reload
+        # N+1 query
+        # Exercise.where(record_id: current_user.record_ids)...
         current_user&.records.each do |r|
           r.exercises.each do |e|
             user_pairs[e.name] = e.colour
@@ -91,12 +93,15 @@ class RecordsController < ApplicationController
         end
         @user_pairs = user_pairs
         @user_pair_string = user_pairs.to_json
-      # end
     end
 
     def get_latest_pair
       latest_pair = {}
       current_user&.reload
+      # current_user.records.last
+      # SELECT * FROM records WHERE user_id = 1 ORDER BY id DESC LIMIT 1;
+      # _.exercises
+      # SELECT * FROM exercises WHERE record_id = 999;
       current_user&.records&.last&.exercises&.each do |e|
         latest_pair[e.name] = e.colour
       end
