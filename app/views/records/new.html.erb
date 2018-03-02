@@ -9,18 +9,16 @@
 
 <script type="text/javascript">
     const allPairs = <%= raw @user_pair_string || {} %>;
-    console.log(allPairs);
 
     function matching(){
       $('.exe-input').on('change', function(){
         let exercise = $(this).val().toLowerCase();
         for (let p in allPairs){
           if(p == exercise){
-            console.log("match!");
 
             const colourBlock = $(this).parents('.row').find('.minicolors-swatch-color').eq(0);
             colourBlock.css('backgroundColor', allPairs[p]);
-            
+
             let colourValue = $(this).parents('.row').find('#mini').eq(0);
             colourValue.val(allPairs[p]);
 
@@ -36,7 +34,6 @@
 
     // applying the lasest record
     const latestPair = <%= raw @latest_pair|| {} %>;
-    console.log('latest pair', latestPair);
     const latestExercise = Object.keys(latestPair)[0];
 
     $('.latest-record').click(function(){
