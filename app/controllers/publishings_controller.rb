@@ -1,12 +1,14 @@
 class PublishingsController < ApplicationController
   before_action :authenticate_user!
   def create
-    s = Share.find params[:share_id]
+    share = current_user.shares.find params[:share_id]
 
-    if s.publish!
-      redirect_to shares_path, notice: 'Your post has been published.'
+    if share.publish!
+      flash[:success] = 'Your post has been published.'
+      redirect_to shares_path
     else
-
+      flash[:warning] = 'Fail to publish this post.'
+      redirect_to shares_path
     end
   end
 
