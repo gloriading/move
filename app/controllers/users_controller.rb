@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-# different layouts for different actions in one controller
-layout :diverse_layout
+  before_action :find_user, only: [:show]
+  # different layouts for different actions in one controller
+  layout :diverse_layout
 
 # sign up page-------------------------------------------------------------
   def new
@@ -11,53 +12,55 @@ layout :diverse_layout
     @user = User.new user_params
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "Thank you for signing up, #{@user.first_name}!"
+      flash[:success] = "Thank you for joinning 'move', #{@user.first_name}!"
       redirect_to @user
     else
       render :new
     end
   end
 
-#---------------------------------------------------------------------
-# Calendar page
+# Calendar page ----------------------------------------------------
 
   def show
-    @user = User.find params[:id]
     @user_records = @user.records.order(created_at: :desc)
     @record = Record.new
     @user_records_by_start_time = @user.records.order(start_time: :asc)
     @record_months = @user_records_by_start_time.group_by {|t| t.start_time.beginning_of_month }
 
-    # a = ScreenshotUploader.new
-    # a.retrieve_from_store!("image-#{@user.id}-#{@user.first_name}-2018-02.png")
-    # @screenshot_url = a.url
-
-    @uploaded_screenshots = @user.screenshots
-    @uploaded_screenshot_group_by_display = @uploaded_screenshots.order(display: :desc).order(created_at: :desc).group_by { |s| s.display }
-    # group all screenshots by display then in the view, only take the first of the array
-
+    user_screenshots
   end
 
 
 
   private
 
-    def user_params
-      params.require(:user).permit(
-        :first_name,
-        :last_name,
-        :email,
-        :password,
-        :password_confirmation
-      )
-    end
+  def user_params
+    params.require(:user).permit(
+      :first_name,
+      :last_name,
+      :email,
+      :password,
+      :password_confirmation
+    )
+  end
 
-    def diverse_layout
-      if action_name == 'new' || action_name == 'create'
-        'application'
-      else
-        'content'
-      end
+  def diverse_layout
+    if action_name == 'new' || action_name == 'create'
+      'application'
+    else
+      'content'
     end
+  end
+
+  def find_user
+    @user = User.find params[:id]
+  end
+
+  def user_screenshots
+    @uploaded_screenshots = @user.screenshots
+    @uploaded_screenshot_group_by_display = @uploaded_screenshots.order(display: :desc).order(created_at: :desc).group_by { |s| s.display }
+    # group all screenshots by display then in the view,
+    # only take the first of the array
+  end
 
 end
