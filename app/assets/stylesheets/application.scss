@@ -26,11 +26,15 @@ input {  background-color: inherit !important; }
 a { text-decoration: none !important; }
 select { outline: none !important; }
 button { outline: none !important; }
-.grad1 {
-    height: 100%;
-    background: lightblue; // For browsers that do not support gradients
-    background: linear-gradient(to bottom right, lightblue, CornflowerBlue);
+.alert {
+  width: 80%;
+  margin: auto;
+  z-index: 9999;
+  margin-top: 10px;
+  color: black !important;
+  letter-spacing: 1px;
 }
+
 .transparent-bg{
   background: transparent !important;
   border-bottom: 1px solid white;
