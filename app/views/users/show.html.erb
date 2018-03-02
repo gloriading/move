@@ -352,9 +352,6 @@
   <script type="text/javascript">
       $('.screenshot-select').change(function(){
           const selectedMonth = $(this).val();
-          let temp = selectedMonth.split('-');
-          console.log(temp[0] + "-" + temp[1]);//2018-02-01
-
           const $screenshotButton = $('#screenshot');
           const keep = $screenshotButton.attr('href').split('?')[0];
           const newQuery = `${keep}?start_date=${selectedMonth}`;
@@ -384,7 +381,6 @@
       let selectedMonth = $('.chart-select').val();
       let tempArr = selectedMonth.split("-");
       let innerMessage = tempArr[0] + " - " +  tempArr[1];
-      console.log(innerMessage);
 
       $('html, body').animate({
         scrollTop: $("#chart-container").offset().top
@@ -503,7 +499,6 @@
 
 <script type="text/javascript">
   $('.all-records').click(function(){
-    console.log('clicked');
     getRecords.get('<%= api_key %>')
       .then(all_exe=>{
         let allExeData = [], allExeLabel = [];
