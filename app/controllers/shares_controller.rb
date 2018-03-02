@@ -11,9 +11,9 @@ class SharesController < ApplicationController
     @share = Share.new share_params
     @share.user = current_user
     if @share.save
+      flash[:success] = 'A post has been created.'
       redirect_to shares_path
     else
-      # flash[:notice] = 'error'
       render :new
     end
   end
@@ -29,6 +29,7 @@ class SharesController < ApplicationController
     @share.remove_image!
     @share.save
     if @share.update share_params
+      flash[:success] = 'A post has been updated.'
       redirect_to shares_path
     else
       render :edit
@@ -41,14 +42,14 @@ class SharesController < ApplicationController
   end
 
   def public
-
-    @shares = Share.order(updated_at: :desc)
+    # Data leak - don't use @shares here
+    shares = Share.order(updated_at: :desc)
 
     @liked = params[:liked]
     if @liked
       @published = current_user.liked_shares.where(aasm_state: 'published')
     else
-      @published = @shares.where(aasm_state: 'published')
+      @published = shares.where(aasm_state: 'published')
     end
   end
 
@@ -59,7 +60,8 @@ class SharesController < ApplicationController
   end
 
   def find_share
-    @share = Share.find params[:id]
+    # Security issue: don't use Share.find
+    @share = current_user.shares.find params[:id]
   end
 
 end
