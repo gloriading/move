@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .simple-calendar {
     margin: 10px;
     padding: 10px;
@@ -464,6 +463,22 @@ input:focus, textarea:focus {
   }
 
 }
+
+// ------------------------------------------------------------------[Nav]
+nav { font-size: 1.3em; }
+
+.transparent-bg{
+  background: transparent !important;
+  border-bottom: 1px solid white;
+}
+
+
+
+
+
+
+
+
 
 
 
