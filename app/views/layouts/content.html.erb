@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>  M O V E </title>
+    <title>
+      <%= if content_for?(:title) then yield(:title) + ' | ' end %>
+      MOVE
+    </title>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'move.ico' %>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

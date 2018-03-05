@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> M O V E </title>
+    <title>
+      <%= if content_for?(:title) then yield(:title) + ' | ' end %>
+       MOVE 
+     </title>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'move.ico' %>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
@@ -11,7 +14,7 @@
 
   <body class="bg-welcome">
 
-    <nav class="navbar navbar-expand-sm navbar-light transparent-bg z-depth-0">
+    <nav class="navbar navbar-expand-sm navbar-light transparent-bg z-depth-0 px-5">
       <a class="navbar-brand text-light" href="/"><strong>move</strong></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
