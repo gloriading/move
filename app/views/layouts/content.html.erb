@@ -5,6 +5,9 @@
       <%= if content_for?(:title) then yield(:title) + ' | ' end %>
       MOVE
     </title>
+    <meta name='description'
+     content= "move is a web app for visualizing exercise records. Users can actually see their achievements they’ve made and obtain/maintain exercise habits."  />
+     <meta name="author" content="Gloria D.">
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'move.ico' %>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
