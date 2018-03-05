@@ -75,7 +75,8 @@
 }
 // --------------------------------------------------------- [ user-panel ]
 #siteInfoBox {
-  width: 500px;
+  width: 60vw;
+  min-width: 500px;
   padding: 20px;
   strong {
     color: deeppink;
@@ -83,7 +84,13 @@
     padding:2px 4px;
     border-radius: 3px;
   }
-  .info-content{
+  .info-header {
+    text-align: center;
+    font-size: 1.5em;
+    padding-top: 20px;
+  }
+  .info-content {
+    font-size: 1.2em;
     padding: 5px;
     border-top: 1px dashed lightgray;
     &:hover {
