@@ -26,15 +26,21 @@ input {  background-color: inherit !important; }
 a { text-decoration: none !important; }
 select { outline: none !important; }
 button { outline: none !important; }
+
 .alert {
   width: 80%;
   margin: auto;
+  border-radius: 0px !important;
+  border: none !important;
   z-index: 9999;
   margin-top: 10px;
   color: black !important;
+  font-size: 18px;
   letter-spacing: 1px;
 }
-
+div.alert-info { background-color: rgba(29, 123, 185, 0.8) !important; }
+div.alert-success { background-color: rgba(60, 179, 113, 0.8) !important; }
+div.alert-danger { background-color: rgba(255, 105, 180, 0.8) !important; }
 
 .bg-welcome {
   background-color: #c5d5cb; //fallback background colour
