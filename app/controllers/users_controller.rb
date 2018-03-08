@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :only_see_self_page, only: [:show]
   before_action :find_user, only: [:show]
   # different layouts for different actions in one controller
   layout :diverse_layout
@@ -61,6 +62,14 @@ class UsersController < ApplicationController
     @uploaded_screenshot_group_by_display = @uploaded_screenshots.order(display: :desc).order(created_at: :desc).group_by { |s| s.display }
     # group all screenshots by display then in the view,
     # only take the first of the array
+  end
+
+  def only_see_self_page
+    @user = User.find params[:id]
+    if current_user != @user
+      flash[:warning] = "You are only allow to view your own page."
+      redirect_to user_path(current_user)
+    end
   end
 
 end
