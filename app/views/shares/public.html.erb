@@ -39,7 +39,10 @@
 
     <div class="splitPR right">
     <% if @published.empty? %>
-        <h5> You don't have any liked posts yet. </h5>
+        <h5>
+          <i class="fas fa-exclamation-circle fa-lg"></i>
+          You don't have any liked posts.
+        </h5>
     <% else %>
       <% @published.each do |s| %>
             <div class="card mb-1 mx-1">
