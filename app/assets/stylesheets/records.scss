@@ -172,20 +172,24 @@
   text-align: center;
   line-height: 500px;
 }
+.word {
+  color: darkblue;
+  display: inline-block;
+}
 #loadingMessage {
   font-size: 50px;
   letter-spacing: 5px;
   font-family: Helvetica;
   font-weight: bold;
-  animation: flash 3s ease infinite alternate;
 }
 
-@keyframes flash {
-    0%   {color:red; font-size:1.2em;}
-    25%  {color:white;}
-    50%  {color:yellow;}
-    75%  {color:green;}
-    100% {color:hotpink; letter-spacing: 20px;}
+#word1 {
+  font-family: Times New Roman;
+  animation: changeSize 2s ease infinite alternate;
+}
+@keyframes changeSize {
+  from { font-size: 1em; }
+  to { font-size:3em; }
 }
 // --------------------------------------------------------- [ the Chart ]
 .myChart { width: 80vh; }
