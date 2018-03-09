@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # before_action :only_see_self_page, only: [:show]
   before_action :find_user, only: [:show]
   # different layouts for different actions in one controller
   layout :diverse_layout
@@ -23,12 +22,12 @@ class UsersController < ApplicationController
 # Calendar page ----------------------------------------------------
 
   def show
-    @user_records = @user.records.order(created_at: :desc)
-    @record = Record.new
-    @user_records_by_start_time = @user.records.order(start_time: :asc)
-    @record_months = @user_records_by_start_time.group_by {|t| t.start_time.beginning_of_month }
+      @user_records = @user.records.order(created_at: :desc)
+      @record = Record.new
+      @user_records_by_start_time = @user.records.order(start_time: :asc)
+      @record_months = @user_records_by_start_time.group_by {|t| t.start_time.beginning_of_month }
 
-    user_screenshots
+      user_screenshots
   end
 
 
@@ -64,12 +63,5 @@ class UsersController < ApplicationController
     # only take the first of the array
   end
 
-  # def only_see_self_page
-  #   @user = User.find params[:id]
-  #   if current_user != @user
-  #     flash[:warning] = "You are only allow to view your own page."
-  #     redirect_to home_path
-  #   end
-  # end
 
 end
