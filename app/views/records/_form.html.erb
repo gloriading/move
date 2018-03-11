@@ -1,7 +1,7 @@
 <div class="record-card">
 
   <%= simple_form_for @record do |f| %>
-    <div class="row">
+    <div class="row mb-2">
       <div class="col-sm-9 selected-date">
         <p><%= @record.start_time&.strftime("%A, %B %d, %Y") %></p>
       </div>
@@ -21,7 +21,6 @@
         <%= render 'exercise_fields', f: opt %>
       <% end %>
       <div class="links">
-        <%#= link_to_add_association ' + exercise', f, :exercises, class:"btn btn-dark btn-sm mt-1"  %>
         <%= link_to_add_association f, :exercises,
         class:"btn btn-dark btn-sm mt-1" do %>
           <i class="fas fa-plus-square"></i> exercise
@@ -39,10 +38,10 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-8">
           <%= f.submit class: 'btn btn-primary btn-sm btn-block dark-blue-btn' %>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-4">
         <%=link_to user_path(current_user),
         class: 'btn btn-primary btn-sm btn-block dark-blue-btn' do %>
         <i class="fas fa-arrow-circle-right"></i> Back

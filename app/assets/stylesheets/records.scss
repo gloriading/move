@@ -231,6 +231,7 @@
 .record-card{
   background-color: whitesmoke;
   opacity: 0.8;
+  min-width: 500px;
   width: 60vw;
   padding: 15px;
   box-shadow: 0 8px 16px -6px black;
@@ -274,15 +275,23 @@
       margin-bottom: 5px;
     }
 }
-
+.exe-label {
+  letter-spacing: 2px;
+}
 .colour-box { height: 35px !important; }
-.colour-label {display: block !important; }
+.colour-label {
+  display: block !important;
+  letter-spacing: 2px;
+}
 
 ul {
   .minicolors-swatch { margin-left: 2px !important;}
 }
 
-.advanced-options { display:none; }
+.advanced-options {
+  display:none;
+  letter-spacing: 2px;
+}
 .show-adv-opt, .latest-record{
   color:ROYALBLUE !important;
 }

@@ -4,7 +4,8 @@
     <div class="col-sm-6">
         <%= f.input :name, label: "Exercise",
             required: false,
-            input_html: { class: 'exe-input' } %>
+            input_html: { class: 'exe-input' },
+            label_html: { class:'exe-label'} %>
     </div>
     <div class="col-sm-6">
       <%= f.input :colour, label: "Colour", required: false,
@@ -12,7 +13,6 @@
           label_html:{ class:'colour-label'} %>
     </div>
   </div>
-    <%#= f.input :workout, label: "workout" %>
   <%= link_to_remove_association f,
       class:"btn btn-dark btn-sm mt-1" do %>
         <i class="fas fa-minus-square"></i> exercise
