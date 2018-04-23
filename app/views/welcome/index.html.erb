@@ -13,9 +13,11 @@
       </div>
       <div class="autologin ml-auto mr-auto text-center">
         <p>Thank you for visiting <strong>move</strong>. </p>
-
-        <%= link_to "Login as a Guest",
-        session_path, method: :post, class: "btn btn-light guest" %>
+        <p> Please
+          <%= link_to "sign in", new_session_path, class: "text-warning" %>
+          or
+          <%= link_to "sign up", new_user_path, class: "text-warning" %>
+          to explore this website. </p>
       </div>
     </div>
     <% end %>
